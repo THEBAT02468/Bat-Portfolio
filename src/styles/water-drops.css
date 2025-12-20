@@ -1,0 +1,86 @@
+/* water-drops.css */
+#rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#rain-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.windshield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* 👇 CONTROLES CON POSICIÓN ABSOLUTA EN EL VIEWPORT - SOLUCIÓN DEFINITIVA */
+.rain-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(10, 10, 30, 0.95) !important;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 204, 0, 0.5) !important;
+    z-index: 2147483647 !important; /* 👈 Valor máximo de z-index */
+    max-width: 300px;
+    pointer-events: auto !important;
+    /* Efectos de elevación para mayor visibilidad */
+    box-shadow: 
+        0 0 20px rgba(255, 204, 0, 0.3),
+        0 0 40px rgba(0, 0, 0, 0.5) !important;
+    transform: translateZ(0) !important; /* 👈 Fuerza nuevo contexto */
+}
+
+.rain-controls h3 {
+    color: #ffcc00 !important;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.rain-controls p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.rain-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rain-button {
+    background: rgba(255, 204, 0, 0.3) !important;
+    border: 1px solid rgba(255, 204, 0, 0.5) !important;
+    color: #ffcc00 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.rain-button:hover {
+    background: rgba(255, 204, 0, 0.5) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+}

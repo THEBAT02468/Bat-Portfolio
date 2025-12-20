@@ -1,0 +1,246 @@
+---
+const totalFrames = 150;
+const images = Array.from({ length: totalFrames }, (_, i) =>
+  `/frames/ezgif-frame-${String(i + 1).padStart(3, "0")}.jpg`
+);
+---
+
+<div class="background-frame fixed inset-0 -z-10 opacity-70">
+  <canvas id="bg-canvas" class="w-full h-full"></canvas>
+  <div id="loading-overlay" class="absolute inset-0 bg-black flex items-center justify-center transition-opacity duration-500">
+    <div class="text-center">
+      <div class="bat-loader">
+        <div class="bat-wing left"></div>
+        <div class="bat-body"></div>
+        <div class="bat-wing right"></div>
+      </div>
+      <p class="text-yellow-400 mt-4 text-lg">Cargando Gotham...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Cargar GSAP y ScrollTrigger dinámicamente
+  async function initAnimation() {
+    // Importar GSAP y ScrollTrigger
+    const { gsap } = await import('https://cdn.skypack.dev/gsap');
+    const { ScrollTrigger } = await import('https://cdn.skypack.dev/gsap/ScrollTrigger');
+    
+    // Registrar plugins
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Configuración
+    const totalFrames = 150;
+    const images = Array.from({ length: totalFrames }, (_, i) =>
+      `/frames/ezgif-frame-${String(i + 1).padStart(3, "0")}.jpg`
+    );
+    
+    // Elementos DOM
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    
+    // Variables de estado
+    let frames = [];
+    let isPreloaded = false;
+    let currentFrame = 0;
+    let canvasSize = { width: 0, height: 0 };
+    
+    // Ajustar tamaño del canvas
+    function resizeCanvas() {
+      canvasSize.width = window.innerWidth;
+      canvasSize.height = window.innerHeight;
+      canvas.width = canvasSize.width;
+      canvas.height = canvasSize.height;
+      
+      // Redibujar el frame actual si está cargado
+      if (frames[currentFrame]) {
+        drawFrame(currentFrame);
+      }
+    }
+    
+    // Dibujar frame en el canvas
+    function drawFrame(frameIndex) {
+      if (!frames[frameIndex]) return;
+      
+      const frame = frames[frameIndex];
+      const scale = Math.max(
+        canvasSize.width / frame.width,
+        canvasSize.height / frame.height
+      );
+      
+      const width = frame.width * scale;
+      const height = frame.height * scale;
+      const x = (canvasSize.width - width) / 2;
+      const y = (canvasSize.height - height) / 2;
+      
+      ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
+      ctx.drawImage(frame, x, y, width, height);
+    }
+    
+    // Precarga de frames
+    function preloadFrames() {
+      let loadedCount = 0;
+      const total = images.length;
+      
+      // Animación del loader con GSAP
+      gsap.to('.bat-body', {
+        scale: 1.2,
+        duration: 0.6,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+      
+      gsap.to('.bat-wing.left', {
+        rotation: -10,
+        duration: 0.6,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+      
+      gsap.to('.bat-wing.right', {
+        rotation: 10,
+        duration: 0.6,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+      
+      frames = images.map((src, index) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          updateProgress(loadedCount / total);
+          
+          if (loadedCount === total) {
+            onPreloadComplete();
+          }
+        };
+        img.onerror = () => {
+          console.error(`Error loading frame: ${src}`);
+          loadedCount++;
+          if (loadedCount === total) {
+            onPreloadComplete();
+          }
+        };
+        img.src = src;
+        return img;
+      });
+    }
+    
+    // Actualizar indicador de progreso
+    function updateProgress(progress) {
+      const progressPercent = Math.round(progress * 100);
+      const progressText = document.querySelector('#loading-overlay p');
+      if (progressText) {
+        progressText.textContent = `Cargando Gotham... ${progressPercent}%`;
+      }
+    }
+    
+    // Cuando la precarga se completa
+    function onPreloadComplete() {
+      isPreloaded = true;
+      
+      // Animación de desvanecimiento del overlay con GSAP
+      gsap.to(loadingOverlay, {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        onComplete: () => {
+          loadingOverlay.style.display = 'none';
+          drawFrame(0);
+          startScrollAnimation();
+        }
+      });
+    }
+    
+    // Animación basada en scroll con GSAP ScrollTrigger
+    function startScrollAnimation() {
+      // Configurar la animación de frames con ScrollTrigger
+      gsap.to({ frame: 0 }, {
+        frame: totalFrames - 1,
+        snap: "frame",
+        ease: "none",
+        scrollTrigger: {
+          scrub: 0.5,
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom"
+        },
+        onUpdate: function() {
+          currentFrame = Math.round(this.targets()[0].frame);
+          drawFrame(currentFrame);
+        }
+      });
+    }
+    
+    // Inicialización
+    function init() {
+      resizeCanvas();
+      preloadFrames();
+      
+      // Manejar redimensionamiento
+      window.addEventListener('resize', resizeCanvas);
+      
+      // Fallback: si hay error en la carga
+      setTimeout(() => {
+        if (!isPreloaded) {
+          console.warn('Preload taking too long, continuing anyway');
+          onPreloadComplete();
+        }
+      }, 10000);
+    }
+    
+    // Iniciar
+    init();
+  }
+
+  // Iniciar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimation);
+  } else {
+    initAnimation();
+  }
+</script>
+
+<style>
+  /* Estilos para el loader de batman */
+  .bat-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+  }
+  
+  .bat-body {
+    width: 30px;
+    height: 40px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .bat-wing {
+    width: 20px;
+    height: 30px;
+    background-color: #f1c40f;
+    position: absolute;
+    top: 15px;
+  }
+  
+  .bat-wing.left {
+    left: -15px;
+    border-radius: 50% 0 0 50%;
+    transform: rotate(-30deg);
+  }
+  
+  .bat-wing.right {
+    right: -15px;
+    border-radius: 0 50% 50% 0;
+    transform: rotate(30deg);
+  }
+</style>

@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BackgroundAnimation from "../components/BackgroundAnimation.astro";
+import WaterDrops from "../components/WaterDrops.astro";
+import Smoke from "../components/Smoke.astro";
+
+// Datos de proyectos en un array para evitar repetición
+const projects = [
+  {
+    id: 1,
+    title: "Proyecto Gotham Web",
+    description: "Aplicación web estilo Gotham con interfaz oscura.",
+    category: "Frontend",
+    technologies: ["Astro", "Tailwind", "JavaScript"],
+    link: "#",
+    image: "/images/project1.jpg",
+  },
+  {
+    id: 2,
+    title: "Sistema Baticueva",
+    description: "Sistema backend robusto como la Baticueva.",
+    category: "Backend",
+    technologies: ["Node.js", "Express", "MongoDB"],
+    link: "#",
+    image: "/images/project2.jpg",
+  },
+  {
+    id: 3,
+    title: "Plataforma Hero Academy",
+    description: "Plataforma educativa con gamificación estilo héroe.",
+    category: "Fullstack",
+    technologies: ["React", "Firebase", "CSS"],
+    link: "#",
+    image: "/images/project3.jpg",
+  },
+  // Agrega más proyectos según necesites
+];
+---
+
+<Layout title="Proyectos - Gotham Style">
+  <Smoke />
+  <BackgroundAnimation />
+  <div class="relative z-10">
+    <WaterDrops />
+
+    <Header />
+
+    <!-- Añadido margen superior (mt-20) para que el contenido no se tape con el header fijo -->
+    <main class="min-h-screen p-6 md:p-10 mt-20">
+      <h1
+        class="text-4xl md:text-5xl text-center text-yellow-400 mb-8 font-batman"
+      >
+        Mis Proyectos
+      </h1>
+      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+        Explora mis creaciones con temática oscura y misteriosa, inspiradas en
+        el mundo de Gotham City.
+      </p>
+
+      <!-- Filtros por categoría -->
+      <div class="flex justify-center mb-10 gap-4 flex-wrap">
+        <button
+          class="px-4 py-2 bg-gray-800 text-yellow-400 rounded-md hover:bg-gray-700 transition-all border border-yellow-400/20"
+          >Todos</button
+        >
+        <button
+          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
+          >Frontend</button
+        >
+        <button
+          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
+          >Backend</button
+        >
+        <button
+          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
+          >Fullstack</button
+        >
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          projects.map((project) => (
+            <div class="card-bat group relative overflow-hidden rounded-lg bg-gray-900 border border-yellow-400/20 transition-all duration-300 hover:border-yellow-400 hover:shadow-lg hover:shadow-yellow-400/10">
+              <div class="h-48 overflow-hidden bg-gray-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  width="400"
+                  height="240"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded">
+                  {project.category}
+                </div>
+              </div>
+
+              <div class="p-5">
+                <h3 class="text-xl font-semibold text-yellow-400 mb-2">
+                  {project.title}
+                </h3>
+                <p class="text-gray-400 mb-4">{project.description}</p>
+
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span class="text-xs bg-gray-800 text-yellow-400 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={project.link}
+                  class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
+                >
+                  Ver proyecto
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 ml-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .font-batman {
+    font-family: "Arial Black", sans-serif;
+    text-shadow: 0 0 10px rgba(255, 196, 0, 0.5);
+  }
+
+  .card-bat {
+    transition: transform 0.3s ease;
+  }
+
+  .card-bat:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Estilos para el header fijo */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+    padding: 1rem 0;
+  }
+  main {
+    padding-top: 6rem; /* Espacio para el header fijo */
+  }
+</style>

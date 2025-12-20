@@ -1,0 +1,439 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BackgroundAnimation from "../components/BackgroundAnimation.astro";
+import WaterDrops from "../components/WaterDrops.astro";
+import Smoke from "../components/Smoke.astro";
+
+// Simular envío de formulario (en una aplicación real, conectarías a un servicio)
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // Aquí iría la lógica para enviar el formulario
+  alert("¡Mensaje enviado! Te contactaré pronto desde Gotham.");
+};
+---
+
+<Layout
+  title="Contacto - Gotham Style"
+  description="Contacta con Santiago López, desarrollador de software con estilo Gótico inspirado en Batman para colaborar en proyectos"
+>
+  <Smoke />
+  <BackgroundAnimation />
+  
+  <div class="relative z-10">
+    <WaterDrops />
+    <Header />
+
+    <!-- Hero Section - Añadido mt-20 para evitar solapamiento con el header -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 mt-20">
+      <div class="absolute top-10 right-10 opacity-20 rotate-12">
+        <div class="text-6xl">📧</div>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 mb-6">
+        Contáctame
+      </h1>
+
+      <p class="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+        Si quieres <span class="text-yellow-400">colaborar en proyectos</span>,
+        charlar sobre desarrollo o <span class="text-yellow-400"
+          >unir fuerzas</span
+        > en la Gotham digital, envíame un mensaje y me pondré en contacto contigo.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-10 max-w-6xl w-full items-start">
+        <!-- Información de contacto -->
+        <div class="contact-info text-left">
+          <h2 class="text-3xl text-yellow-400 mb-8">
+            Información de <span class="text-white">Contacto</span>
+          </h2>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-medium mb-1">Email</h3>
+                <p class="text-gray-400">sdlv2882@gmail.com</p>
+                <p class="text-gray-400 text-sm">Respuesta en 24h</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-medium mb-1">Ubicación</h3>
+                <p class="text-gray-400">Gotham City</p>
+                <p class="text-gray-400 text-sm">Disponible para remoto</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-medium mb-1">Disponibilidad</h3>
+                <p class="text-gray-400">Lunes a Viernes</p>
+                <p class="text-gray-400 text-sm">9:00 - 18:00</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="contact-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div>
+                <h3 class="text-white font-medium mb-1">Tipo de proyectos</h3>
+                <p class="text-gray-400">Freelance & Contrato</p>
+                <p class="text-gray-400 text-sm">Presupuestos personalizados</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="mt-10">
+            <h3 class="text-white font-medium mb-4">Sígueme en las redes</h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://github.com/THEBAT02468"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/santiago-david-lopez-villota-76167a27b/"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://x.com/TheBat02468" class="social-btn">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-btn">
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact-form">
+          <div class="card-bat p-8">
+            <h2 class="text-2xl text-yellow-400 mb-6">
+              Envía un <span class="text-white">Mensaje</span>
+            </h2>
+
+            <form class="space-y-6" on:submit={handleSubmit}>
+              <div>
+                <label for="name" class="block text-gray-300 mb-2 font-medium"
+                  >Tu Nombre</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Bruce Wayne"
+                  class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-gray-300 mb-2 font-medium"
+                  >Tu Correo</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="bruce@wayne-enterprises.com"
+                  class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-300 mb-2 font-medium">Asunto</label
+                >
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors"
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="freelance">Propuesta de Freelance</option>
+                  <option value="colaboration">Colaboración</option>
+                  <option value="consulting">Consultoría</option>
+                  <option value="other">Otro</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-300 mb-2 font-medium">Tu Mensaje</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Necesito una aplicación para combatir el crimen en Gotham..."
+                  class="w-full p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full btn-bat py-4 text-lg font-bold mt-4 flex items-center justify-center"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="relative py-20 px-6 bg-gray-900 bg-opacity-70">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
+          Preguntas <span class="text-white">Frecuentes</span>
+        </h2>
+
+        <div class="space-y-6">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Cuánto tiempo tardas en responder?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Normalmente respondo en menos de 24 horas hábiles. Si es
+                urgente, indícalo en el mensaje.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Trabajas con empresas internacionales?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sí, tengo experiencia trabajando con clientes de diferentes
+                países y husos horarios.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Ofreces mantenimiento después del proyecto?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sí, ofrezco planes de mantenimiento y soporte post-desarrollo
+                para todos mis proyectos.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Cuál es tu stack tecnológico preferido?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Trabajo principalmente con React, Node.js, Astro и Tailwind,
+                pero me adapto a las necesidades del proyecto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  /* Estilos para el header fijo */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+    padding: 1rem 0;
+  }
+  /* Estilos para información de contacto */
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(241, 196, 15, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    color: #f1c40f;
+    font-size: 1.2rem;
+  }
+
+  /* Botones sociales */
+  .social-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(241, 196, 15, 0.1);
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn:hover {
+    background: rgba(241, 196, 15, 0.2);
+    color: #f1c40f;
+    transform: translateY(-3px);
+    border-color: #f1c40f;
+  }
+
+  /* FAQ Styles */
+  .faq-item {
+    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
+    border: 1px solid rgba(241, 196, 15, 0.2);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #f1c40f;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(241, 196, 15, 0.05);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+
+  .faq-question i {
+    transition: transform 0.3s ease;
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .grid.md\:grid-cols-2 {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-info {
+      order: 2;
+    }
+
+    .contact-form {
+      order: 1;
+    }
+  }
+
+  /* Animación personalizada para la flecha de scroll */
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-5px) translateX(-50%);
+    }
+  }
+</style>
+
+<script>
+  // Función para toggle FAQ
+  function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    faqItem.classList.toggle("active");
+  }
+
+  // Validación básica del formulario
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validación básica
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !message) {
+          alert("Por favor, completa todos los campos requeridos.");
+          return;
+        }
+
+        // Simular envío exitoso
+        alert("¡Mensaje enviado con éxito! Te contactaré pronto desde Gotham.");
+        form.reset();
+      });
+    }
+  });
+</script>

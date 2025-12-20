@@ -1,0 +1,439 @@
+@import "tailwindcss";
+
+/* -----------------------------
+   🎭 Estilos globales Gotham - MEJORADO
+------------------------------*/
+
+/* Variables globales mejoradas */
+:root {
+  /* Tema oscuro (default) - Gotham */
+  --gotham-dark: #0d0d0d;
+  --gotham-gray: #1c1c1c;
+  --gotham-accent: #f1c40f;
+  --gotham-accent-hover: #ffd43b;
+  --text-default: #e5e7eb;
+  --text-muted: #9ca3af;
+  --font-gothic: "Cinzel Decorative", serif;
+  --font-body: "Roboto Condensed", sans-serif;
+  --bat-glow: 0 0 20px rgba(241, 196, 15, 0.8);
+  --bat-glow-strong: 0 0 30px rgba(255, 212, 59, 0.9);
+  --bat-border: 1px solid rgba(241, 196, 15, 0.6);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Componentes específicos - Tema oscuro */
+  --header-bg: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  --footer-bg: linear-gradient(to top, #000000 0%, #1a202c 100%);
+  --primary-color: #f59e0b;
+  --primary-hover: #fbbf24;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --border-color: rgba(245, 158, 11, 0.2);
+  --shadow-color: rgba(245, 158, 11, 0.1);
+  
+  /* Fondo principal */
+  --main-bg: linear-gradient(180deg, var(--gotham-dark) 0%, #111111 100%);
+}
+
+.light-theme {
+  /* Tema claro - Azul profesional */
+  --gotham-dark: #f8fafc;
+  --gotham-gray: #e2e8f0;
+  --gotham-accent: #2563eb;
+  --gotham-accent-hover: #1d4ed8;
+  --text-default: #1e293b;
+  --text-muted: #64748b;
+  --bat-glow: 0 0 20px rgba(37, 99, 235, 0.4);
+  --bat-glow-strong: 0 0 30px rgba(29, 78, 216, 0.6);
+  --bat-border: 1px solid rgba(37, 99, 235, 0.4);
+  
+  /* Componentes específicos - Tema claro */
+  --header-bg: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  --footer-bg: linear-gradient(to top, #1e40af 0%, #3b82f6 100%);
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --text-primary: #1e293b;
+  --text-secondary: #374151;
+  --border-color: rgba(37, 99, 235, 0.2);
+  --shadow-color: rgba(37, 99, 235, 0.1);
+  
+  /* Fondo principal claro */
+  --main-bg: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+/* -----------------------------
+   ⚡ Base - MEJORADO
+------------------------------*/
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--main-bg);
+    color: var(--text-default);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-gothic);
+    color: var(--gotham-accent);
+    letter-spacing: 0.05em;
+    text-shadow: var(--bat-glow);
+    margin-bottom: 0.75em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  p {
+    color: var(--text-muted);
+    margin-bottom: 1.2em;
+    max-width: 70ch;
+    transition: color 0.3s ease;
+  }
+
+  a {
+    color: var(--gotham-accent);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--gotham-accent-hover);
+    text-shadow: var(--bat-glow);
+  }
+  
+  /* Mejora de enfoque para accesibilidad */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gotham-accent);
+    outline-offset: 2px;
+  }
+  
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--gotham-dark);
+    transition: background 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gotham-gray);
+    border-radius: 5px;
+    border: 1px solid var(--gotham-accent);
+    transition: all 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gotham-accent);
+  }
+}
+
+/* -----------------------------
+   🦇 Componentes - MEJORADO
+------------------------------*/
+@layer components {
+  .btn-bat {
+    @apply px-6 py-3 font-bold rounded-lg uppercase tracking-wide;
+    background: linear-gradient(90deg, var(--gotham-accent), var(--gotham-accent-hover));
+    color: white;
+    border: none;
+    box-shadow: var(--bat-glow);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .btn-bat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+  
+  .btn-bat:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--bat-glow-strong);
+  }
+  
+  .btn-bat:hover::before {
+    left: 100%;
+  }
+  
+  .btn-bat:active {
+    transform: translateY(1px);
+  }
+
+  .card-bat {
+    background: linear-gradient(145deg, var(--gotham-gray), var(--gotham-dark));
+    border: var(--bat-border);
+    padding: 1.5rem;
+    border-radius: .75rem;
+    box-shadow: inset 0 0 10px rgba(241, 196, 15, 0.1);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-bat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gotham-accent), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .card-bat:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--bat-glow);
+  }
+  
+  .card-bat:hover::before {
+    transform: translateX(100%);
+  }
+}
+
+/* -----------------------------
+   🌧️ Lluvia - Adaptado para tema claro
+------------------------------*/
+.rain {
+  position: fixed;
+  inset: 0;
+  width: 100%; 
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.4;
+  background: transparent;
+}
+
+.rain::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 
+    100% 120px,
+    100% 80px,
+    100% 60px;
+  animation: 
+    rain-heavy 0.8s linear infinite,
+    rain-medium 0.6s linear infinite,
+    rain-light 0.4s linear infinite;
+}
+
+.light-theme .rain::before {
+  background-image: 
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+}
+
+@keyframes rain-heavy {
+  from { background-position: 0 -120px, 0 0, 0 0; }
+  to   { background-position: 0 0, 0 0, 0 0; }
+}
+
+@keyframes rain-medium {
+  from { background-position: 0 0, 0 -80px, 0 0; }
+  to   { background-position: 0 0, 0 0, 0 0; }
+}
+
+@keyframes rain-light {
+  from { background-position: 0 0, 0 0, 0 -60px; }
+  to   { background-position: 0 0, 0 0, 0 0; }
+}
+
+/* -----------------------------
+   🌐 Redes sociales - Adaptado para tema claro
+------------------------------*/
+.socials {
+  text-align: center;
+  margin: 60px 0;
+  position: relative;
+  z-index: 60;
+}
+
+.socials h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 25px;
+  color: var(--gotham-accent);
+  text-shadow: var(--bat-glow);
+  position: relative;
+  display: inline-block;
+}
+
+.socials h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: var(--gotham-accent);
+  box-shadow: var(--bat-glow);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  color: var(--text-default);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+  background: rgba(13, 13, 13, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.light-theme .social-icons a {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.social-icons a:hover {
+  color: var(--gotham-accent-hover);
+  text-shadow: var(--bat-glow);
+  transform: scale(1.15) translateY(-5px);
+  border-color: var(--gotham-accent);
+  box-shadow: var(--bat-glow);
+  background: rgba(13, 13, 13, 0.8);
+}
+
+.light-theme .social-icons a:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.social-icons a:active {
+  transform: scale(0.95);
+}
+
+/* -----------------------------
+   🦇 Utilidades - MEJORADO
+------------------------------*/
+@layer utilities {
+  .text-glow {
+    text-shadow: var(--bat-glow);
+  }
+  
+  .border-glow {
+    box-shadow: var(--bat-glow);
+  }
+  
+  .bg-gotham-dark {
+    background-color: var(--gotham-dark);
+  }
+  
+  .bg-gotham-gray {
+    background-color: var(--gotham-gray);
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* -----------------------------
+   📱 Media Queries
+------------------------------*/
+@layer utilities {
+  @media (max-width: 768px) {
+    .social-icons {
+      gap: 20px;
+    }
+    
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+      font-size: 1.3rem;
+    }
+    
+    .card-bat {
+      padding: 1rem;
+    }
+    
+    .btn-bat {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .social-icons {
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+    }
+    
+    .rain::before {
+      animation-duration: 1s, 0.8s, 0.6s;
+    }
+  }
+}
+
+/* -----------------------------
+   🎭 Transiciones suaves para el cambio de tema
+------------------------------*/
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Excluir elementos que no necesitan transición */
+button, a, .btn-bat, .card-bat {
+  transition: var(--transition-smooth);
+}

@@ -1,0 +1,179 @@
+---
+// src/components/WaterDrops.astro
+import "../styles/water-drops.css";
+---
+
+<div id="rain-container">
+  <canvas id="rain-canvas"></canvas>
+  <div class="windshield"></div>
+  
+  <div class="rain-controls">
+    <h3>Lluvia Gotham</h3>
+    <p>Controla la intensidad de la lluvia</p>
+    <div class="rain-buttons">
+      <button class="rain-button" id="intensity-up">+ Lluvia</button>
+      <button class="rain-button" id="intensity-down">- Lluvia</button>
+    </div>
+  </div>
+
+  <script>
+    // Esperar a que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('rain-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Ajustar el tamaño del canvas
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        // Configuración de la lluvia
+        let rainIntensity = 500; // Número de gotas
+        const raindrops = [];
+        const splashes = [];
+        
+        // Clase para las gotas de lluvia
+        class Raindrop {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * -canvas.height;
+                this.z = Math.random() * 3 + 1; // Profundidad (tamaño y velocidad)
+                this.len = Math.random() * 10 + 10 * this.z;
+                this.speed = Math.random() * 5 + 5 * this.z;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.sway = Math.random() * 2 - 1; // Movimiento lateral ligero
+            }
+            
+            update() {
+                this.y += this.speed;
+                this.x += this.sway * (this.z / 3);
+                
+                // Crear salpicadura cuando llega al final
+                if (this.y > canvas.height - 10) {
+                    if (Math.random() > 0.7) {
+                        this.createSplash();
+                    }
+                    this.reset();
+                }
+                
+                // Reiniciar si se sale horizontalmente
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.reset();
+                }
+            }
+            
+            createSplash() {
+                for (let i = 0; i < Math.floor(this.z * 2); i++) {
+                    splashes.push({
+                        x: this.x,
+                        y: canvas.height - 5,
+                        speed: Math.random() * 3 + 2 * this.z,
+                        size: Math.random() * 1.5 + 1 * this.z,
+                        angle: Math.random() * Math.PI,
+                        opacity: this.opacity,
+                        life: 20
+                    });
+                }
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + (this.sway * 2), this.y + this.len);
+                ctx.strokeStyle = `rgba(150, 200, 255, ${this.opacity})`;
+                ctx.lineWidth = this.z / 2;
+                ctx.stroke();
+            }
+        }
+        
+        // Actualizar y dibujar salpicaduras
+        function updateSplashes() {
+            for (let i = splashes.length - 1; i >= 0; i--) {
+                const splash = splashes[i];
+                
+                splash.x += Math.cos(splash.angle) * splash.speed;
+                splash.y -= Math.sin(splash.angle) * splash.speed;
+                splash.life--;
+                
+                if (splash.life <= 0) {
+                    splashes.splice(i, 1);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(splash.x, splash.y, splash.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(180, 220, 255, ${splash.opacity * (splash.life / 20)})`;
+                    ctx.fill();
+                }
+            }
+        }
+        
+        // Inicializar gotas de lluvia
+        function initRain() {
+            raindrops.length = 0;
+            for (let i = 0; i < rainIntensity; i++) {
+                raindrops.push(new Raindrop());
+            }
+        }
+        
+        // Animación
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Fondo con degradado oscuro
+            const gradient = ctx.createRadialGradient(
+                canvas.width / 2, canvas.height / 2, 0,
+                canvas.width / 2, canvas.height / 2, canvas.width
+            );
+            gradient.addColorStop(0, 'rgba(10, 10, 30, 0.1)');
+            gradient.addColorStop(1, 'rgba(5, 5, 15, 0.8)');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar gotas
+            for (const drop of raindrops) {
+                drop.update();
+                drop.draw();
+            }
+            
+            // Dibujar salpicaduras
+            updateSplashes();
+            
+            // Efectos de iluminación (relámpagos ocasionales)
+            if (Math.random() < 0.001) {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Iniciar la animación
+        initRain();
+        animate();
+        
+        // Controles para ajustar la intensidad de la lluvia
+        const intensityUp = document.getElementById('intensity-up');
+        const intensityDown = document.getElementById('intensity-down');
+        
+        if (intensityUp && intensityDown) {
+            intensityUp.addEventListener('click', function() {
+                rainIntensity = Math.min(2000, rainIntensity + 100);
+                initRain();
+            });
+            
+            intensityDown.addEventListener('click', function() {
+                rainIntensity = Math.max(100, rainIntensity - 100);
+                initRain();
+            });
+        }
+    });
+  </script>
+</div>
