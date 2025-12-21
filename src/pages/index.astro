@@ -8,264 +8,371 @@ import Smoke from "../components/Smoke.astro";
 ---
 
 <Layout
-  title="Portfolio Gótico - Batman Style"
-  description="Portfolio de Santiago, desarrollador de software con temática Gótica inspirada en Batman"
+  title="Santiago López | Desarrollador Full Stack & Especialista en Ciberseguridad"
+  description="Desarrollador de software especializado en soluciones seguras con expertise en HTML, CSS, JavaScript, TypeScript, Python, Bash, SQL y Java."
 >
   <Smoke />
-  <!-- Fondo animado por frames -->
   <BackgroundAnimation />
-  <!-- 👈 aquí insertamos la animación -->
   
-  <!-- Efecto de humo con Three.js -->
-  <!-- Contenedor principal con posición relativa para controlar el z-index -->
   <div class="relative z-10">
     <WaterDrops />
-    <!-- Efectos de lluvia y niebla -->
-
-    <div class="rain" aria-hidden="true"></div>
-    <!-- <div class="fog" aria-hidden="true"></div> -->
-
+    
     <Header />
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex flex-col justify-center items-center text-center px-4"
-    >
-      <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4">
-        Soy <span class="text-yellow-400">Santiago</span>
-      </h1>
-      <p class="mt-4 text-gray-300 max-w-2xl text-xl">
-        Desarrollador de software de la ciudad de <span
-          class="text-yellow-400 font-medium">Pasto</span
-        >, creando soluciones en la innovadoras y seguras.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-4">
-        <a href="#projects" class="btn-bat mt-6 px-8 py-4 text-lg"
-          >Ver Proyectos</a
-        >
-        <a
-          href="#contact"
-          class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 px-8 py-4 rounded-lg mt-6 text-lg"
-          >Contactar</a
-        >
+    <!-- Hero Section Mejorado -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+      <!-- Elementos decorativos de tecnología -->
+      <div class="absolute top-20 left-5 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-5 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+      
+      <!-- Código flotante decorativo -->
+      <div class="absolute top-1/4 left-10 opacity-10 text-sm font-mono">
+        &lt;div class="container"&gt;<br>
+        &nbsp;&nbsp;&lt;h1&gt;Code&lt;/h1&gt;<br>
+        &lt;/div&gt;
+      </div>
+      
+      <div class="relative z-20 max-w-6xl mx-auto">
+        <!-- Badge profesional -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full mb-8">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+          <span class="text-sm text-gray-300">📍 Pasto, Colombia | 💼 Disponible Remoto</span>
+        </div>
+        
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold mb-6 tracking-tight">
+          <span class="block text-white mb-2">Santiago López</span>
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-emerald-500 to-blue-600 text-4xl md:text-5xl lg:text-6xl">
+            Full Stack Developer
+          </span>
+        </h1>
+        
+        <p class="mt-8 text-gray-300 max-w-3xl text-lg md:text-xl leading-relaxed mx-auto">
+          Construyo <span class="text-emerald-400 font-semibold">soluciones digitales robustas</span> 
+          combinando desarrollo full stack con principios de 
+          <span class="text-blue-400 font-semibold"> ciberseguridad</span>. 
+          Especializado en crear aplicaciones escalables, seguras y eficientes.
+        </p>
+
+        <!-- Tecnologías en Badges -->
+        <div class="mt-12 flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-emerald-300">
+            HTML5
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-blue-300">
+            CSS3
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-yellow-300">
+            JavaScript
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-blue-400">
+            TypeScript
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-green-400">
+            Python
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-gray-300">
+            Bash
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-purple-300">
+            SQL
+          </span>
+          <span class="px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-full text-sm text-red-300">
+            Java
+          </span>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/projects" 
+            class="group relative px-8 py-4 text-lg font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
+          >
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span class="relative flex items-center justify-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              Ver Portafolio
+            </span>
+          </a>
+          
+          <a 
+            href="/contact" 
+            class="group px-8 py-4 text-lg font-semibold rounded-lg border-2 border-emerald-500 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Contactar Ahora
+          </a>
+        </div>
       </div>
 
-      <!-- Flecha indicadora de scroll -->
-      <div
-        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <div
-          class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center"
-        >
-          <div class="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse">
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="flex flex-col items-center">
+          <span class="text-sm text-gray-400 mb-2">Explorar</span>
+          <div class="w-6 h-10 border-2 border-emerald-500 rounded-full flex justify-center relative">
+            <div class="w-1 h-3 bg-emerald-500 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="projects" class="py-20 px-4 sm:px-10">
-      <div class="container mx-auto">
-        <h2 class="text-4xl mb-12 text-center">
-          Mis <span class="text-yellow-400">Proyectos</span>
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card-bat group">
-            <div
-              class="h-48 bg-gray-800 rounded-t-lg flex items-center justify-center"
-            >
-              <span class="text-5xl">🦇</span>
+    <!-- Sección de Tecnologías Detalladas -->
+    <section class="py-24 px-4 sm:px-10 bg-gray-900/30 backdrop-blur-sm">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            <span class="text-white">Stack </span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500">Tecnológico</span>
+          </h2>
+          <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+            Dominio completo del ciclo de desarrollo con las tecnologías más demandadas del mercado
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Frontend -->
+          <div class="group p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-blue-500/30 transition-all duration-300">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-blue-900/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Frontend</h3>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl mb-3">Proyecto Batman</h3>
-              <p class="text-gray-400">
-                Sistema de vigilancia para Gotham City con tecnología de
-                vanguardia.
-              </p>
-              <div class="mt-4 flex gap-3">
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md"
-                  >React</span
-                >
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md"
-                  >Node.js</span
-                >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">HTML5</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">CSS3</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">JavaScript</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 92%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">TypeScript</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card-bat group">
-            <div
-              class="h-48 bg-gray-800 rounded-t-lg flex items-center justify-center"
-            >
-              <span class="text-5xl">🌃</span>
+          <!-- Backend -->
+          <div class="group p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-purple-500/30 transition-all duration-300">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-purple-900/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Backend</h3>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl mb-3">Gotham Database</h3>
-              <p class="text-gray-400">
-                Base de datos criminalística para el departamento de policía de
-                Gotham.
-              </p>
-              <div class="mt-4 flex gap-3">
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md"
-                  >MongoDB</span
-                >
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md"
-                  >Express</span
-                >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Python</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Java</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 82%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Node.js</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card-bat group">
-            <div
-              class="h-48 bg-gray-800 rounded-t-lg flex items-center justify-center"
-            >
-              <span class="text-5xl">🚓</span>
+          <!-- Bases de Datos -->
+          <div class="group p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-yellow-500/30 transition-all duration-300">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Bases de Datos</h3>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl mb-3">Batmovil UI</h3>
-              <p class="text-gray-400">
-                Interfaz de control para el vehículo emblemático del caballero
-                oscuro.
-              </p>
-              <div class="mt-4 flex gap-3">
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md">Vue</span
-                >
-                <span class="text-xs px-2 py-1 bg-gray-800 rounded-md"
-                  >WebGL</span
-                >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">SQL</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">PostgreSQL</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">MongoDB</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 80%"></div>
+                </div>
               </div>
             </div>
+          </div>
+
+          <!-- DevOps & Tools -->
+          <div class="group p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-red-500/30 transition-all duration-300">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-red-900/30 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">DevOps & Tools</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Bash</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 87%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Git</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300">Docker</span>
+                <div class="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyectos Destacados Preview -->
+        <div class="mt-20 text-center">
+          <h3 class="text-2xl font-bold text-white mb-8">Proyectos Recientes</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+              <div class="text-emerald-400 text-3xl mb-4">🛡️</div>
+              <h4 class="text-lg font-bold text-white mb-2">Sistema de Auditoría</h4>
+              <p class="text-gray-400 text-sm">Plataforma de seguridad con Python y Bash</p>
+            </div>
+            <div class="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+              <div class="text-blue-400 text-3xl mb-4">⚛️</div>
+              <h4 class="text-lg font-bold text-white mb-2">App Full Stack</h4>
+              <p class="text-gray-400 text-sm">React + TypeScript + Java + PostgreSQL</p>
+            </div>
+            <div class="p-6 bg-gray-900/50 rounded-xl border border-gray-800">
+              <div class="text-purple-400 text-3xl mb-4">🔐</div>
+              <h4 class="text-lg font-bold text-white mb-2">API Segura</h4>
+              <p class="text-gray-400 text-sm">Node.js con autenticación JWT y encriptación</p>
+            </div>
+          </div>
+          <a href="/projects" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300">
+            Ver todos los proyectos
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Valores -->
+    <section class="py-20 px-4 bg-gradient-to-b from-gray-900/50 to-black">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <span class="text-white">Metodología de </span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500">Trabajo</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-8 rounded-xl bg-gray-900/30">
+            <div class="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Seguridad Primero</h3>
+            <p class="text-gray-400">Desarrollo con principios de ciberseguridad integrados desde el diseño</p>
+          </div>
+
+          <div class="text-center p-8 rounded-xl bg-gray-900/30">
+            <div class="w-16 h-16 bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Código Eficiente</h3>
+            <p class="text-gray-400">Optimización de performance y escalabilidad en cada línea de código</p>
+          </div>
+
+          <div class="text-center p-8 rounded-xl bg-gray-900/30">
+            <div class="w-16 h-16 bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Entrega Rápida</h3>
+            <p class="text-gray-400">Metodologías ágiles para resultados tangibles en tiempo récord</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Habilidades -->
-    <section class="py-20 px-4 sm:px-10 bg-gray-900">
-      <div class="container mx-auto">
-        <h2 class="text-4xl mb-12 text-center">
-          Mis <span class="text-yellow-400">Habilidades</span>
+    <!-- Call to Action Final -->
+    <section class="py-24 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-gray-900/10 to-emerald-900/10"></div>
+      <div class="container mx-auto max-w-4xl relative z-10 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          ¿Proyecto en mente?
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 text-3xl md:text-4xl mt-4">
+            Hagámoslo realidad
+          </span>
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="flex flex-col items-center p-6 card-bat">
-            <div class="text-4xl mb-4">⚡</div>
-            <h3 class="text-lg mb-2">Frontend</h3>
-            <p class="text-sm text-gray-400 text-center">
-              React, Vue, Astro, Tailwind
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center p-6 card-bat">
-            <div class="text-4xl mb-4">🔧</div>
-            <h3 class="text-lg mb-2">Backend</h3>
-            <p class="text-sm text-gray-400 text-center">
-              Node.js, Express, MongoDB
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center p-6 card-bat">
-            <div class="text-4xl mb-4">🎨</div>
-            <h3 class="text-lg mb-2">Design</h3>
-            <p class="text-sm text-gray-400 text-center">
-              Figma, UI/UX, Prototyping
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center p-6 card-bat">
-            <div class="text-4xl mb-4">🚀</div>
-            <h3 class="text-lg mb-2">DevOps</h3>
-            <p class="text-sm text-gray-400 text-center">Docker, AWS, CI/CD</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contact" class="py-20 px-4 sm:px-10">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-4xl mb-12 text-center">
-          ¿Interesado en <span class="text-yellow-400">trabajar juntos</span>?
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <h3 class="text-2xl mb-4">Envíame un mensaje</h3>
-            <p class="text-gray-400 mb-6">
-              ¿Tienes un proyecto en mente? Envíame un mensaje y hagámoslo
-              realidad.
-            </p>
-
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center mr-3"
-                >
-                  <span class="text-black">📧</span>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-400">Email</p>
-                  <p class="text-yellow-400">contacto@ejemplo.com</p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center mr-3"
-                >
-                  <span class="text-black">📱</span>
-                </div>
-                <div>
-                  <p class="text-sm text-gray-400">Teléfono</p>
-                  <p class="text-yellow-400">+1 (555) 123-4567</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <form class="space-y-6 card-bat p-6">
-            <div>
-              <label for="name" class="block text-gray-300 mb-2"
-                >Tu Nombre</label
-              >
-              <input
-                type="text"
-                id="name"
-                placeholder="Bruce Wayne"
-                class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-gray-300 mb-2"
-                >Tu Correo</label
-              >
-              <input
-                type="email"
-                id="email"
-                placeholder="bruce@wayne-enterprises.com"
-                class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors"
-              />
-            </div>
-
-            <div>
-              <label for="message" class="block text-gray-300 mb-2"
-                >Tu Mensaje</label
-              >
-              <textarea
-                id="message"
-                placeholder="Necesito una aplicación para combatir el crimen en Gotham..."
-                class="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-yellow-400 focus:outline-none transition-colors h-32"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full btn-bat py-4 text-lg font-bold mt-4"
-            >
-              Enviar Mensaje
-            </button>
-          </form>
+        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+          Desde una simple consulta hasta un proyecto complejo, estoy aquí para ayudarte a 
+          construir la solución perfecta con las mejores tecnologías.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contact" 
+            class="px-10 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-300 hover:scale-105 text-lg"
+          >
+            Iniciar Conversación
+          </a>
+          <a 
+            href="mailto:sdlv2882@gmail.com" 
+            class="px-10 py-4 border-2 border-emerald-500 text-emerald-400 font-semibold rounded-lg hover:bg-emerald-500 hover:text-white transition-all duration-300 text-lg flex items-center justify-center gap-2"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            sdlv2882@gmail.com
+          </a>
         </div>
       </div>
     </section>
@@ -275,26 +382,168 @@ import Smoke from "../components/Smoke.astro";
 </Layout>
 
 <style>
-  /* Asegurar que los controles de lluvia estén por encima del canvas */
-
-  /* Animación personalizada para la flecha de scroll */
+  /* Animación de bounce mejorada */
   @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
+    0%, 20%, 50%, 80%, 100% {
       transform: translateY(0) translateX(-50%);
     }
     40% {
-      transform: translateY(-10px) translateX(-50%);
+      transform: translateY(-15px) translateX(-50%);
     }
     60% {
-      transform: translateY(-5px) translateX(-50%);
+      transform: translateY(-7px) translateX(-50%);
     }
   }
 
   .animate-bounce {
     animation: bounce 2s infinite;
   }
+
+  /* Efecto de brillo en badges de tecnología */
+  .tech-badge {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tech-badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: rotate(30deg);
+    transition: transform 0.6s;
+  }
+
+  .tech-badge:hover::after {
+    transform: rotate(30deg) translate(20%, 20%);
+  }
+
+  /* Animación de progreso */
+  @keyframes progress {
+    from {
+      width: 0;
+    }
+  }
+
+  .progress-bar > div {
+    animation: progress 1.5s ease-out forwards;
+  }
+
+  /* Efecto hover en tarjetas */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gradiente animado */
+  .animated-gradient {
+    background: linear-gradient(-45deg, #3b82f6, #10b981, #3b82f6, #10b981);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6, #10b981);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb, #059669);
+  }
+
+  /* Animación de código flotante */
+  @keyframes float-code {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(1deg);
+    }
+  }
+
+  .floating-code {
+    animation: float-code 6s ease-in-out infinite;
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animación de barras de progreso
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBars = entry.target.querySelectorAll('.progress-bar > div');
+          progressBars.forEach(bar => {
+            // Reiniciar animación
+            bar.style.animation = 'none';
+            setTimeout(() => {
+              bar.style.animation = 'progress 1.5s ease-out forwards';
+            }, 10);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observar sección de tecnologías
+    const techSection = document.querySelector('section:nth-of-type(2)');
+    if (techSection) observer.observe(techSection);
+
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Efecto hover en badges de tecnología
+    const techBadges = document.querySelectorAll('[class*="px-4 py-2 bg-gray-800"]');
+    techBadges.forEach(badge => {
+      badge.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+      });
+      badge.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  });
+</script>
