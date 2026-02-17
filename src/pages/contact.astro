@@ -6,11 +6,9 @@ import BackgroundAnimation from "../components/BackgroundAnimation.astro";
 import WaterDrops from "../components/WaterDrops.astro";
 import Smoke from "../components/Smoke.astro";
 
-// Simular envío de formulario
-const handleSubmit = (event) => {
-  event.preventDefault();
-  alert("¡Mensaje enviado! Te contactaré pronto.");
-};
+// SVG de patrón para el fondo
+const svgPattern =
+  'data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="\%23f1c40f" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E';
 ---
 
 <Layout
@@ -20,121 +18,217 @@ const handleSubmit = (event) => {
   <!-- Capas visuales (NO deben capturar clicks) -->
   <Smoke />
   <BackgroundAnimation />
-  
+
   <div class="relative z-10">
     <WaterDrops />
     <Header />
 
     <!-- HERO SECTION OPTIMIZADO PARA MÓVIL -->
-    <section class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 py-12 md:py-20 mt-16 md:mt-20 overflow-hidden">
+    <section
+      class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 py-12 md:py-20 mt-16 md:mt-20 overflow-hidden"
+    >
       <!-- Efecto Bat-señal en el fondo - Optimizado para móvil -->
-      <div class="absolute -top-20 md:top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 md:w-96 md:h-96 opacity-5 md:opacity-10">
-        <div class="absolute inset-0 bg-gradient-to-b from-yellow-400 to-transparent rounded-full blur-xl md:blur-3xl"></div>
+      <div
+        class="absolute -top-20 md:top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 md:w-96 md:h-96 opacity-5 md:opacity-10"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-yellow-400 to-transparent rounded-full blur-xl md:blur-3xl"
+        >
+        </div>
       </div>
-      
+
       <!-- Logo Batman sutil - Oculto en móvil, visible en desktop -->
       <div class="hidden md:block absolute top-10 right-10 opacity-5">
         <svg class="w-64 h-64" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L2 7V12C2 17.5 6 22 12 22C18 22 22 17.5 22 12V7L12 2Z" stroke="currentColor" stroke-width="1"/>
-          <path d="M12 8L8 11H12V15H16V11L12 8Z" stroke="currentColor" stroke-width="1"/>
+          <path
+            d="M12 2L2 7V12C2 17.5 6 22 12 22C18 22 22 17.5 22 12V7L12 2Z"
+            stroke="currentColor"
+            stroke-width="1"></path>
+          <path
+            d="M12 8L8 11H12V15H16V11L12 8Z"
+            stroke="currentColor"
+            stroke-width="1"></path>
         </svg>
       </div>
 
       <!-- Título responsivo -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-4 md:mb-6 font-batman relative z-20 tracking-tight px-2">
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-yellow-400 mb-4 md:mb-6 font-batman relative z-20 tracking-tight px-2"
+      >
         CONTÁCTAME
-        <div class="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
+        <div
+          class="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"
+        >
+        </div>
       </h1>
 
       <!-- Texto responsivo -->
-      <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 md:mb-10 max-w-2xl relative z-20 leading-relaxed px-2">
-        Si buscas <span class="text-yellow-400 font-semibold">colaborar en proyectos</span> o 
-        <span class="text-yellow-400 font-semibold">trabajar juntos</span>, envíame un mensaje.
+      <p
+        class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 md:mb-10 max-w-2xl relative z-20 leading-relaxed px-2"
+      >
+        Si buscas <span class="text-yellow-400 font-semibold"
+          >colaborar en proyectos</span
+        > o
+        <span class="text-yellow-400 font-semibold">trabajar juntos</span>,
+        envíame un mensaje.
       </p>
 
       <!-- Grid responsivo - Columna única en móvil -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-6xl w-full items-start relative z-20">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-6xl w-full items-start relative z-20"
+      >
         <!-- INFO DE CONTACTO - Optimizado para móvil -->
         <div class="contact-info text-left relative order-2 lg:order-1">
-          <div class="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-gray-900 via-yellow-600 to-gray-900 rounded-lg blur opacity-20 md:opacity-30"></div>
-          <div class="relative p-5 sm:p-6 md:p-8 bg-gray-900 border border-yellow-800 rounded-lg shadow-xl md:shadow-2xl shadow-black/50">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl text-yellow-400 mb-6 md:mb-8 font-batman flex items-center gap-2 md:gap-3">
-              <span class="inline-block w-2 h-6 md:w-3 md:h-8 bg-yellow-400"></span>
+          <div
+            class="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-gray-900 via-yellow-600 to-gray-900 rounded-lg blur opacity-20 md:opacity-30"
+          >
+          </div>
+          <div
+            class="relative p-5 sm:p-6 md:p-8 bg-gray-900 border border-yellow-800 rounded-lg shadow-xl md:shadow-2xl shadow-black/50"
+          >
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl text-yellow-400 mb-6 md:mb-8 font-batman flex items-center gap-2 md:gap-3"
+            >
+              <span class="inline-block w-2 h-6 md:w-3 md:h-8 bg-yellow-400"
+              ></span>
               Información de <span class="text-white">Contacto</span>
             </h2>
 
             <div class="space-y-4 md:space-y-6">
               <!-- Email -->
-              <div class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600">
-                <div class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0">
-                  <i class="fas fa-envelope text-yellow-400 text-sm md:text-base"></i>
+              <div
+                class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600"
+              >
+                <div
+                  class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0"
+                >
+                  <i
+                    class="fas fa-envelope text-yellow-400 text-sm md:text-base"
+                  ></i>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <p class="text-gray-400 text-xs md:text-sm truncate">Correo Electrónico</p>
-                  <p class="text-gray-300 font-medium text-sm md:text-base break-all">sdlv2882@gmail.com</p>
+                  <p class="text-gray-400 text-xs md:text-sm truncate">
+                    Correo Electrónico
+                  </p>
+                  <p
+                    class="text-gray-300 font-medium text-sm md:text-base break-all"
+                  >
+                    sdlv2882@gmail.com
+                  </p>
                 </div>
               </div>
 
               <!-- Teléfono -->
-              <div class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600">
-                <div class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0">
-                  <i class="fas fa-phone-alt text-yellow-400 text-sm md:text-base"></i>
+              <div
+                class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600"
+              >
+                <div
+                  class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0"
+                >
+                  <i
+                    class="fas fa-phone-alt text-yellow-400 text-sm md:text-base"
+                  ></i>
                 </div>
                 <div class="min-w-0 flex-1">
                   <p class="text-gray-400 text-xs md:text-sm">Teléfono</p>
-                  <p class="text-gray-300 font-medium text-sm md:text-base">+57 312 280 9604</p>
+                  <p class="text-gray-300 font-medium text-sm md:text-base">
+                    +57 312 280 9604
+                  </p>
                 </div>
               </div>
 
               <!-- Ubicación -->
-              <div class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600">
-                <div class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0">
-                  <i class="fas fa-map-marker-alt text-yellow-400 text-sm md:text-base"></i>
+              <div
+                class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600"
+              >
+                <div
+                  class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0"
+                >
+                  <i
+                    class="fas fa-map-marker-alt text-yellow-400 text-sm md:text-base"
+                  ></i>
                 </div>
                 <div class="min-w-0 flex-1">
                   <p class="text-gray-400 text-xs md:text-sm">Ubicación</p>
-                  <p class="text-gray-300 font-medium text-sm md:text-base">Disponible para trabajo remoto</p>
+                  <p class="text-gray-300 font-medium text-sm md:text-base">
+                    Disponible para trabajo remoto
+                  </p>
                 </div>
               </div>
 
               <!-- Tiempo de respuesta -->
-              <div class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600">
-                <div class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0">
-                  <i class="fas fa-clock text-yellow-400 text-sm md:text-base"></i>
+              <div
+                class="flex items-start md:items-center gap-3 md:gap-4 p-3 bg-gray-800/50 rounded-lg border-l-2 md:border-l-4 border-yellow-600"
+              >
+                <div
+                  class="bg-yellow-900/30 p-1.5 md:p-2 rounded flex-shrink-0"
+                >
+                  <i class="fas fa-clock text-yellow-400 text-sm md:text-base"
+                  ></i>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <p class="text-gray-400 text-xs md:text-sm">Tiempo de Respuesta</p>
-                  <p class="text-gray-300 font-medium text-sm md:text-base">Menos de 24 horas</p>
+                  <p class="text-gray-400 text-xs md:text-sm">
+                    Tiempo de Respuesta
+                  </p>
+                  <p class="text-gray-300 font-medium text-sm md:text-base">
+                    Menos de 24 horas
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Horario de contacto -->
             <div class="mt-6 md:mt-10 pt-4 md:pt-8 border-t border-gray-800">
-              <h3 class="text-lg md:text-xl text-yellow-400 mb-3 md:mb-4">Horario de Contacto</h3>
-              <p class="text-gray-400 text-sm md:text-base">Lun - Vie: 9:00 - 18:00 (GMT-5)</p>
-              <p class="text-gray-400 text-xs md:text-sm mt-1 md:mt-2">Emergencias tecnológicas: Siempre disponible</p>
+              <h3 class="text-lg md:text-xl text-yellow-400 mb-3 md:mb-4">
+                Horario de Contacto
+              </h3>
+              <p class="text-gray-400 text-sm md:text-base">
+                Lun - Vie: 9:00 - 18:00 (GMT-5)
+              </p>
+              <p class="text-gray-400 text-xs md:text-sm mt-1 md:mt-2">
+                Emergencias tecnológicas: Siempre disponible
+              </p>
             </div>
           </div>
         </div>
 
         <!-- FORMULARIO - Optimizado para móvil -->
         <div class="contact-form relative order-1 lg:order-2">
-          <div class="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-yellow-900 via-gray-900 to-yellow-900 rounded-lg blur opacity-20 md:opacity-30"></div>
-          <div class="relative card-bat p-5 sm:p-6 md:p-8 border border-yellow-800 md:border-2 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-xl md:shadow-2xl shadow-black">
+          <div
+            class="absolute -inset-0.5 md:-inset-1 bg-gradient-to-r from-yellow-900 via-gray-900 to-yellow-900 rounded-lg blur opacity-20 md:opacity-30"
+          >
+          </div>
+          <div
+            class="relative card-bat p-5 sm:p-6 md:p-8 border border-yellow-800 md:border-2 bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-xl md:shadow-2xl shadow-black"
+          >
             <!-- Header del formulario -->
-            <div class="flex items-center gap-2 md:gap-3 mb-6 md:mb-8 pb-4 border-b border-yellow-800">
-              <div class="w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full animate-pulse"></div>
-              <div class="w-2 h-2 md:w-3 md:h-3 bg-yellow-500 rounded-full"></div>
-              <div class="w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full"></div>
-              <h3 class="text-lg sm:text-xl md:text-2xl text-yellow-400 ml-2 md:ml-4 font-batman truncate">ENVÍO DE MENSAJE</h3>
+            <div
+              class="flex items-center gap-2 md:gap-3 mb-6 md:mb-8 pb-4 border-b border-yellow-800"
+            >
+              <div
+                class="w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full animate-pulse"
+              >
+              </div>
+              <div class="w-2 h-2 md:w-3 md:h-3 bg-yellow-500 rounded-full">
+              </div>
+              <div class="w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full">
+              </div>
+              <h3
+                class="text-lg sm:text-xl md:text-2xl text-yellow-400 ml-2 md:ml-4 font-batman truncate"
+              >
+                ENVÍO DE MENSAJE
+              </h3>
             </div>
 
-            <form class="space-y-4 md:space-y-6" on:submit={handleSubmit}>
+            <form class="space-y-4 md:space-y-6" id="contactForm">
               <!-- Campo Nombre -->
               <div class="relative">
-                <label for="name" class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium">
-                  <i class="fas fa-user mr-1 md:mr-2 text-xs md:text-sm"></i>NOMBRE
+                <label
+                  for="name"
+                  class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium"
+                >
+                  <i class="fas fa-user mr-1 md:mr-2 text-xs md:text-sm"
+                  ></i>NOMBRE
                 </label>
                 <input
                   id="name"
@@ -147,8 +241,12 @@ const handleSubmit = (event) => {
 
               <!-- Campo Email -->
               <div class="relative">
-                <label for="email" class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium">
-                  <i class="fas fa-envelope mr-1 md:mr-2 text-xs md:text-sm"></i>CORREO ELECTRÓNICO
+                <label
+                  for="email"
+                  class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium"
+                >
+                  <i class="fas fa-envelope mr-1 md:mr-2 text-xs md:text-sm"
+                  ></i>CORREO ELECTRÓNICO
                 </label>
                 <input
                   id="email"
@@ -161,8 +259,12 @@ const handleSubmit = (event) => {
 
               <!-- Campo Mensaje -->
               <div class="relative">
-                <label for="message" class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium">
-                  <i class="fas fa-comment-alt mr-1 md:mr-2 text-xs md:text-sm"></i>MENSAJE
+                <label
+                  for="message"
+                  class="block text-yellow-400 mb-1 md:mb-2 text-xs md:text-sm font-medium"
+                >
+                  <i class="fas fa-comment-alt mr-1 md:mr-2 text-xs md:text-sm"
+                  ></i>MENSAJE
                 </label>
                 <textarea
                   id="message"
@@ -174,12 +276,25 @@ const handleSubmit = (event) => {
               </div>
 
               <!-- Botón de enviar -->
-              <button type="submit" class="w-full btn-bat py-3 md:py-4 mt-4 md:mt-8 relative overflow-hidden group">
-                <span class="relative z-10 font-batman text-sm md:text-lg tracking-wider">
-                  <i class="fas fa-paper-plane mr-1 md:mr-2 text-sm md:text-base"></i>ENVIAR MENSAJE
+              <button
+                type="submit"
+                class="w-full btn-bat py-3 md:py-4 mt-4 md:mt-8 relative overflow-hidden group"
+              >
+                <span
+                  class="relative z-10 font-batman text-sm md:text-lg tracking-wider"
+                >
+                  <i
+                    class="fas fa-paper-plane mr-1 md:mr-2 text-sm md:text-base"
+                  ></i>ENVIAR MENSAJE
                 </span>
-                <div class="absolute inset-0 bg-gradient-to-r from-yellow-600 via-yellow-700 to-yellow-600 group-hover:from-yellow-500 group-hover:via-yellow-600 group-hover:to-yellow-500 transition-all duration-300"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-yellow-600 via-yellow-700 to-yellow-600 group-hover:from-yellow-500 group-hover:via-yellow-600 group-hover:to-yellow-500 transition-all duration-300"
+                >
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+                >
+                </div>
               </button>
             </form>
           </div>
@@ -188,95 +303,196 @@ const handleSubmit = (event) => {
     </section>
 
     <!-- FAQ SECTION - Optimizado para móvil -->
-    <section class="relative py-12 md:py-24 px-4 md:px-6 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <section
+      class="relative py-12 md:py-24 px-4 md:px-6 bg-gradient-to-b from-gray-900 via-black to-gray-900"
+    >
       <!-- Patrón de fondo responsivo -->
       <div class="absolute inset-0 opacity-5 md:opacity-10">
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\" fill=\"%23f1c40f\" fill-opacity=\"0.4\" fill-rule=\"evenodd\"/%3E%3C/svg%3E'); background-size: 100px 100px;"></div>
+        <div
+          class="absolute inset-0"
+          style={`background-image: url('${svgPattern}'); background-size: 100px 100px;`}
+        >
+        </div>
       </div>
-      
+
       <div class="max-w-4xl mx-auto relative">
         <!-- Título FAQ responsivo -->
-        <h2 class="text-3xl sm:text-4xl md:text-5xl text-center text-yellow-400 mb-12 md:mb-20 font-batman relative px-2">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl text-center text-yellow-400 mb-12 md:mb-20 font-batman relative px-2"
+        >
           <span class="relative inline-block">
             PREGUNTAS <span class="text-white">FRECUENTES</span>
-            <div class="absolute -bottom-2 md:-bottom-4 left-1/4 right-1/4 h-0.5 md:h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
+            <div
+              class="absolute -bottom-2 md:-bottom-4 left-1/4 right-1/4 h-0.5 md:h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"
+            >
+            </div>
           </span>
         </h2>
 
         <div class="space-y-3 md:space-y-4 px-2">
           <!-- FAQ 1 -->
           <div class="faq-item group">
-            <button class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4">
-              <div class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0">
-                <div class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0">
-                  <i class="fas fa-clock text-yellow-400 text-xs md:text-sm"></i>
+            <button
+              class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4"
+            >
+              <div
+                class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0"
+              >
+                <div
+                  class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0"
+                >
+                  <i class="fas fa-clock text-yellow-400 text-xs md:text-sm"
+                  ></i>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <span class="text-yellow-400 font-medium text-sm md:text-base block">¿Cuánto tiempo tardas en responder?</span>
-                  <span class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5">Tiempo estimado de respuesta</span>
+                  <span
+                    class="text-yellow-400 font-medium text-sm md:text-base block"
+                    >¿Cuánto tiempo tardas en responder?</span
+                  >
+                  <span
+                    class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5"
+                    >Tiempo estimado de respuesta</span
+                  >
                 </div>
               </div>
-              <i class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"></i>
+              <i
+                class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"
+              ></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0">Normalmente respondo en menos de <span class="text-yellow-400">24 horas hábiles</span>. Para consultas urgentes, marco el mensaje como prioridad y respondo en menos de 6 horas.</p>
+              <p
+                class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0"
+              >
+                Normalmente respondo en menos de <span class="text-yellow-400"
+                  >24 horas hábiles</span
+                >. Para consultas urgentes, marco el mensaje como prioridad y
+                respondo en menos de 6 horas.
+              </p>
             </div>
           </div>
 
           <!-- FAQ 2 -->
           <div class="faq-item group">
-            <button class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4">
-              <div class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0">
-                <div class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0">
-                  <i class="fas fa-globe-americas text-yellow-400 text-xs md:text-sm"></i>
+            <button
+              class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4"
+            >
+              <div
+                class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0"
+              >
+                <div
+                  class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0"
+                >
+                  <i
+                    class="fas fa-globe-americas text-yellow-400 text-xs md:text-sm"
+                  ></i>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <span class="text-yellow-400 font-medium text-sm md:text-base block">¿Trabajas con empresas internacionales?</span>
-                  <span class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5">Alcance global</span>
+                  <span
+                    class="text-yellow-400 font-medium text-sm md:text-base block"
+                    >¿Trabajas con empresas internacionales?</span
+                  >
+                  <span
+                    class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5"
+                    >Alcance global</span
+                  >
                 </div>
               </div>
-              <i class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"></i>
+              <i
+                class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"
+              ></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0">Sí, trabajo con clientes de distintos países. Manejo <span class="text-yellow-400">múltiples husos horarios</span> y me adapto a las necesidades internacionales. Hablo español e inglés fluidamente.</p>
+              <p
+                class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0"
+              >
+                Sí, trabajo con clientes de distintos países. Manejo <span
+                  class="text-yellow-400">múltiples husos horarios</span
+                > y me adapto a las necesidades internacionales. Hablo español e inglés
+                fluidamente.
+              </p>
             </div>
           </div>
 
           <!-- FAQ 3 -->
           <div class="faq-item group">
-            <button class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4">
-              <div class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0">
-                <div class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0">
-                  <i class="fas fa-tools text-yellow-400 text-xs md:text-sm"></i>
+            <button
+              class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4"
+            >
+              <div
+                class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0"
+              >
+                <div
+                  class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0"
+                >
+                  <i class="fas fa-tools text-yellow-400 text-xs md:text-sm"
+                  ></i>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <span class="text-yellow-400 font-medium text-sm md:text-base block">¿Ofreces mantenimiento post-desarrollo?</span>
-                  <span class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5">Soporte continuo</span>
+                  <span
+                    class="text-yellow-400 font-medium text-sm md:text-base block"
+                    >¿Ofreces mantenimiento post-desarrollo?</span
+                  >
+                  <span
+                    class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5"
+                    >Soporte continuo</span
+                  >
                 </div>
               </div>
-              <i class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"></i>
+              <i
+                class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"
+              ></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0">Sí, ofrezco <span class="text-yellow-400">soporte post-desarrollo</span> con diferentes planes de mantenimiento. Esto incluye actualizaciones, corrección de bugs, optimizaciones y monitoreo del proyecto.</p>
+              <p
+                class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0"
+              >
+                Sí, ofrezco <span class="text-yellow-400"
+                  >soporte post-desarrollo</span
+                > con diferentes planes de mantenimiento. Esto incluye actualizaciones,
+                corrección de bugs, optimizaciones y monitoreo del proyecto.
+              </p>
             </div>
           </div>
 
           <!-- FAQ 4 -->
           <div class="faq-item group">
-            <button class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4">
-              <div class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0">
-                <div class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0">
-                  <i class="fas fa-shield-alt text-yellow-400 text-xs md:text-sm"></i>
+            <button
+              class="faq-question w-full text-left p-3 md:p-4 group-hover:bg-gray-900/30 transition-all duration-300 flex justify-between items-start md:items-center gap-2 md:gap-4"
+            >
+              <div
+                class="flex items-start md:items-center gap-2 md:gap-4 flex-1 min-w-0"
+              >
+                <div
+                  class="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center bg-yellow-900/30 rounded flex-shrink-0"
+                >
+                  <i
+                    class="fas fa-shield-alt text-yellow-400 text-xs md:text-sm"
+                  ></i>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <span class="text-yellow-400 font-medium text-sm md:text-base block">¿Cómo manejas la confidencialidad?</span>
-                  <span class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5">Seguridad y privacidad</span>
+                  <span
+                    class="text-yellow-400 font-medium text-sm md:text-base block"
+                    >¿Cómo manejas la confidencialidad?</span
+                  >
+                  <span
+                    class="text-gray-400 text-xs md:text-sm font-normal block mt-0.5"
+                    >Seguridad y privacidad</span
+                  >
                 </div>
               </div>
-              <i class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"></i>
+              <i
+                class="fas fa-chevron-down transition-transform duration-300 text-xs md:text-sm mt-1 md:mt-0 flex-shrink-0"
+              ></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0">Trabajo con <span class="text-yellow-400">estrictos protocolos de confidencialidad</span>. Ofrezco firmar NDAs y utilizo encriptación para todas las comunicaciones y datos sensibles.</p>
+              <p
+                class="text-gray-300 text-sm md:text-base p-3 md:p-4 pt-0 md:pt-0"
+              >
+                Trabajo con <span class="text-yellow-400"
+                  >estrictos protocolos de confidencialidad</span
+                >. Ofrezco firmar NDAs y utilizo encriptación para todas las
+                comunicaciones y datos sensibles.
+              </p>
             </div>
           </div>
         </div>
@@ -288,300 +504,339 @@ const handleSubmit = (event) => {
 </Layout>
 
 <style is:global>
-/* 🔒 CLAVE: capas visuales NO capturan clicks */
-.smoke,
-.background-animation,
-.water-drops {
-  pointer-events: none !important;
-}
-
-/* Fuente Batman */
-.font-batman {
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.05em;
-}
-
-/* FAQ Mejorado para móvil */
-.faq-item {
-  border: 1px solid rgba(241, 196, 15, 0.15);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background: rgba(17, 24, 39, 0.6);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-  border-color: rgba(241, 196, 15, 0.3);
-  box-shadow: 0 0 15px rgba(241, 196, 15, 0.05);
-}
-
-.faq-question {
-  background: transparent;
-  color: #f1c40f;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-  background: rgba(30, 41, 59, 0.3);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  border-top: 1px solid rgba(241, 196, 15, 0.1);
-}
-
-.faq-item.active i.fa-chevron-down {
-  transform: rotate(180deg);
-}
-
-/* Estilos de botón mejorados para móvil */
-.btn-bat {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  font-size: 0.875rem;
-}
-
-@media (min-width: 768px) {
-  .btn-bat {
-    border-radius: 0.75rem;
-    font-size: 1.125rem;
+  /* 🔒 CLAVE: capas visuales NO capturan clicks */
+  .smoke,
+  .background-animation,
+  .water-drops {
+    pointer-events: none !important;
   }
-}
 
-.btn-bat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
-}
-
-/* Efectos de borde luminoso responsivo */
-.card-bat {
-  position: relative;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(251, 191, 36, 0.2);
-  border-radius: 0.75rem;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .card-bat {
-    border: 1px solid rgba(251, 191, 36, 0.3);
-    border-radius: 1rem;
+  /* Fuente Batman */
+  .font-batman {
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.05em;
   }
-}
 
-.card-bat::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
-  background: linear-gradient(45deg, #fbbf24, #92400e, #fbbf24);
-  border-radius: 0.75rem;
-  z-index: -1;
-  opacity: 0.2;
-  animation: borderGlow 3s linear infinite;
-}
-
-@media (min-width: 768px) {
-  .card-bat::before {
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 1rem;
-    opacity: 0.3;
+  /* FAQ Mejorado para móvil */
+  .faq-item {
+    border: 1px solid rgba(241, 196, 15, 0.15);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
   }
-}
 
-@keyframes borderGlow {
-  0%, 100% {
-    opacity: 0.15;
-  }
-  50% {
-    opacity: 0.25;
-  }
-}
-
-@media (min-width: 768px) {
-  @keyframes borderGlow {
-    0%, 100% {
-      opacity: 0.2;
-    }
-    50% {
-      opacity: 0.4;
-    }
-  }
-}
-
-/* Scroll personalizado */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-@media (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-}
-
-::-webkit-scrollbar-track {
-  background: #111827;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #f59e0b, #92400e);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #fbbf24, #b45309);
-}
-
-/* Mejoras de accesibilidad para móvil */
-input, textarea, button {
-  font-size: 16px; /* Evita zoom en iOS */
-}
-
-@media (max-width: 640px) {
-  input, textarea {
-    font-size: 14px;
-  }
-  
-  button {
-    font-size: 14px;
-  }
-}
-
-/* Optimizaciones para pantallas pequeñas */
-@media (max-width: 640px) {
-  .faq-question {
-    padding: 12px;
-  }
-  
-  .faq-item.active .faq-answer {
-    padding: 0 12px 12px;
-  }
-  
-  .contact-info .space-y-4 > div {
-    padding: 10px;
-  }
-}
-
-/* Mejoras de toque para móvil */
-@media (hover: none) and (pointer: coarse) {
-  .btn-bat:hover {
-    transform: none;
-  }
-  
-  .faq-question:hover {
-    background: transparent;
-  }
-  
   .faq-item:hover {
-    border-color: rgba(241, 196, 15, 0.15);
-    box-shadow: none;
+    border-color: rgba(241, 196, 15, 0.3);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.05);
   }
-  
-  .faq-question:active {
+
+  .faq-question {
+    background: transparent;
+    color: #f1c40f;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
     background: rgba(30, 41, 59, 0.3);
   }
-  
-  .btn-bat:active {
-    transform: scale(0.98);
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-}
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    border-top: 1px solid rgba(241, 196, 15, 0.1);
+  }
+
+  .faq-item.active i.fa-chevron-down {
+    transform: rotate(180deg);
+  }
+
+  /* Estilos de botón mejorados para móvil */
+  .btn-bat {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .btn-bat {
+      border-radius: 0.75rem;
+      font-size: 1.125rem;
+    }
+  }
+
+  .btn-bat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+  }
+
+  /* Efectos de borde luminoso responsivo */
+  .card-bat {
+    position: relative;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .card-bat {
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 1rem;
+    }
+  }
+
+  .card-bat::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, #fbbf24, #92400e, #fbbf24);
+    border-radius: 0.75rem;
+    z-index: -1;
+    opacity: 0.2;
+    animation: borderGlow 3s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .card-bat::before {
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 1rem;
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes borderGlow {
+    0%,
+    100% {
+      opacity: 0.15;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
+
+  @media (min-width: 768px) {
+    @keyframes borderGlow {
+      0%,
+      100% {
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  /* Scroll personalizado */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  @media (min-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111827;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f59e0b, #92400e);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #fbbf24, #b45309);
+  }
+
+  /* Mejoras de accesibilidad para móvil */
+  input,
+  textarea,
+  button {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+
+  @media (max-width: 640px) {
+    input,
+    textarea {
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 14px;
+    }
+  }
+
+  /* Optimizaciones para pantallas pequeñas */
+  @media (max-width: 640px) {
+    .faq-question {
+      padding: 12px;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 12px 12px;
+    }
+
+    .contact-info .space-y-4 > div {
+      padding: 10px;
+    }
+  }
+
+  /* Mejoras de toque para móvil */
+  @media (hover: none) and (pointer: coarse) {
+    .btn-bat:hover {
+      transform: none;
+    }
+
+    .faq-question:hover {
+      background: transparent;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(241, 196, 15, 0.15);
+      box-shadow: none;
+    }
+
+    .faq-question:active {
+      background: rgba(30, 41, 59, 0.3);
+    }
+
+    .btn-bat:active {
+      transform: scale(0.98);
+    }
+  }
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Manejar el envío del formulario de contacto
+    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Obtener valores del formulario
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Número de WhatsApp (+57 312 280 9604 → 573122809604)
+        const whatsappNumber = "573122809604";
+
+        // Construir mensaje para WhatsApp
+        const whatsappMessage = `Hola, soy ${name}\n\nCorreo: ${email}\n\nMensaje: ${message}`;
+
+        // Codificar el mensaje para la URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+
+        // Crear URL de WhatsApp
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Efecto de carga en botón de envío
+        const submitButton = this.querySelector('button[type="submit"]');
+        if (submitButton) {
+          const originalText = submitButton.querySelector("span").innerHTML;
+          submitButton.querySelector("span").innerHTML =
+            '<i class="fas fa-spinner fa-spin mr-2"></i>ENVIANDO...';
+          submitButton.disabled = true;
+        }
+
+        // Abrir WhatsApp
+        window.open(whatsappURL, "_blank");
+
+        // Limpiar formulario y restaurar botón
+        setTimeout(() => {
+          contactForm.reset();
+          if (submitButton) {
+            submitButton.querySelector("span").innerHTML = originalText;
+            submitButton.disabled = false;
+          }
+          alert(
+            "Se abrió WhatsApp para enviar tu mensaje. ¡Gracias por contactarme!",
+          );
+        }, 1000);
+      });
+    }
+
     // FAQ functionality
-    document.querySelectorAll(".faq-question").forEach(btn => {
+    document.querySelectorAll(".faq-question").forEach((btn) => {
       btn.addEventListener("click", () => {
         const item = btn.closest(".faq-item");
-        
+
         // Cerrar otros items
-        document.querySelectorAll(".faq-item").forEach(i => {
+        document.querySelectorAll(".faq-item").forEach((i) => {
           if (i !== item) {
             i.classList.remove("active");
-            const icon = i.querySelector('i.fa-chevron-down');
-            if (icon) icon.style.transform = 'rotate(0deg)';
+            const icon = i.querySelector("i.fa-chevron-down");
+            if (icon) icon.style.transform = "rotate(0deg)";
           }
         });
 
         // Alternar item actual
         const isActive = item.classList.contains("active");
         item.classList.toggle("active");
-        
+
         // Animación suave del ícono
-        const icon = btn.querySelector('i.fa-chevron-down');
+        const icon = btn.querySelector("i.fa-chevron-down");
         if (icon) {
           if (isActive) {
-            icon.style.transform = 'rotate(0deg)';
+            icon.style.transform = "rotate(0deg)";
           } else {
-            icon.style.transform = 'rotate(180deg)';
+            icon.style.transform = "rotate(180deg)";
           }
         }
       });
     });
 
     // Efecto hover en inputs
-    document.querySelectorAll('input, textarea').forEach(input => {
-      input.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
+    document.querySelectorAll("input, textarea").forEach((input) => {
+      input.addEventListener("focus", function () {
+        this.parentElement.classList.add("focused");
       });
-      
-      input.addEventListener('blur', function() {
-        this.parentElement.classList.remove('focused');
+
+      input.addEventListener("blur", function () {
+        this.parentElement.classList.remove("focused");
       });
     });
 
-    // Efecto de carga en botón de envío
-    const submitButton = document.querySelector('button[type="submit"]');
-    if (submitButton) {
-      submitButton.addEventListener('click', function(e) {
-        if (this.form.checkValidity()) {
-          const originalText = this.querySelector('span').innerHTML;
-          this.querySelector('span').innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>ENVIANDO...';
-          this.disabled = true;
-          
-          setTimeout(() => {
-            this.querySelector('span').innerHTML = originalText;
-            this.disabled = false;
-          }, 2000);
-        }
-      });
-    }
-
     // Mejorar experiencia táctil en móvil
-    if ('ontouchstart' in window || navigator.maxTouchPoints) {
-      document.querySelectorAll('.faq-question, .btn-bat').forEach(element => {
-        element.addEventListener('touchstart', function() {
-          this.style.transform = 'scale(0.98)';
+    if ("ontouchstart" in window || navigator.maxTouchPoints) {
+      document
+        .querySelectorAll(".faq-question, .btn-bat")
+        .forEach((element) => {
+          element.addEventListener("touchstart", function () {
+            this.style.transform = "scale(0.98)";
+          });
+
+          element.addEventListener("touchend", function () {
+            this.style.transform = "";
+          });
         });
-        
-        element.addEventListener('touchend', function() {
-          this.style.transform = '';
-        });
-      });
     }
   });
 </script>

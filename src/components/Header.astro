@@ -2,15 +2,27 @@
 // Header.astro - Manteniendo diseño actual + cambio de tema
 ---
 
-<header class="header bg-gradient-to-b from-gray-900 to-black text-white shadow-lg shadow-yellow-400/10 fixed w-full top-0 z-50">
-  <nav class="container mx-auto flex justify-between items-center py-4 px-4 md:px-6">
+<header
+  class="header bg-gradient-to-b from-gray-900 to-black text-white shadow-lg shadow-yellow-400/10 fixed w-full top-0 z-50"
+>
+  <nav
+    class="container mx-auto flex justify-between items-center py-4 px-4 md:px-6"
+  >
     <!-- Logo y nombre -->
     <a href="/" class="flex items-center space-x-3 group">
-      <div class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-        <img src="/Bat-Ico.jpg" alt="Foto de perfil" class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+      <div
+        class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"
+      >
+        <img
+          src="/Bat-Ico.jpg"
+          alt="Foto de perfil"
+          class="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"
+        />
       </div>
       <div>
-        <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
+        <h1
+          class="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent"
+        >
           Santiago López
         </h1>
         <p class="text-xs text-gray-400 hidden md:block">Gotham Developer</p>
@@ -20,10 +32,7 @@
     <!-- Navegación desktop -->
     <ul class="hidden md:flex space-x-8">
       <li>
-        <a 
-          href="/" 
-          class="nav-link relative group"
-        >
+        <a href="/" class="nav-link relative group">
           <span class="flex items-center">
             <i class="fas fa-home mr-2 text-yellow-400"></i>
             Inicio
@@ -32,10 +41,7 @@
         </a>
       </li>
       <li>
-        <a 
-          href="/about" 
-          class="nav-link relative group"
-        >
+        <a href="/about" class="nav-link relative group">
           <span class="flex items-center">
             <i class="fas fa-user mr-2 text-yellow-400"></i>
             Acerca de mí
@@ -44,10 +50,7 @@
         </a>
       </li>
       <li>
-        <a 
-          href="/projects" 
-          class="nav-link relative group"
-        >
+        <a href="/projects" class="nav-link relative group">
           <span class="flex items-center">
             <i class="fas fa-code mr-2 text-yellow-400"></i>
             Proyectos
@@ -56,10 +59,7 @@
         </a>
       </li>
       <li>
-        <a 
-          href="/contact" 
-          class="nav-link relative group"
-        >
+        <a href="/contact" class="nav-link relative group">
           <span class="flex items-center">
             <i class="fas fa-envelope mr-2 text-yellow-400"></i>
             Contacto
@@ -71,7 +71,7 @@
 
     <!-- Botones de acción -->
     <div class="hidden md:flex items-center space-x-4">
-      <a 
+      <a
         href="/CV.pdf"
         download
         class="flex items-center px-4 py-2 text-sm bg-yellow-400 text-black font-medium rounded-md hover:bg-yellow-300 transition-colors"
@@ -79,68 +79,67 @@
         <i class="fas fa-download mr-2"></i>
         CV
       </a>
-      <button class="theme-toggle p-2 rounded-md hover:bg-gray-800 transition-colors" aria-label="Alternar tema">
-        <i class="fas fa-moon"></i>
-      </button>
     </div>
 
     <!-- Botón menú móvil -->
-    <button 
+    <button
       class="md:hidden flex flex-col space-y-1.5 p-2 rounded-md hover:bg-gray-800 transition-colors"
       id="mobile-menu-button"
       aria-label="Abrir menú"
       aria-expanded="false"
     >
-      <span class="w-6 h-0.5 bg-yellow-400 transition-transform" id="line1"></span>
-      <span class="w-6 h-0.5 bg-yellow-400 transition-opacity" id="line2"></span>
-      <span class="w-6 h-0.5 bg-yellow-400 transition-transform" id="line3"></span>
+      <span class="w-6 h-0.5 bg-yellow-400 transition-transform" id="line1"
+      ></span>
+      <span class="w-6 h-0.5 bg-yellow-400 transition-opacity" id="line2"
+      ></span>
+      <span class="w-6 h-0.5 bg-yellow-400 transition-transform" id="line3"
+      ></span>
     </button>
   </nav>
 
   <!-- Menú móvil -->
-  <div class="md:hidden bg-gray-900 transition-all duration-300 ease-in-out overflow-hidden max-h-0" id="mobile-menu">
+  <div
+    class="md:hidden bg-gray-900 transition-all duration-300 ease-in-out overflow-hidden max-h-0"
+    id="mobile-menu"
+  >
     <div class="container mx-auto px-4 space-y-4">
-      <a 
-        href="/" 
+      <a
+        href="/"
         class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors mobile-nav-link"
       >
         <i class="fas fa-home mr-3 text-yellow-400 w-5"></i>
         Inicio
       </a>
-      <a 
-        href="/about" 
+      <a
+        href="/about"
         class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors mobile-nav-link"
       >
         <i class="fas fa-user mr-3 text-yellow-400 w-5"></i>
         Acerca de mí
       </a>
-      <a 
-        href="/projects" 
+      <a
+        href="/projects"
         class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors mobile-nav-link"
       >
         <i class="fas fa-code mr-3 text-yellow-400 w-5"></i>
         Proyectos
       </a>
-      <a 
-        href="/contact" 
+      <a
+        href="/contact"
         class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-800 transition-colors mobile-nav-link"
       >
         <i class="fas fa-envelope mr-3 text-yellow-400 w-5"></i>
         Contacto
       </a>
       <div class="pt-4 border-t border-gray-800 mt-4">
-        <a 
-          href="/CV.pdf" 
+        <a
+          href="/CV.pdf"
           download
           class="flex items-center justify-center py-3 px-4 bg-yellow-400 text-black font-medium rounded-md hover:bg-yellow-300 transition-colors"
         >
           <i class="fas fa-download mr-2"></i>
           Descargar CV
         </a>
-        <button class="theme-toggle-mobile w-full flex items-center justify-center py-3 px-4 mt-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-400 transition-colors">
-          <i class="fas fa-sun mr-2"></i>
-          Tema Claro
-        </button>
       </div>
     </div>
   </div>
@@ -154,11 +153,11 @@
     padding: 0.5rem 0;
     transition: color 0.3s ease;
   }
-  
+
   .nav-link:hover {
     color: #f1c40f;
   }
-  
+
   .nav-underline {
     position: absolute;
     bottom: 0;
@@ -168,31 +167,31 @@
     background: linear-gradient(90deg, #f1c40f, #ffd43b);
     transition: width 0.3s ease;
   }
-  
+
   .nav-link:hover .nav-underline {
     width: 100%;
   }
-  
+
   /* Efectos específicos para el header */
   header {
     border-bottom: 1px solid rgba(241, 196, 15, 0.1);
   }
-  
+
   /* Estado activo para menú móvil */
   #mobile-menu.mobile-menu-open {
     max-height: 500px !important;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-  
+
   #mobile-menu-button.menu-open #line1 {
     transform: rotate(45deg) translateY(6px);
   }
-  
+
   #mobile-menu-button.menu-open #line2 {
     opacity: 0;
   }
-  
+
   #mobile-menu-button.menu-open #line3 {
     transform: rotate(-45deg) translateY(-6px);
   }
@@ -222,97 +221,49 @@
 
 <script>
   // Script para el menú móvil y cambio de tema
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     // Obtener elementos del DOM con comprobación de nulidad
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeToggleMobile = document.querySelector('.theme-toggle-mobile');
-    
+    const menuButton = document.getElementById(
+      "mobile-menu-button",
+    ) as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById(
+      "mobile-menu",
+    ) as HTMLElement | null;
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
     // Si no existen los elementos necesarios, salir de la función
     if (!menuButton || !mobileMenu) return;
-    
-    let isMenuOpen = false;
-    let isLightTheme = localStorage.getItem('theme') === 'light';
 
-    // Aplicar tema al cargar
-    if (isLightTheme) {
-      document.documentElement.classList.add('light-theme');
-      updateThemeIcons();
-    }
+    let isMenuOpen = false;
 
     // Función para alternar el menú
     function toggleMenu() {
       isMenuOpen = !isMenuOpen;
-      
+
       if (isMenuOpen) {
-        mobileMenu.classList.add('mobile-menu-open');
-        menuButton.classList.add('menu-open');
-        menuButton.setAttribute('aria-expanded', 'true');
+        mobileMenu!.classList.add("mobile-menu-open");
+        menuButton!.classList.add("menu-open");
+        menuButton!.setAttribute("aria-expanded", "true");
       } else {
-        mobileMenu.classList.remove('mobile-menu-open');
-        menuButton.classList.remove('menu-open');
-        menuButton.setAttribute('aria-expanded', 'false');
-      }
-    }
-    
-    // Función para alternar el tema
-    function toggleTheme() {
-      isLightTheme = !isLightTheme;
-      
-      if (isLightTheme) {
-        document.documentElement.classList.add('light-theme');
-      } else {
-        document.documentElement.classList.remove('light-theme');
-      }
-      
-      updateThemeIcons();
-      localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
-    }
-
-    // Función para actualizar íconos del tema
-    function updateThemeIcons() {
-      const icons = document.querySelectorAll('.theme-toggle i, .theme-toggle-mobile i');
-      
-      icons.forEach(icon => {
-        if (isLightTheme) {
-          icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-          icon.classList.replace('fa-sun', 'fa-moon');
-        }
-      });
-
-      // Actualizar texto del botón móvil
-      if (themeToggleMobile) {
-        themeToggleMobile.innerHTML = isLightTheme 
-          ? '<i class="fas fa-sun mr-2"></i>Tema Oscuro' 
-          : '<i class="fas fa-moon mr-2"></i>Tema Claro';
+        mobileMenu!.classList.remove("mobile-menu-open");
+        menuButton!.classList.remove("menu-open");
+        menuButton!.setAttribute("aria-expanded", "false");
       }
     }
 
     // Event listener para el botón del menú
-    menuButton.addEventListener('click', toggleMenu);
-    
+    menuButton.addEventListener("click", toggleMenu);
+
     // Cerrar menú al hacer clic en un enlace (solo si hay enlaces)
     if (mobileNavLinks.length > 0) {
-      mobileNavLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
+      mobileNavLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
           isMenuOpen = false;
-          mobileMenu.classList.remove('mobile-menu-open');
-          menuButton.classList.remove('menu-open');
-          menuButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove("mobile-menu-open");
+          menuButton.classList.remove("menu-open");
+          menuButton.setAttribute("aria-expanded", "false");
         });
       });
-    }
-    
-    // Script para el cambio de tema
-    if (themeToggle) {
-      themeToggle.addEventListener('click', toggleTheme);
-    }
-    
-    if (themeToggleMobile) {
-      themeToggleMobile.addEventListener('click', toggleTheme);
     }
   });
 </script>
