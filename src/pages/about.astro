@@ -7,68 +7,107 @@ import WaterDrops from "../components/WaterDrops.astro";
 import Smoke from "../components/Smoke.astro";
 ---
 
-<Layout title="Acerca de mí - Gotham Style" description="Conoce a Santiago López, desarrollador de software con estilo Gótico inspirado en Batman y Gotham City">
+<Layout
+  title="Acerca de mí - Gotham Style"
+  description="Conoce a Santiago López, desarrollador de software con estilo Gótico inspirado en Batman y Gotham City"
+>
   <Smoke />
   <BackgroundAnimation />
-  
+
   <!-- Contenedor principal con posición relativa para controlar el z-index -->
   <div class="relative z-10">
     <WaterDrops />
     <Header />
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
-      <div class="absolute top-10 left-1/2 transform -translate-x-1/2 opacity-20">
+    <section
+      class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20"
+    >
+      <div
+        class="absolute top-10 left-1/2 transform -translate-x-1/2 opacity-20"
+      >
         <div class="bat-silhouette">🦇</div>
       </div>
-      <h1 class="text-5xl md:text-7xl font-bold text-yellow-400 mb-6 animate-pulse">Acerca de mí</h1>
-      
+      <h1
+        class="text-5xl md:text-7xl font-bold text-yellow-400 mb-6 mt-12 animate-pulse"
+      >
+        Acerca de mí
+      </h1>
+
       <div class="relative mb-10">
-        <div class="w-48 h-48 mx-auto rounded-full border-4 border-yellow-400 p-2 shadow-lg shadow-yellow-400/30">
-          <div class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-            <img src="/images/Yo.png" alt="Santiago López" class="w-full h-full object-cover rounded-full">
+        <div
+          class="w-48 h-48 mx-auto rounded-full border-4 border-yellow-400 p-2 shadow-lg shadow-yellow-400/30"
+        >
+          <div
+            class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center"
+          >
+            <img
+              src="/images/Yo.png"
+              alt="Santiago López"
+              class="w-full h-full object-cover rounded-full"
+            />
           </div>
         </div>
-        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold">
+        <div
+          class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold"
+        >
           Dev Gotham
         </div>
       </div>
-      
+
       <p class="max-w-3xl text-gray-300 text-xl leading-relaxed mb-8">
-        Soy <span class="text-yellow-400 font-semibold">Santiago</span>, desarrollador de software enfocado en el
-        diseño y construcción de soluciones web modernas, seguras y escalables.
-        Me especializo en crear aplicaciones con una arquitectura sólida, atención al detalle
-        y una estética cuidada, combinando funcionalidad, rendimiento y experiencia de usuario.
+        Soy <span class="text-yellow-400 font-semibold">Santiago</span>,
+        desarrollador de software enfocado en el diseño y construcción de
+        soluciones web modernas, seguras y escalables. Me especializo en crear
+        aplicaciones con una arquitectura sólida, atención al detalle y una
+        estética cuidada, combinando funcionalidad, rendimiento y experiencia de
+        usuario.
       </p>
 
       <!-- Badges de especialización -->
       <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <span class="bg-red-500 bg-opacity-20 text-red-400 px-4 py-2 rounded-full text-sm font-bold border border-red-500 border-opacity-30">
+        <span
+          class="bg-red-500 bg-opacity-20 text-red-400 px-4 py-2 rounded-full text-sm font-bold border border-red-500 border-opacity-30"
+        >
           <i class="fas fa-shield-alt mr-2"></i>Ciberseguridad
         </span>
-        <span class="bg-green-500 bg-opacity-20 text-green-400 px-4 py-2 rounded-full text-sm font-bold border border-green-500 border-opacity-30">
+        <span
+          class="bg-green-500 bg-opacity-20 text-green-400 px-4 py-2 rounded-full text-sm font-bold border border-green-500 border-opacity-30"
+        >
           <i class="fas fa-user-secret mr-2"></i>Hacking Ético
         </span>
-        <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-4 py-2 rounded-full text-sm font-bold border border-yellow-500 border-opacity-30">
+        <span
+          class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-4 py-2 rounded-full text-sm font-bold border border-yellow-500 border-opacity-30"
+        >
           <i class="fas fa-code mr-2"></i>Full-Stack Dev
         </span>
       </div>
-      
-      <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+
+      <div
+        class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
+      >
         <a href="/projects" class="btn-bat flex items-center justify-center">
           <i class="fas fa-code mr-2"></i>
           Ver Proyectos
         </a>
-        <a href="/contact" class="btn-bat-outline flex items-center justify-center">
+        <a
+          href="/contact"
+          class="btn-bat-outline flex items-center justify-center"
+        >
           <i class="fas fa-envelope mr-2"></i>
           Contáctame
         </a>
       </div>
-      
+
       <!-- Flecha indicadora de scroll -->
-      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center">
-          <div class="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse"></div>
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <div
+          class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center"
+        >
+          <div class="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse">
+          </div>
         </div>
       </div>
     </section>
@@ -80,89 +119,137 @@ import Smoke from "../components/Smoke.astro";
           <i class="fas fa-shield-alt mr-4"></i>
           Ciberseguridad & <span class="text-white">Hacking Ético</span>
         </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
           <!-- Pentesting -->
           <div class="security-card">
             <div class="security-icon red-glow">
               <i class="fas fa-crosshairs"></i>
             </div>
             <h3 class="security-title">Pentesting</h3>
-            <p class="security-desc">Pruebas de penetración y auditorías de seguridad en aplicaciones web y redes.</p>
+            <p class="security-desc">
+              Pruebas de penetración y auditorías de seguridad en aplicaciones
+              web y redes.
+            </p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>OWASP Top 10</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Metasploit</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Burp Suite</li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>OWASP Top 10
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Metasploit
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Burp Suite
+              </li>
             </ul>
           </div>
-          
+
           <!-- Análisis de Vulnerabilidades -->
           <div class="security-card">
             <div class="security-icon orange-glow">
               <i class="fas fa-bug"></i>
             </div>
             <h3 class="security-title">Análisis de Vulnerabilidades</h3>
-            <p class="security-desc">Identificación y remediación de vulnerabilidades en código y infraestructura.</p>
+            <p class="security-desc">
+              Identificación y remediación de vulnerabilidades en código y
+              infraestructura.
+            </p>
             <ul class="security-skills">
               <li><i class="fas fa-check text-green-400 mr-2"></i>SAST/DAST</li>
               <li><i class="fas fa-check text-green-400 mr-2"></i>Nessus</li>
               <li><i class="fas fa-check text-green-400 mr-2"></i>Nmap</li>
             </ul>
           </div>
-          
+
           <!-- Seguridad Web -->
           <div class="security-card">
             <div class="security-icon blue-glow">
               <i class="fas fa-globe"></i>
             </div>
             <h3 class="security-title">Seguridad Web</h3>
-            <p class="security-desc">Protección contra ataques comunes como XSS, SQLi, CSRF y más.</p>
+            <p class="security-desc">
+              Protección contra ataques comunes como XSS, SQLi, CSRF y más.
+            </p>
             <ul class="security-skills">
               <li><i class="fas fa-check text-green-400 mr-2"></i>WAF</li>
               <li><i class="fas fa-check text-green-400 mr-2"></i>HTTPS/TLS</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Content Security Policy</li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Content Security
+                Policy
+              </li>
             </ul>
           </div>
-          
+
           <!-- Forense Digital -->
           <div class="security-card">
             <div class="security-icon purple-glow">
               <i class="fas fa-search"></i>
             </div>
             <h3 class="security-title">Forense Digital</h3>
-            <p class="security-desc">Investigación de incidentes de seguridad y análisis de evidencias digitales.</p>
+            <p class="security-desc">
+              Investigación de incidentes de seguridad y análisis de evidencias
+              digitales.
+            </p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Análisis de logs</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Memory forensics</li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Análisis de logs
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Memory forensics
+              </li>
               <li><i class="fas fa-check text-green-400 mr-2"></i>Autopsy</li>
             </ul>
           </div>
-          
+
           <!-- Hardening -->
           <div class="security-card">
             <div class="security-icon green-glow">
               <i class="fas fa-lock"></i>
             </div>
             <h3 class="security-title">Hardening</h3>
-            <p class="security-desc">Fortalecimiento de sistemas y aplicaciones contra posibles ataques.</p>
+            <p class="security-desc">
+              Fortalecimiento de sistemas y aplicaciones contra posibles
+              ataques.
+            </p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Configuración segura</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Bastionado</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Principio mínimo privilegio</li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Configuración
+                segura
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Bastionado
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Principio mínimo
+                privilegio
+              </li>
             </ul>
           </div>
-          
+
           <!-- Concienciación -->
           <div class="security-card">
             <div class="security-icon yellow-glow">
               <i class="fas fa-users"></i>
             </div>
             <h3 class="security-title">Concienciación</h3>
-            <p class="security-desc">Capacitación en seguridad para equipos de desarrollo y usuarios finales.</p>
+            <p class="security-desc">
+              Capacitación en seguridad para equipos de desarrollo y usuarios
+              finales.
+            </p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Phishing awareness</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Best practices</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Security training</li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Phishing
+                awareness
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Best practices
+              </li>
+              <li>
+                <i class="fas fa-check text-green-400 mr-2"></i>Security
+                training
+              </li>
             </ul>
           </div>
         </div>
@@ -172,9 +259,13 @@ import Smoke from "../components/Smoke.astro";
     <!-- Sección de Habilidades -->
     <section class="py-20 px-6">
       <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">Mis <span class="text-white">Habilidades</span></h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
+          Mis <span class="text-white">Habilidades</span>
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        >
           <div class="skill-card">
             <div class="skill-icon">
               <i class="fas fa-paint-brush"></i>
@@ -185,7 +276,7 @@ import Smoke from "../components/Smoke.astro";
               <div class="skill-progress" style="width: 90%"></div>
             </div>
           </div>
-          
+
           <div class="skill-card">
             <div class="skill-icon">
               <i class="fas fa-server"></i>
@@ -196,7 +287,7 @@ import Smoke from "../components/Smoke.astro";
               <div class="skill-progress" style="width: 85%"></div>
             </div>
           </div>
-          
+
           <div class="skill-card">
             <div class="skill-icon">
               <i class="fas fa-shield-alt"></i>
@@ -207,7 +298,7 @@ import Smoke from "../components/Smoke.astro";
               <div class="skill-progress" style="width: 80%"></div>
             </div>
           </div>
-          
+
           <div class="skill-card">
             <div class="skill-icon">
               <i class="fas fa-bolt"></i>
@@ -225,39 +316,62 @@ import Smoke from "../components/Smoke.astro";
     <!-- Sección de Experiencia -->
     <section class="py-20 px-6 bg-gray-900 bg-opacity-70">
       <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">Mi <span class="text-white">Trayectoria</span></h2>
-        
+        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
+          Mi <span class="text-white">Trayectoria</span>
+        </h2>
+
         <div class="max-w-4xl mx-auto">
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-date">Presente</div>
               <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">Desarrollador Fullstack & Security Researcher</h3>
-                <p class="text-gray-400">Desarrollo de aplicaciones seguras e investigación de vulnerabilidades. Especializado en seguridad ofensiva y defensiva.</p>
+                <h3 class="text-xl text-yellow-400 mb-2">
+                  Desarrollador Fullstack & Security Researcher
+                </h3>
+                <p class="text-gray-400">
+                  Desarrollo de aplicaciones seguras e investigación de
+                  vulnerabilidades. Especializado en seguridad ofensiva y
+                  defensiva.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-date">2022 - Presente</div>
               <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">Pentester & Security Analyst</h3>
-                <p class="text-gray-400">Realización de pruebas de penetración seguridas para verificar integridad y autenticidad de aplicaciones.</p>
+                <h3 class="text-xl text-yellow-400 mb-2">
+                  Pentester & Security Analyst
+                </h3>
+                <p class="text-gray-400">
+                  Realización de pruebas de penetración seguridas para verificar
+                  integridad y autenticidad de aplicaciones.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-date">2021 - 2022</div>
               <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">Desarrollador Frontend</h3>
-                <p class="text-gray-400">Especializado en interfaces de usuario seguras y aplicaciones web modernas.</p>
+                <h3 class="text-xl text-yellow-400 mb-2">
+                  Desarrollador Frontend
+                </h3>
+                <p class="text-gray-400">
+                  Especializado en interfaces de usuario seguras y aplicaciones
+                  web modernas.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-date">2019 - 2021</div>
               <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">Estudiante de Ciberseguridad</h3>
-                <p class="text-gray-400">Formación en ethical hacking, análisis de malware y técnicas de seguridad ofensiva.</p>
+                <h3 class="text-xl text-yellow-400 mb-2">
+                  Estudiante de Ciberseguridad
+                </h3>
+                <p class="text-gray-400">
+                  Formación en ethical hacking, análisis de malware y técnicas
+                  de seguridad ofensiva.
+                </p>
               </div>
             </div>
           </div>
@@ -272,38 +386,52 @@ import Smoke from "../components/Smoke.astro";
           <i class="fas fa-user-secret mr-4"></i>
           Filosofía de <span class="text-white">Seguridad</span>
         </h2>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div class="philosophy-card security-philosophy">
             <div class="philosophy-icon red-glow">
               <i class="fas fa-crosshairs"></i>
             </div>
             <h3 class="text-2xl text-yellow-400 mb-4">Mentalidad Ofensiva</h3>
-            <p class="text-gray-300">Pienso como un atacante para anticipar vectores de ataque y fortalecer las defensas antes de que sean explotadas.</p>
+            <p class="text-gray-300">
+              Pienso como un atacante para anticipar vectores de ataque y
+              fortalecer las defensas antes de que sean explotadas.
+            </p>
           </div>
-          
+
           <div class="philosophy-card security-philosophy">
             <div class="philosophy-icon green-glow">
               <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="text-2xl text-yellow-400 mb-4">Defensa en Profundidad</h3>
-            <p class="text-gray-300">Implemento múltiples capas de seguridad para que la falla de una no comprometa todo el sistema.</p>
+            <h3 class="text-2xl text-yellow-400 mb-4">
+              Defensa en Profundidad
+            </h3>
+            <p class="text-gray-300">
+              Implemento múltiples capas de seguridad para que la falla de una
+              no comprometa todo el sistema.
+            </p>
           </div>
-          
+
           <div class="philosophy-card security-philosophy">
             <div class="philosophy-icon blue-glow">
               <i class="fas fa-eye"></i>
             </div>
             <h3 class="text-2xl text-yellow-400 mb-4">Transparencia Ética</h3>
-            <p class="text-gray-300">Creo en la divulgación responsable de vulnerabilidades y en el hacking ético como herramienta de mejora.</p>
+            <p class="text-gray-300">
+              Creo en la divulgación responsable de vulnerabilidades y en el
+              hacking ético como herramienta de mejora.
+            </p>
           </div>
-          
+
           <div class="philosophy-card security-philosophy">
             <div class="philosophy-icon purple-glow">
               <i class="fas fa-sync-alt"></i>
             </div>
             <h3 class="text-2xl text-yellow-400 mb-4">Mejora Continua</h3>
-            <p class="text-gray-300">La seguridad no es un destino sino un proceso continuo de evaluación, mejora y adaptación.</p>
+            <p class="text-gray-300">
+              La seguridad no es un destino sino un proceso continuo de
+              evaluación, mejora y adaptación.
+            </p>
           </div>
         </div>
       </div>
@@ -312,8 +440,13 @@ import Smoke from "../components/Smoke.astro";
     <!-- CTA Section -->
     <section class="py-20 px-6 text-center bg-gray-900 bg-opacity-70">
       <div class="container mx-auto max-w-3xl">
-        <h2 class="text-4xl md:text-5xl text-yellow-400 mb-6">¿Protección contra amenazas digitales?</h2>
-        <p class="text-xl text-gray-300 mb-10">Desarrollo soluciones seguras y realizo auditorías para fortalecer tus defensas digitales.</p>
+        <h2 class="text-4xl md:text-5xl text-yellow-400 mb-6">
+          ¿Protección contra amenazas digitales?
+        </h2>
+        <p class="text-xl text-gray-300 mb-10">
+          Desarrollo soluciones seguras y realizo auditorías para fortalecer tus
+          defensas digitales.
+        </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="/contact" class="btn-bat-lg">
             <i class="fas fa-shield-alt mr-2"></i>
@@ -333,10 +466,14 @@ import Smoke from "../components/Smoke.astro";
 
 <style>
   /* Asegurar que los controles de lluvia estén por encima del canvas */
-  
+
   /* Animaciones personalizadas */
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
       transform: translateY(0) translateX(-50%);
     }
     40% {
@@ -346,11 +483,11 @@ import Smoke from "../components/Smoke.astro";
       transform: translateY(-5px) translateX(-50%);
     }
   }
-  
+
   .animate-bounce {
     animation: bounce 2s infinite;
   }
-  
+
   /* Estilos para tarjetas de ciberseguridad */
   .security-card {
     background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
@@ -358,32 +495,42 @@ import Smoke from "../components/Smoke.astro";
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
   }
-  
+
   .security-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #f1c40f, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #f1c40f);
+    background: linear-gradient(
+      90deg,
+      #f1c40f,
+      #ff6b6b,
+      #4ecdc4,
+      #45b7d1,
+      #96ceb4,
+      #f1c40f
+    );
     transform: translateX(-100%);
     transition: transform 0.6s ease;
   }
-  
+
   .security-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(241, 196, 15, 0.2);
   }
-  
+
   .security-card:hover::before {
     transform: translateX(100%);
   }
-  
+
   .security-icon {
     width: 80px;
     height: 80px;
@@ -396,47 +543,65 @@ import Smoke from "../components/Smoke.astro";
     font-size: 2rem;
     transition: all 0.3s ease;
   }
-  
-  .red-glow { color: #ff6b6b; box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
-  .orange-glow { color: #ffa502; box-shadow: 0 0 20px rgba(255, 165, 2, 0.3); }
-  .blue-glow { color: #45b7d1; box-shadow: 0 0 20px rgba(69, 183, 209, 0.3); }
-  .purple-glow { color: #a55eea; box-shadow: 0 0 20px rgba(165, 94, 234, 0.3); }
-  .green-glow { color: #26de81; box-shadow: 0 0 20px rgba(38, 222, 129, 0.3); }
-  .yellow-glow { color: #f1c40f; box-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
-  
+
+  .red-glow {
+    color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  }
+  .orange-glow {
+    color: #ffa502;
+    box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
+  }
+  .blue-glow {
+    color: #45b7d1;
+    box-shadow: 0 0 20px rgba(69, 183, 209, 0.3);
+  }
+  .purple-glow {
+    color: #a55eea;
+    box-shadow: 0 0 20px rgba(165, 94, 234, 0.3);
+  }
+  .green-glow {
+    color: #26de81;
+    box-shadow: 0 0 20px rgba(38, 222, 129, 0.3);
+  }
+  .yellow-glow {
+    color: #f1c40f;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+  }
+
   .security-icon:hover {
     transform: scale(1.1);
   }
-  
+
   .security-title {
     font-size: 1.25rem;
     font-weight: bold;
     color: #f1c40f;
     margin-bottom: 1rem;
   }
-  
+
   .security-desc {
     color: #9ca3af;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
     line-height: 1.5;
   }
-  
+
   .security-skills {
     text-align: left;
     color: #d1d5db;
     font-size: 0.85rem;
   }
-  
+
   .security-skills li {
     margin-bottom: 0.5rem;
   }
-  
+
   /* Filosofía de seguridad */
   .security-philosophy {
     border: 1px solid rgba(255, 107, 107, 0.3);
   }
-  
+
   /* Estilos para tarjetas de habilidades */
   .skill-card {
     background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
@@ -444,14 +609,16 @@ import Smoke from "../components/Smoke.astro";
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  
+
   .skill-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(241, 196, 15, 0.2);
   }
-  
+
   .skill-icon {
     width: 70px;
     height: 70px;
@@ -464,20 +631,20 @@ import Smoke from "../components/Smoke.astro";
     font-size: 1.8rem;
     color: #f1c40f;
   }
-  
+
   .skill-title {
     font-size: 1.25rem;
     font-weight: bold;
     color: #f1c40f;
     margin-bottom: 0.5rem;
   }
-  
+
   .skill-desc {
     color: #9ca3af;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
   }
-  
+
   .skill-bar {
     width: 100%;
     height: 6px;
@@ -485,22 +652,22 @@ import Smoke from "../components/Smoke.astro";
     border-radius: 3px;
     overflow: hidden;
   }
-  
+
   .skill-progress {
     height: 100%;
     background: linear-gradient(90deg, #f1c40f, #ffd43b);
     border-radius: 3px;
     transition: width 1s ease-in-out;
   }
-  
+
   /* Timeline */
   .timeline {
     position: relative;
     padding-left: 3rem;
   }
-  
+
   .timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 15px;
     top: 0;
@@ -508,14 +675,14 @@ import Smoke from "../components/Smoke.astro";
     width: 2px;
     background: linear-gradient(to bottom, #f1c40f, transparent);
   }
-  
+
   .timeline-item {
     position: relative;
     margin-bottom: 3rem;
   }
-  
+
   .timeline-item::before {
-    content: '';
+    content: "";
     position: absolute;
     left: -3rem;
     top: 0;
@@ -525,33 +692,33 @@ import Smoke from "../components/Smoke.astro";
     background: #f1c40f;
     border: 4px solid #1c1c1c;
   }
-  
+
   .timeline-date {
     font-size: 0.9rem;
     color: #f1c40f;
     margin-bottom: 0.5rem;
     font-weight: bold;
   }
-  
+
   .timeline-content {
     background: rgba(28, 28, 28, 0.7);
     padding: 1.5rem;
     border-radius: 0.5rem;
     border-left: 3px solid #f1c40f;
   }
-  
+
   /* Filosofía */
   .philosophy-card {
     text-align: center;
     padding: 2rem;
   }
-  
+
   .philosophy-icon {
     font-size: 2.5rem;
     color: #f1c40f;
     margin-bottom: 1rem;
   }
-  
+
   /* Botones mejorados */
   .btn-bat-outline {
     display: inline-flex;
@@ -566,14 +733,14 @@ import Smoke from "../components/Smoke.astro";
     transition: all 0.3s ease;
     text-decoration: none;
   }
-  
+
   .btn-bat-outline:hover {
     background: #f1c40f;
     color: #000;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
   }
-  
+
   .btn-bat-lg {
     display: inline-flex;
     align-items: center;
@@ -588,30 +755,35 @@ import Smoke from "../components/Smoke.astro";
     text-decoration: none;
     font-size: 1.1rem;
   }
-  
+
   .btn-bat-lg:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(241, 196, 15, 0.5);
   }
-  
+
   /* Silueta de murciélago */
   .bat-silhouette {
     font-size: 8rem;
     opacity: 0.1;
     animation: float 6s ease-in-out infinite;
   }
-  
+
   @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
   }
-  
+
   /* Responsividad */
   @media (max-width: 768px) {
     .timeline {
       padding-left: 2rem;
     }
-    
+
     .timeline-item::before {
       left: -2.2rem;
     }
