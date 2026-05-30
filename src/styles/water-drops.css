@@ -1,86 +1,237 @@
-/* water-drops.css */
+/* =============================================
+   WATER DROPS — LEGO Batman Design
+   Panel separado del canvas para garantizar
+   que pointer-events funcionen siempre
+============================================= */
+
+/* ── Canvas container (sin eventos de ratón) ── */
 #rain-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #rain-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .windshield {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 20px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.012) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* 👇 CONTROLES CON POSICIÓN ABSOLUTA EN EL VIEWPORT - SOLUCIÓN DEFINITIVA */
+/* ── Panel de control — CAPA SUPERIOR ABSOLUTA ─
+   Separado del container para que NADA lo bloquee.
+   isolation: isolate + will-change: transform
+   garantizan nuevo contexto de apilamiento propio.
+─────────────────────────────────────────────── */
 .rain-controls {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(10, 10, 30, 0.95) !important;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 204, 0, 0.5) !important;
-    z-index: 2147483647 !important; /* 👈 Valor máximo de z-index */
-    max-width: 300px;
-    pointer-events: auto !important;
-    /* Efectos de elevación para mayor visibilidad */
-    box-shadow: 
-        0 0 20px rgba(255, 204, 0, 0.3),
-        0 0 40px rgba(0, 0, 0, 0.5) !important;
-    transform: translateZ(0) !important; /* 👈 Fuerza nuevo contexto */
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+
+  /* Máximo z-index posible */
+  z-index: 2147483647 !important;
+
+  /* Nuevo contexto de apilamiento propio */
+  isolation: isolate;
+  will-change: transform;
+  transform: translateZ(0);
+
+  pointer-events: auto !important;
+
+  /* Diseño LEGO Batman */
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 215, 0, 0.55);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.18),
+    0 0 40px rgba(0, 0, 0, 0.9),
+    inset 0 0 15px rgba(255, 215, 0, 0.03);
+  min-width: 196px;
+  overflow: hidden;
 }
 
-.rain-controls h3 {
-    color: #ffcc00 !important;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+/* Línea dorada superior */
+.rain-controls::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
 }
 
-.rain-controls p {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
+/* ── Header del panel ── */
+.rain-controls-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.12);
+  cursor: pointer;
+  user-select: none;
 }
 
+.rain-bat-icon {
+  font-size: 1.1rem;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+  flex-shrink: 0;
+}
+
+.rain-controls-header h3 {
+  color: #FFD700 !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6) !important;
+  margin: 0 0 2px !important;
+}
+
+.rain-controls-header p {
+  color: #4b5563 !important;
+  font-size: 0.58rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 !important;
+  line-height: 1 !important;
+  max-width: none !important;
+}
+
+/* Chevron toggle */
+.rain-toggle-icon {
+  margin-left: auto;
+  color: rgba(255, 215, 0, 0.5);
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.rain-controls.collapsed .rain-toggle-icon {
+  transform: rotate(-90deg);
+}
+
+/* ── Cuerpo colapsable ── */
+.rain-body {
+  padding: 10px 14px 14px;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+  max-height: 200px;
+  opacity: 1;
+}
+
+.rain-controls.collapsed .rain-body {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ── Botones ── */
 .rain-buttons {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .rain-button {
-    background: rgba(255, 204, 0, 0.3) !important;
-    border: 1px solid rgba(255, 204, 0, 0.5) !important;
-    color: #ffcc00 !important;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px 10px;
+  background: rgba(255, 215, 0, 0.08) !important;
+  border: 1px solid rgba(255, 215, 0, 0.35) !important;
+  color: #FFD700 !important;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer !important;
+  transition: all 0.25s ease;
+  pointer-events: auto !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .rain-button:hover {
-    background: rgba(255, 204, 0, 0.5) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+  background: rgba(255, 215, 0, 0.18) !important;
+  border-color: rgba(255, 215, 0, 0.7) !important;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+.rain-button:active {
+  transform: scale(0.97);
+}
+
+.rain-button-down {
+  border-color: rgba(0, 212, 255, 0.35) !important;
+  color: #00d4ff !important;
+  background: rgba(0, 212, 255, 0.06) !important;
+}
+
+.rain-button-down:hover {
+  background: rgba(0, 212, 255, 0.15) !important;
+  border-color: rgba(0, 212, 255, 0.7) !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.25) !important;
+}
+
+/* ── Barra de intensidad ── */
+.rain-intensity-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.rain-intensity-label span {
+  color: #4b5563;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+.rain-intensity-value {
+  color: #FFD700 !important;
+  font-weight: 900 !important;
+  font-size: 0.6rem !important;
+}
+
+.rain-intensity-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.rain-intensity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #00d4ff);
+  transition: width 0.4s ease;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+  width: 25%; /* default: 500/2000 = 25% */
 }

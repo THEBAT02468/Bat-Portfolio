@@ -1,179 +1,319 @@
 ---
-// src/components/WaterDrops.astro
 import "../styles/water-drops.css";
 ---
 
+<!-- Canvas de lluvia — SIN pointer-events -->
 <div id="rain-container">
   <canvas id="rain-canvas"></canvas>
   <div class="windshield"></div>
-  
-  <div class="rain-controls">
-    <h3>Lluvia Gotham</h3>
-    <p>Controla la intensidad de la lluvia</p>
-    <div class="rain-buttons">
-      <button class="rain-button" id="intensity-up">+ Lluvia</button>
-      <button class="rain-button" id="intensity-down">- Lluvia</button>
+</div>
+
+<!-- Panel de control — ELEMENTO INDEPENDIENTE, siempre al frente -->
+<div class="rain-controls" id="rain-controls-panel">
+  <div class="rain-controls-header" id="rain-header">
+    <span class="rain-bat-icon">🦇</span>
+    <div>
+      <h3>Lluvia Gotham</h3>
+      <p>Intensidad de la lluvia</p>
     </div>
+    <i class="fas fa-chevron-down rain-toggle-icon" id="rain-chevron"></i>
   </div>
 
-  <script>
-    // Esperar a que el DOM esté completamente cargado
-    document.addEventListener('DOMContentLoaded', function() {
-        const canvas = document.getElementById('rain-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        // Ajustar el tamaño del canvas
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        
-        // Configuración de la lluvia
-        let rainIntensity = 500; // Número de gotas
-        const raindrops = [];
-        const splashes = [];
-        
-        // Clase para las gotas de lluvia
-        class Raindrop {
-            constructor() {
-                this.reset();
-            }
-            
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * -canvas.height;
-                this.z = Math.random() * 3 + 1; // Profundidad (tamaño y velocidad)
-                this.len = Math.random() * 10 + 10 * this.z;
-                this.speed = Math.random() * 5 + 5 * this.z;
-                this.opacity = Math.random() * 0.5 + 0.3;
-                this.sway = Math.random() * 2 - 1; // Movimiento lateral ligero
-            }
-            
-            update() {
-                this.y += this.speed;
-                this.x += this.sway * (this.z / 3);
-                
-                // Crear salpicadura cuando llega al final
-                if (this.y > canvas.height - 10) {
-                    if (Math.random() > 0.7) {
-                        this.createSplash();
-                    }
-                    this.reset();
-                }
-                
-                // Reiniciar si se sale horizontalmente
-                if (this.x < 0 || this.x > canvas.width) {
-                    this.reset();
-                }
-            }
-            
-            createSplash() {
-                for (let i = 0; i < Math.floor(this.z * 2); i++) {
-                    splashes.push({
-                        x: this.x,
-                        y: canvas.height - 5,
-                        speed: Math.random() * 3 + 2 * this.z,
-                        size: Math.random() * 1.5 + 1 * this.z,
-                        angle: Math.random() * Math.PI,
-                        opacity: this.opacity,
-                        life: 20
-                    });
-                }
-            }
-            
-            draw() {
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.lineTo(this.x + (this.sway * 2), this.y + this.len);
-                ctx.strokeStyle = `rgba(150, 200, 255, ${this.opacity})`;
-                ctx.lineWidth = this.z / 2;
-                ctx.stroke();
-            }
-        }
-        
-        // Actualizar y dibujar salpicaduras
-        function updateSplashes() {
-            for (let i = splashes.length - 1; i >= 0; i--) {
-                const splash = splashes[i];
-                
-                splash.x += Math.cos(splash.angle) * splash.speed;
-                splash.y -= Math.sin(splash.angle) * splash.speed;
-                splash.life--;
-                
-                if (splash.life <= 0) {
-                    splashes.splice(i, 1);
-                } else {
-                    ctx.beginPath();
-                    ctx.arc(splash.x, splash.y, splash.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(180, 220, 255, ${splash.opacity * (splash.life / 20)})`;
-                    ctx.fill();
-                }
-            }
-        }
-        
-        // Inicializar gotas de lluvia
-        function initRain() {
-            raindrops.length = 0;
-            for (let i = 0; i < rainIntensity; i++) {
-                raindrops.push(new Raindrop());
-            }
-        }
-        
-        // Animación
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Fondo con degradado oscuro
-            const gradient = ctx.createRadialGradient(
-                canvas.width / 2, canvas.height / 2, 0,
-                canvas.width / 2, canvas.height / 2, canvas.width
-            );
-            gradient.addColorStop(0, 'rgba(10, 10, 30, 0.1)');
-            gradient.addColorStop(1, 'rgba(5, 5, 15, 0.8)');
-            
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Dibujar gotas
-            for (const drop of raindrops) {
-                drop.update();
-                drop.draw();
-            }
-            
-            // Dibujar salpicaduras
-            updateSplashes();
-            
-            // Efectos de iluminación (relámpagos ocasionales)
-            if (Math.random() < 0.001) {
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-            
-            requestAnimationFrame(animate);
-        }
-        
-        // Iniciar la animación
-        initRain();
-        animate();
-        
-        // Controles para ajustar la intensidad de la lluvia
-        const intensityUp = document.getElementById('intensity-up');
-        const intensityDown = document.getElementById('intensity-down');
-        
-        if (intensityUp && intensityDown) {
-            intensityUp.addEventListener('click', function() {
-                rainIntensity = Math.min(2000, rainIntensity + 100);
-                initRain();
-            });
-            
-            intensityDown.addEventListener('click', function() {
-                rainIntensity = Math.max(100, rainIntensity - 100);
-                initRain();
-            });
-        }
-    });
-  </script>
+  <div class="rain-body" id="rain-body">
+    <div class="rain-buttons">
+      <button class="rain-button" id="intensity-up">
+        <i class="fas fa-plus" style="font-size:0.55rem;"></i> Lluvia
+      </button>
+      <button class="rain-button rain-button-down" id="intensity-down">
+        <i class="fas fa-minus" style="font-size:0.55rem;"></i> Lluvia
+      </button>
+    </div>
+    <div class="rain-intensity-label">
+      <span>Intensidad</span>
+      <span class="rain-intensity-value" id="intensity-label">Med</span>
+    </div>
+    <div class="rain-intensity-track">
+      <div class="rain-intensity-fill" id="intensity-fill"></div>
+    </div>
+  </div>
 </div>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ─────────────────────────────────────────────
+     CANVAS SETUP
+  ───────────────────────────────────────────── */
+  const canvas = document.getElementById('rain-canvas');
+  const ctx    = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  /* ─────────────────────────────────────────────
+     CONFIGURACIÓN GLOBAL
+     WIND_ANGLE: ángulo de lluvia (radianes)
+     3 capas: BG (fondo), MG (medio), FG (frente)
+  ───────────────────────────────────────────── */
+  const WIND_ANGLE = 0.16;   // ~9° hacia la derecha
+  const MAX_INTENSITY = 3;   // niveles: 0-3
+
+  let intensityLevel = 2;    // nivel inicial (1=poco, 2=medio, 3=fuerte)
+
+  // Cantidad de gotas por capa según nivel
+  const COUNTS = {
+    bg: [  0, 120, 260, 420],
+    mg: [  0,  80, 160, 260],
+    fg: [  0,  15,  30,  50],
+  };
+
+  const raindrops = [];
+  const splashes  = [];
+
+  /* ─────────────────────────────────────────────
+     CLASES DE GOTAS
+  ───────────────────────────────────────────── */
+  class Raindrop {
+    constructor(layer) {
+      this.layer = layer; // 'bg' | 'mg' | 'fg'
+      this.reset(true);
+    }
+
+    reset(init) {
+      const h = canvas.height;
+      const w = canvas.width;
+
+      if (this.layer === 'bg') {
+        this.z       = 0.2 + Math.random() * 0.5;
+        this.opacity = 0.08 + Math.random() * 0.10;
+        this.color   = `rgba(200, 215, 255, `;
+      } else if (this.layer === 'mg') {
+        this.z       = 0.8 + Math.random() * 1.2;
+        this.opacity = 0.18 + Math.random() * 0.22;
+        this.color   = `rgba(170, 205, 255, `;
+      } else {
+        this.z       = 2.0 + Math.random() * 2.0;
+        this.opacity = 0.45 + Math.random() * 0.45;
+        this.color   = `rgba(210, 235, 255, `;
+      }
+
+      this.speed = (4 + this.z * 5 + Math.random() * 3);
+      this.len   = (6 + this.z * 14 + Math.random() * 6);
+      this.width = Math.max(0.4, this.z * 0.5);
+
+      // Distribución inicial aleatoria en Y si es arranque
+      this.y = init ? Math.random() * h * 1.5 - h * 0.5 : -this.len;
+      this.x = Math.random() * (w + 200) - 100;
+    }
+
+    update() {
+      const vx = Math.tan(WIND_ANGLE) * this.speed;
+      this.y += this.speed;
+      this.x += vx;
+
+      if (this.y > canvas.height) {
+        if (this.layer === 'fg' && Math.random() > 0.45) {
+          addSplash(this.x, canvas.height, this.z);
+        }
+        this.reset(false);
+      }
+      if (this.x > canvas.width + 150 || this.x < -150) {
+        this.reset(false);
+      }
+    }
+
+    draw() {
+      const dx = Math.sin(WIND_ANGLE) * this.len;
+      const dy = Math.cos(WIND_ANGLE) * this.len;
+
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.x + dx, this.y + dy);
+
+      if (this.layer === 'fg') {
+        // Gotas del frente: glow cian Gotham
+        ctx.shadowBlur  = 4;
+        ctx.shadowColor = `rgba(0, 200, 255, 0.45)`;
+      }
+
+      ctx.strokeStyle = `${this.color}${this.opacity})`;
+      ctx.lineWidth   = this.width;
+      ctx.stroke();
+
+      if (this.layer === 'fg') {
+        ctx.shadowBlur = 0;
+        // Reflejo blanco brillante en la cabeza de la gota
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.width * 0.9, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(230, 245, 255, ${this.opacity * 0.9})`;
+        ctx.fill();
+      }
+    }
+  }
+
+  /* ─────────────────────────────────────────────
+     SPLASHES (anillos elípticos en el suelo)
+  ───────────────────────────────────────────── */
+  function addSplash(x, y, z) {
+    splashes.push({
+      x, y,
+      maxR: 3 + z * 3,
+      r:    0,
+      life: 1.0,
+      decay: 0.055 + Math.random() * 0.03,
+    });
+
+    // Mini gotas rebotando
+    const count = Math.floor(z * 2);
+    for (let i = 0; i < count; i++) {
+      splashes.push({
+        x, y,
+        isMicro: true,
+        vx: (Math.random() - 0.5) * z * 2.5,
+        vy: -(Math.random() * z * 3 + 1),
+        life: 1.0,
+        decay: 0.08 + Math.random() * 0.06,
+        size: 0.8 + Math.random() * z * 0.8,
+      });
+    }
+  }
+
+  function updateSplashes() {
+    for (let i = splashes.length - 1; i >= 0; i--) {
+      const s = splashes[i];
+      s.life -= s.decay;
+
+      if (s.life <= 0) { splashes.splice(i, 1); continue; }
+
+      if (s.isMicro) {
+        // Micro gota rebotando
+        s.vy += 0.2;      // gravedad
+        s.x  += s.vx;
+        s.y  += s.vy;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180, 220, 255, ${s.life * 0.55})`;
+        ctx.fill();
+      } else {
+        // Anillo elíptico
+        s.r = s.maxR * (1 - s.life);
+        const rx = s.r;
+        const ry = s.r * 0.28;
+
+        ctx.beginPath();
+        ctx.ellipse(s.x, s.y, rx, ry, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(170, 215, 255, ${s.life * 0.45})`;
+        ctx.lineWidth   = 0.7;
+        ctx.stroke();
+      }
+    }
+  }
+
+  /* ─────────────────────────────────────────────
+     INICIALIZAR GOTAS
+  ───────────────────────────────────────────── */
+  function initRain() {
+    raindrops.length = 0;
+    const lvl = intensityLevel;
+
+    for (let i = 0; i < COUNTS.bg[lvl]; i++) raindrops.push(new Raindrop('bg'));
+    for (let i = 0; i < COUNTS.mg[lvl]; i++) raindrops.push(new Raindrop('mg'));
+    for (let i = 0; i < COUNTS.fg[lvl]; i++) raindrops.push(new Raindrop('fg'));
+  }
+
+  /* ─────────────────────────────────────────────
+     LOOP DE ANIMACIÓN
+  ───────────────────────────────────────────── */
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Atmósfera muy sutil — no opaca el contenido
+    const atmo = ctx.createRadialGradient(
+      canvas.width * 0.5, canvas.height * 0.4, 0,
+      canvas.width * 0.5, canvas.height * 0.4, canvas.width * 0.75
+    );
+    atmo.addColorStop(0, 'rgba(0, 8, 20, 0.03)');
+    atmo.addColorStop(1, 'rgba(0, 4, 12, 0.09)');
+    ctx.fillStyle = atmo;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Niebla de suelo (Gotham ground mist)
+    if (intensityLevel > 0) {
+      const fog = ctx.createLinearGradient(0, canvas.height * 0.80, 0, canvas.height);
+      fog.addColorStop(0, 'rgba(0, 12, 28, 0)');
+      fog.addColorStop(1, `rgba(0, 12, 28, ${0.06 * intensityLevel})`);
+      ctx.fillStyle = fog;
+      ctx.fillRect(0, canvas.height * 0.80, canvas.width, canvas.height * 0.20);
+    }
+
+    // Dibujar gotas (BG primero → FG encima)
+    for (const drop of raindrops) { drop.update(); drop.draw(); }
+
+    // Splashes
+    updateSplashes();
+
+    // Relámpago ocasional
+    if (intensityLevel >= 2 && Math.random() < 0.0006) {
+      ctx.fillStyle = 'rgba(210, 230, 255, 0.06)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  initRain();
+  animate();
+
+  /* ─────────────────────────────────────────────
+     CONTROLES DEL PANEL
+  ───────────────────────────────────────────── */
+  const LABELS = ['Off', 'Poco', 'Medio', 'Fuerte'];
+
+  const btnUp   = document.getElementById('intensity-up');
+  const btnDown = document.getElementById('intensity-down');
+  const fillBar = document.getElementById('intensity-fill');
+  const lblVal  = document.getElementById('intensity-label');
+
+  function updateUI() {
+    if (fillBar) fillBar.style.width = (intensityLevel / MAX_INTENSITY * 100) + '%';
+    if (lblVal)  lblVal.textContent  = LABELS[intensityLevel];
+  }
+  updateUI();
+
+  if (btnUp) {
+    btnUp.addEventListener('click', function () {
+      if (intensityLevel < MAX_INTENSITY) {
+        intensityLevel++;
+        initRain();
+        updateUI();
+      }
+    });
+  }
+  if (btnDown) {
+    btnDown.addEventListener('click', function () {
+      if (intensityLevel > 0) {
+        intensityLevel--;
+        initRain();
+        updateUI();
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     TOGGLE PANEL
+  ───────────────────────────────────────────── */
+  const header = document.getElementById('rain-header');
+  const panel  = document.getElementById('rain-controls-panel');
+
+  if (header && panel) {
+    header.addEventListener('click', function () {
+      panel.classList.toggle('collapsed');
+    });
+  }
+
+});
+</script>

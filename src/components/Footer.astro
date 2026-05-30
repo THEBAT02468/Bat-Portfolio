@@ -1,175 +1,133 @@
-<footer
-  class="footer bg-gradient-to-t from-black to-gray-900 text-gray-400 py-12 px-4 text-center relative overflow-hidden"
->
-  <!-- Efectos de fondo -->
-  <div class="absolute inset-0 bg-grid-small-yellow-500/10"></div>
-  <div
-    class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-60"
-  >
-  </div>
+<footer class="footer relative overflow-hidden" style="background: #000; border-top: 1px solid rgba(255,215,0,0.2);">
 
-  <!-- Contenido principal -->
-  <div class="container mx-auto relative z-10">
-    <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">
-      Conéctate <span class="text-white">conmigo</span>
-    </h2>
+  <!-- City grid background -->
+  <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-    <p class="max-w-2xl mx-auto mb-8 text-gray-300">
-      ¿Tienes un proyecto en mente? No dudes en contactarme. Siempre estoy
-      buscando nuevos desafíos en el mundo del desarrollo.
-    </p>
+  <!-- Top gold glow line -->
+  <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, #FFD700, transparent); box-shadow: 0 0 12px rgba(255,215,0,0.6);"></div>
 
-    <!-- Redes sociales mejoradas -->
-    <div class="flex justify-center space-x-6 mb-10">
-      <a
-        href="https://github.com/THEBAT02468"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon group"
-        aria-label="Visita mi perfil de GitHub"
-      >
+  <!-- Ambient city glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 pointer-events-none" style="background: radial-gradient(ellipse at bottom, rgba(255,215,0,0.05) 0%, transparent 70%);"></div>
+
+  <div class="container mx-auto relative z-10 px-4 py-12">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.35));"></div>
+        <span style="color: #FFD700; font-size: 1.2rem; text-shadow: 0 0 12px rgba(255,215,0,0.9);">⬡</span>
+        <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.35), transparent);"></div>
+      </div>
+
+      <h2 class="font-black mb-3" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.6rem, 4vw, 2.5rem); letter-spacing: 0.08em; color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">
+        CONÉCTATE <span class="text-white">CONMIGO</span>
+      </h2>
+      <p class="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
+        ¿Tienes un proyecto en mente? No dudes en contactarme. Siempre estoy buscando nuevos desafíos en el mundo del desarrollo.
+      </p>
+    </div>
+
+    <!-- Social icons -->
+    <div class="flex justify-center gap-5 mb-10">
+      <a href="https://github.com/THEBAT02468" target="_blank" rel="noopener noreferrer"
+        class="social-icon group" aria-label="GitHub">
         <span class="social-icon-bg"></span>
         <i class="fab fa-github text-xl"></i>
         <span class="social-tooltip">GitHub</span>
       </a>
-
-      <a
-        href="https://www.linkedin.com/in/santiago-david-lopez-villota-76167a27b/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon group"
-        aria-label="Conectemos en LinkedIn"
-      >
+      <a href="https://www.linkedin.com/in/santiago-david-lopez-villota-76167a27b/" target="_blank" rel="noopener noreferrer"
+        class="social-icon group" aria-label="LinkedIn">
         <span class="social-icon-bg"></span>
         <i class="fab fa-linkedin text-xl"></i>
         <span class="social-tooltip">LinkedIn</span>
       </a>
-
-      <a
-        href="https://wa.me/573122809604?text=Hola%2C%20me%20gustaría%20contactarte%20para%20hablar%20sobre%20un%20proyecto"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-icon group"
-        aria-label="Contáctame por WhatsApp"
-      >
+      <a href="https://wa.me/573122809604?text=Hola%2C%20me%20gustaría%20contactarte%20para%20hablar%20sobre%20un%20proyecto"
+        target="_blank" rel="noopener noreferrer" class="social-icon group" aria-label="WhatsApp">
         <span class="social-icon-bg"></span>
         <i class="fab fa-whatsapp text-xl"></i>
         <span class="social-tooltip">WhatsApp</span>
       </a>
-
-      <a
-        href="#"
-        class="social-icon group"
-        aria-label="Descarga mi CV"
-        onclick="event.preventDefault(); document.getElementById('cv-download').click();"
-      >
+      <a href="/CV.pdf" download class="social-icon group" aria-label="CV">
         <span class="social-icon-bg"></span>
         <i class="fas fa-file-download text-xl"></i>
         <span class="social-tooltip">CV</span>
       </a>
-
-      <!-- Enlace oculto para descargar CV -->
-      <a id="cv-download" href="/CV.pdf" download class="hidden">Descargar CV</a
-      >
     </div>
 
-    <!-- Información de contacto adicional -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
-      <div class="flex flex-col items-center p-4">
-        <div
-          class="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center mb-3"
-        >
-          <i class="fas fa-envelope text-yellow-400"></i>
+    <!-- Contact info grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10">
+      <div class="flex flex-col items-center p-4 text-center" style="border: 1px solid rgba(255,215,0,0.12); background: rgba(255,215,0,0.02);">
+        <div class="w-10 h-10 flex items-center justify-center mb-3" style="border: 1px solid rgba(255,215,0,0.35); background: rgba(255,215,0,0.05);">
+          <i class="fas fa-envelope" style="color: #FFD700; text-shadow: 0 0 6px rgba(255,215,0,0.7);"></i>
         </div>
-        <h3 class="text-white text-sm font-medium mb-1">Email</h3>
-        <p class="text-sm">sdlv2882@gmail.com</p>
+        <h3 class="text-white text-xs font-black tracking-widest uppercase mb-1" style="font-family: 'Cinzel', serif;">Email</h3>
+        <p class="text-gray-500 text-xs">sdlv2882@gmail.com</p>
       </div>
 
-      <div class="flex flex-col items-center p-4">
-        <div
-          class="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center mb-3"
-        >
-          <i class="fas fa-map-marker-alt text-yellow-400"></i>
+      <div class="flex flex-col items-center p-4 text-center" style="border: 1px solid rgba(0,212,255,0.12); background: rgba(0,212,255,0.02);">
+        <div class="w-10 h-10 flex items-center justify-center mb-3" style="border: 1px solid rgba(0,212,255,0.35); background: rgba(0,212,255,0.05);">
+          <i class="fas fa-map-marker-alt" style="color: #00d4ff; text-shadow: 0 0 6px rgba(0,212,255,0.7);"></i>
         </div>
-        <h3 class="text-white text-sm font-medium mb-1">Ubicación</h3>
-        <p class="text-sm">Gotham City</p>
+        <h3 class="text-white text-xs font-black tracking-widest uppercase mb-1" style="font-family: 'Cinzel', serif;">Ubicación</h3>
+        <p class="text-gray-500 text-xs">Gotham City</p>
       </div>
 
-      <div class="flex flex-col items-center p-4">
-        <div
-          class="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center mb-3"
-        >
-          <i class="fas fa-clock text-yellow-400"></i>
+      <div class="flex flex-col items-center p-4 text-center" style="border: 1px solid rgba(139,92,246,0.12); background: rgba(139,92,246,0.02);">
+        <div class="w-10 h-10 flex items-center justify-center mb-3" style="border: 1px solid rgba(139,92,246,0.35); background: rgba(139,92,246,0.05);">
+          <i class="fas fa-clock" style="color: #8b5cf6; text-shadow: 0 0 6px rgba(139,92,246,0.7);"></i>
         </div>
-        <h3 class="text-white text-sm font-medium mb-1">Disponibilidad</h3>
-        <p class="text-sm">Freelance</p>
+        <h3 class="text-white text-xs font-black tracking-widest uppercase mb-1" style="font-family: 'Cinzel', serif;">Disponibilidad</h3>
+        <p class="text-gray-500 text-xs">Freelance</p>
       </div>
     </div>
 
-    <!-- Navegación rápida -->
-    <nav class="mb-8">
-      <ul class="flex flex-wrap justify-center gap-6 text-sm">
-        <li>
-          <a href="#inicio" class="hover:text-yellow-400 transition-colors"
-            >Inicio</a>
-        </li>
-        <li>
-          <a href="#proyectos" class="hover:text-yellow-400 transition-colors"
-            >Proyectos</a>
-        </li>
-        <li>
-          <a href="#habilidades" class="hover:text-yellow-400 transition-colors"
-            >Habilidades</a>
-        </li>
-        <li>
-          <a href="#sobre-mi" class="hover:text-yellow-400 transition-colors"
-            >Sobre Mí</a>
-        </li>
-        <li>
-          <a href="#contacto" class="hover:text-yellow-400 transition-colors"
-            >Contacto</a>
-        </li>
+    <!-- Quick nav -->
+    <nav class="mb-8 text-center">
+      <ul class="flex flex-wrap justify-center gap-6 text-xs">
+        <li><a href="/" class="footer-link">Inicio</a></li>
+        <li><a href="/projects" class="footer-link">Proyectos</a></li>
+        <li><a href="/about" class="footer-link">Sobre Mí</a></li>
+        <li><a href="/contact" class="footer-link">Contacto</a></li>
       </ul>
     </nav>
 
-    <!-- Copyright y marca -->
-    <div class="border-t border-gray-800 pt-6">
-      <p class="text-sm mb-2">
-        © 2025 Santiago López - Hecho en las sombras de Gotham
+    <!-- Copyright -->
+    <div class="text-center" style="border-top: 1px solid rgba(255,215,0,0.08); padding-top: 1.5rem;">
+      <p class="text-gray-600 text-xs mb-3 tracking-widest uppercase" style="font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em;">
+        © 2025 Santiago López — Hecho en las sombras de Gotham
       </p>
-      <div class="flex items-center justify-center">
-        <img src="/Icon.png" alt="Logo de Gotham City" class="w-16 h-16 mr-2" />
-        <p class="text-xs text-gray-500">Desarrollador Frontend & Backend</p>
+      <div class="flex items-center justify-center gap-3">
+        <img src="/Icon.png" alt="Gotham Logo" class="w-12 h-12 opacity-60" style="filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));" />
+        <p class="text-gray-600 text-xs tracking-widest" style="font-size: 0.6rem; letter-spacing: 0.12em;">DESARROLLADOR FRONTEND & BACKEND</p>
       </div>
     </div>
-  </div>
 
-  <!-- Efecto de murciélago volando -->
-  <div class="absolute bottom-4 right-4 opacity-20">
-    <div class="bat-fly">
-      <i class="fas fa-bat"></i>
-    </div>
   </div>
 </footer>
 
 <style>
-  /* Efecto de grid de fondo */
-  .bg-grid-small-yellow-500\/10 {
-    background-image:
-      linear-gradient(to right, rgba(241, 196, 15, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(241, 196, 15, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+  .footer-link {
+    color: #6b7280;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
   }
 
-  /* Iconos de redes sociales */
+  .footer-link:hover {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255,215,0,0.7);
+  }
+
   .social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     position: relative;
-    border-radius: 50%;
     transition: all 0.3s ease;
   }
 
@@ -177,108 +135,56 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      145deg,
-      rgba(241, 196, 15, 0.1),
-      rgba(241, 196, 15, 0.05)
-    );
-    border: 1px solid rgba(241, 196, 15, 0.2);
-    border-radius: 50%;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,215,0,0.2);
     transition: all 0.3s ease;
     z-index: -1;
   }
 
   .social-icon:hover .social-icon-bg {
-    background: linear-gradient(
-      145deg,
-      rgba(241, 196, 15, 0.2),
-      rgba(241, 196, 15, 0.1)
-    );
-    border-color: rgba(241, 196, 15, 0.4);
-    box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
-    transform: scale(1.1);
+    background: rgba(255,215,0,0.06);
+    border-color: rgba(255,215,0,0.7);
+    box-shadow: 0 0 18px rgba(255,215,0,0.4);
   }
 
   .social-icon i {
-    color: #9ca3af;
+    color: #4b5563;
     transition: all 0.3s ease;
   }
 
   .social-icon:hover i {
-    color: #f1c40f;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255,215,0,0.8);
     transform: scale(1.2);
   }
 
-  /* Tooltips para iconos */
   .social-tooltip {
     position: absolute;
-    bottom: -30px;
+    bottom: -28px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(13, 13, 13, 0.9);
-    color: #f1c40f;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    background: #000;
+    color: #FFD700;
+    padding: 3px 8px;
+    font-size: 0.6rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     white-space: nowrap;
-    border: 1px solid rgba(241, 196, 15, 0.3);
+    border: 1px solid rgba(255,215,0,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
   }
 
   .social-icon:hover .social-tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: -35px;
+    bottom: -32px;
   }
 
-  /* Animación de murciélago */
-  .bat-fly {
-    animation: fly 8s ease-in-out infinite;
-  }
-
-  @keyframes fly {
-    0%,
-    100% {
-      transform: translateX(0) translateY(0) rotate(0deg);
-    }
-    25% {
-      transform: translateX(-20px) translateY(-15px) rotate(-5deg);
-    }
-    50% {
-      transform: translateX(10px) translateY(-25px) rotate(5deg);
-    }
-    75% {
-      transform: translateX(15px) translateY(-10px) rotate(-3deg);
-    }
-  }
-
-  /* Estilos para el tema claro - SIN ALTERAR DISEÑO ACTUAL */
-  .light-theme .footer {
-    background: linear-gradient(to top, #1e40af 0%, #3b82f6 100%);
-  }
-
-  .light-theme .bg-grid-small-yellow-500\/10 {
-    background-image:
-      linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-  }
-
-  .light-theme .footer-highlight {
-    background: linear-gradient(to right, transparent, #3b82f6, transparent);
-  }
-
-  /* Responsividad */
   @media (max-width: 768px) {
-    .social-icon {
-      width: 45px;
-      height: 45px;
-    }
-
-    .grid.grid-cols-1.md\:grid-cols-3 {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
+    .social-icon { width: 44px; height: 44px; }
   }
 </style>

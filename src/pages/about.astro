@@ -8,453 +8,491 @@ import Smoke from "../components/Smoke.astro";
 ---
 
 <Layout
-  title="Acerca de mí - Gotham Style"
-  description="Conoce a Santiago López, desarrollador de software con estilo Gótico inspirado en Batman y Gotham City"
+  title="Acerca de mí - Santiago López | Gotham Developer"
+  description="Conoce a Santiago López, desarrollador Full Stack & especialista en Ciberseguridad"
 >
   <Smoke />
   <BackgroundAnimation />
 
-  <!-- Contenedor principal con posición relativa para controlar el z-index -->
   <div class="relative z-10">
     <WaterDrops />
     <Header />
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20"
-    >
-      <div
-        class="absolute top-10 left-1/2 transform -translate-x-1/2 opacity-20"
-      >
-        <div class="bat-silhouette">🦇</div>
+    <!-- ── HERO ──────────────────────────────────────── -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 relative overflow-hidden">
+      <!-- Fondo negro con city grid -->
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-50"></div>
       </div>
-      <h1
-        class="text-5xl md:text-7xl font-bold text-yellow-400 mb-6 mt-12 animate-pulse"
-      >
-        Acerca de mí
-      </h1>
+      <!-- Ambient glows -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(255,215,0,0.06) 0%, transparent 70%);"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 70%);"></div>
 
-      <div class="relative mb-10">
-        <div
-          class="w-48 h-48 mx-auto rounded-full border-4 border-yellow-400 p-2 shadow-lg shadow-yellow-400/30"
-        >
-          <div
-            class="w-full h-full rounded-full bg-gray-800 flex items-center justify-center"
-          >
-            <img
-              src="/images/Yo.png"
-              alt="Santiago López"
-              class="w-full h-full object-cover rounded-full"
-            />
+      <div class="relative z-10 flex flex-col items-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-3 px-5 py-2 mb-10 mt-20"
+          style="background: rgba(0,0,0,0.8); border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 20px rgba(255,215,0,0.1);">
+          <div class="relative">
+            <div class="w-2 h-2 rounded-full animate-pulse" style="background: #00d4ff; box-shadow: 0 0 6px #00d4ff;"></div>
+            <div class="absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-60" style="background: #00d4ff;"></div>
+          </div>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);">
+            ⬡ Gotham Developer ⬡
+          </span>
+        </div>
+
+        <!-- Título -->
+        <h1 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.05em; line-height: 1;">
+          <span class="text-white">ACERCA</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);">DE MÍ</span>
+        </h1>
+
+        <!-- Foto de perfil -->
+        <div class="relative mb-8 mt-4">
+          <div class="absolute inset-0 rounded-full blur-xl" style="background: rgba(255,215,0,0.15);"></div>
+          <div class="relative w-44 h-44 mx-auto overflow-hidden" style="border: 2px solid rgba(255,215,0,0.6); box-shadow: 0 0 30px rgba(255,215,0,0.3), inset 0 0 20px rgba(255,215,0,0.05);">
+            <img src="/images/Yo.png" alt="Santiago López" class="w-full h-full object-cover" />
+          </div>
+          <!-- Badge debajo -->
+          <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-black tracking-widest uppercase whitespace-nowrap"
+            style="background: #FFD700; color: #000; font-family: 'Cinzel', serif; letter-spacing: 0.1em;">
+            Dev Gotham
           </div>
         </div>
-        <div
-          class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold"
-        >
-          Dev Gotham
+
+        <!-- Bio -->
+        <p class="max-w-2xl text-gray-400 text-base md:text-lg leading-relaxed mb-8 mt-4">
+          Soy <span style="color: #FFD700; font-weight: 700; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Santiago</span>,
+          desarrollador de software enfocado en el diseño y construcción de soluciones web modernas, seguras y escalables.
+          Me especializo en arquitecturas sólidas, atención al detalle y experiencia de usuario de alto nivel.
+        </p>
+
+        <!-- Badges de especialización -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
+            style="border: 1px solid rgba(255,107,107,0.5); color: #ff6b6b; background: rgba(255,107,107,0.05); text-shadow: 0 0 6px rgba(255,107,107,0.5);">
+            <i class="fas fa-shield-alt text-xs"></i>Ciberseguridad
+          </span>
+          <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
+            style="border: 1px solid rgba(0,212,255,0.5); color: #00d4ff; background: rgba(0,212,255,0.05); text-shadow: 0 0 6px rgba(0,212,255,0.5);">
+            <i class="fas fa-user-secret text-xs"></i>Hacking Ético
+          </span>
+          <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
+            style="border: 1px solid rgba(255,215,0,0.5); color: #FFD700; background: rgba(255,215,0,0.05); text-shadow: 0 0 6px rgba(255,215,0,0.5);">
+            <i class="fas fa-code text-xs"></i>Full-Stack Dev
+          </span>
         </div>
-      </div>
 
-      <p class="max-w-3xl text-gray-300 text-xl leading-relaxed mb-8">
-        Soy <span class="text-yellow-400 font-semibold">Santiago</span>,
-        desarrollador de software enfocado en el diseño y construcción de
-        soluciones web modernas, seguras y escalables. Me especializo en crear
-        aplicaciones con una arquitectura sólida, atención al detalle y una
-        estética cuidada, combinando funcionalidad, rendimiento y experiencia de
-        usuario.
-      </p>
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/projects"
+            class="flex items-center justify-center gap-2 px-8 py-3 font-black text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
+            style="background: linear-gradient(135deg, #FFD700, #d97706); color: #000; border: 2px solid rgba(255,215,0,0.7); box-shadow: 0 0 20px rgba(255,215,0,0.4); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
+            onmouseover="this.style.boxShadow='0 0 40px rgba(255,215,0,0.8)'"
+            onmouseout="this.style.boxShadow='0 0 20px rgba(255,215,0,0.4)'">
+            <i class="fas fa-code text-xs"></i> Ver Proyectos
+          </a>
+          <a href="/contact"
+            class="flex items-center justify-center gap-2 px-8 py-3 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
+            style="border: 2px solid rgba(0,212,255,0.5); color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.12em; box-shadow: 0 0 12px rgba(0,212,255,0.15);"
+            onmouseover="this.style.background='rgba(0,212,255,0.08)'; this.style.boxShadow='0 0 25px rgba(0,212,255,0.4)'; this.style.borderColor='rgba(0,212,255,0.8)'"
+            onmouseout="this.style.background='transparent'; this.style.boxShadow='0 0 12px rgba(0,212,255,0.15)'; this.style.borderColor='rgba(0,212,255,0.5)'">
+            <i class="fas fa-envelope text-xs"></i> Contáctame
+          </a>
+        </div>
 
-      <!-- Badges de especialización -->
-      <div class="flex flex-wrap justify-center gap-4 mb-8">
-        <span
-          class="bg-red-500 bg-opacity-20 text-red-400 px-4 py-2 rounded-full text-sm font-bold border border-red-500 border-opacity-30"
-        >
-          <i class="fas fa-shield-alt mr-2"></i>Ciberseguridad
-        </span>
-        <span
-          class="bg-green-500 bg-opacity-20 text-green-400 px-4 py-2 rounded-full text-sm font-bold border border-green-500 border-opacity-30"
-        >
-          <i class="fas fa-user-secret mr-2"></i>Hacking Ético
-        </span>
-        <span
-          class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-4 py-2 rounded-full text-sm font-bold border border-yellow-500 border-opacity-30"
-        >
-          <i class="fas fa-code mr-2"></i>Full-Stack Dev
-        </span>
-      </div>
-
-      <div
-        class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
-      >
-        <a href="/projects" class="btn-bat flex items-center justify-center">
-          <i class="fas fa-code mr-2"></i>
-          Ver Proyectos
-        </a>
-        <a
-          href="/contact"
-          class="btn-bat-outline flex items-center justify-center"
-        >
-          <i class="fas fa-envelope mr-2"></i>
-          Contáctame
-        </a>
-      </div>
-
-      <!-- Flecha indicadora de scroll -->
-      <div
-        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <div
-          class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center"
-        >
-          <div class="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse">
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-xs font-black tracking-widest" style="color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.25em;">DESCUBRE MÁS</span>
+            <div class="w-5 h-9 flex justify-center" style="border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 6px rgba(255,215,0,0.1);">
+              <div class="w-0.5 h-2.5 mt-1.5 animate-pulse" style="background: #FFD700; box-shadow: 0 0 5px rgba(255,215,0,0.8);"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Ciberseguridad -->
-    <section class="py-20 px-6 bg-gray-900 bg-opacity-70">
-      <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
-          <i class="fas fa-shield-alt mr-4"></i>
-          Ciberseguridad & <span class="text-white">Hacking Ético</span>
+    <!-- ── CIBERSEGURIDAD ─────────────────────────────── -->
+    <section class="py-20 md:py-28 px-6 relative overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-30"></div>
+      </div>
+      <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent); box-shadow: 0 0 8px rgba(255,215,0,0.3);"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);"></div>
+
+      <div class="container mx-auto relative">
+        <!-- Divisor -->
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3));"></div>
+          <span style="color: #FFD700; font-size: 1.1rem; text-shadow: 0 0 12px rgba(255,215,0,0.9);">⬡</span>
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.3), transparent);"></div>
+        </div>
+        <div class="text-center mb-4">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Especialización ───</span>
+        </div>
+        <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
+          <span class="text-white">CIBERSEGURIDAD &</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">HACKING ÉTICO</span>
         </h2>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-        >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <!-- Pentesting -->
-          <div class="security-card">
-            <div class="security-icon red-glow">
+          <div class="security-card" style="--card-color: rgba(255,107,107,0.5); --card-glow: rgba(255,107,107,0.15);">
+            <div class="security-icon" style="color: #ff6b6b; border: 1px solid rgba(255,107,107,0.4); box-shadow: 0 0 15px rgba(255,107,107,0.25);">
               <i class="fas fa-crosshairs"></i>
             </div>
-            <h3 class="security-title">Pentesting</h3>
-            <p class="security-desc">
-              Pruebas de penetración y auditorías de seguridad en aplicaciones
-              web y redes.
-            </p>
+            <h3 class="security-title" style="color: #ff6b6b; text-shadow: 0 0 8px rgba(255,107,107,0.5);">Pentesting</h3>
+            <p class="security-desc">Pruebas de penetración y auditorías de seguridad en aplicaciones web y redes.</p>
             <ul class="security-skills">
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>OWASP Top 10
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Metasploit
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Burp Suite
-              </li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>OWASP Top 10</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Metasploit</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Burp Suite</li>
             </ul>
           </div>
 
           <!-- Análisis de Vulnerabilidades -->
-          <div class="security-card">
-            <div class="security-icon orange-glow">
+          <div class="security-card" style="--card-color: rgba(255,165,2,0.5); --card-glow: rgba(255,165,2,0.15);">
+            <div class="security-icon" style="color: #ffa502; border: 1px solid rgba(255,165,2,0.4); box-shadow: 0 0 15px rgba(255,165,2,0.25);">
               <i class="fas fa-bug"></i>
             </div>
-            <h3 class="security-title">Análisis de Vulnerabilidades</h3>
-            <p class="security-desc">
-              Identificación y remediación de vulnerabilidades en código y
-              infraestructura.
-            </p>
+            <h3 class="security-title" style="color: #ffa502; text-shadow: 0 0 8px rgba(255,165,2,0.5);">Análisis de Vulnerabilidades</h3>
+            <p class="security-desc">Identificación y remediación de vulnerabilidades en código e infraestructura.</p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>SAST/DAST</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Nessus</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Nmap</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>SAST/DAST</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Nessus</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Nmap</li>
             </ul>
           </div>
 
           <!-- Seguridad Web -->
-          <div class="security-card">
-            <div class="security-icon blue-glow">
+          <div class="security-card" style="--card-color: rgba(0,212,255,0.5); --card-glow: rgba(0,212,255,0.15);">
+            <div class="security-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 15px rgba(0,212,255,0.25);">
               <i class="fas fa-globe"></i>
             </div>
-            <h3 class="security-title">Seguridad Web</h3>
-            <p class="security-desc">
-              Protección contra ataques comunes como XSS, SQLi, CSRF y más.
-            </p>
+            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Seguridad Web</h3>
+            <p class="security-desc">Protección contra ataques comunes como XSS, SQLi, CSRF y más.</p>
             <ul class="security-skills">
-              <li><i class="fas fa-check text-green-400 mr-2"></i>WAF</li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>HTTPS/TLS</li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Content Security
-                Policy
-              </li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>WAF</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>HTTPS/TLS</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Content Security Policy</li>
             </ul>
           </div>
 
           <!-- Forense Digital -->
-          <div class="security-card">
-            <div class="security-icon purple-glow">
+          <div class="security-card" style="--card-color: rgba(139,92,246,0.5); --card-glow: rgba(139,92,246,0.15);">
+            <div class="security-icon" style="color: #8b5cf6; border: 1px solid rgba(139,92,246,0.4); box-shadow: 0 0 15px rgba(139,92,246,0.25);">
               <i class="fas fa-search"></i>
             </div>
-            <h3 class="security-title">Forense Digital</h3>
-            <p class="security-desc">
-              Investigación de incidentes de seguridad y análisis de evidencias
-              digitales.
-            </p>
+            <h3 class="security-title" style="color: #8b5cf6; text-shadow: 0 0 8px rgba(139,92,246,0.5);">Forense Digital</h3>
+            <p class="security-desc">Investigación de incidentes de seguridad y análisis de evidencias digitales.</p>
             <ul class="security-skills">
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Análisis de logs
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Memory forensics
-              </li>
-              <li><i class="fas fa-check text-green-400 mr-2"></i>Autopsy</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Análisis de logs</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Memory forensics</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Autopsy</li>
             </ul>
           </div>
 
           <!-- Hardening -->
-          <div class="security-card">
-            <div class="security-icon green-glow">
+          <div class="security-card" style="--card-color: rgba(255,215,0,0.5); --card-glow: rgba(255,215,0,0.15);">
+            <div class="security-icon" style="color: #FFD700; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 15px rgba(255,215,0,0.25);">
               <i class="fas fa-lock"></i>
             </div>
-            <h3 class="security-title">Hardening</h3>
-            <p class="security-desc">
-              Fortalecimiento de sistemas y aplicaciones contra posibles
-              ataques.
-            </p>
+            <h3 class="security-title" style="color: #FFD700; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Hardening</h3>
+            <p class="security-desc">Fortalecimiento de sistemas y aplicaciones contra posibles ataques.</p>
             <ul class="security-skills">
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Configuración
-                segura
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Bastionado
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Principio mínimo
-                privilegio
-              </li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Configuración segura</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Bastionado</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Mínimo privilegio</li>
             </ul>
           </div>
 
           <!-- Concienciación -->
-          <div class="security-card">
-            <div class="security-icon yellow-glow">
+          <div class="security-card" style="--card-color: rgba(0,212,255,0.4); --card-glow: rgba(0,212,255,0.1);">
+            <div class="security-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 15px rgba(0,212,255,0.2);">
               <i class="fas fa-users"></i>
             </div>
-            <h3 class="security-title">Concienciación</h3>
-            <p class="security-desc">
-              Capacitación en seguridad para equipos de desarrollo y usuarios
-              finales.
-            </p>
+            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Concienciación</h3>
+            <p class="security-desc">Capacitación en seguridad para equipos de desarrollo y usuarios finales.</p>
             <ul class="security-skills">
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Phishing
-                awareness
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Best practices
-              </li>
-              <li>
-                <i class="fas fa-check text-green-400 mr-2"></i>Security
-                training
-              </li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Phishing awareness</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Best practices</li>
+              <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Security training</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Habilidades -->
-    <section class="py-20 px-6">
-      <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
-          Mis <span class="text-white">Habilidades</span>
+    <!-- ── HABILIDADES ────────────────────────────────── -->
+    <section class="py-20 md:py-28 px-6 relative overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-50"></div>
+      </div>
+      <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);"></div>
+
+      <div class="container mx-auto relative">
+        <div class="text-center mb-4">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Stack & Dominio ───</span>
+        </div>
+        <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
+          <span class="text-white">MIS </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">HABILIDADES</span>
         </h2>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
-        >
-          <div class="skill-card">
-            <div class="skill-icon">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div class="skill-card" style="--skill-color: #FFD700; --skill-glow: rgba(255,215,0,0.2);">
+            <div class="skill-icon" style="color: #FFD700; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 12px rgba(255,215,0,0.2);">
               <i class="fas fa-paint-brush"></i>
             </div>
             <h3 class="skill-title">Frontend</h3>
             <p class="skill-desc">React, Vue, Astro, Tailwind</p>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 90%"></div>
+              <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #FFD700, #fff200);"></div>
             </div>
+            <span class="skill-pct">90%</span>
           </div>
 
-          <div class="skill-card">
-            <div class="skill-icon">
+          <div class="skill-card" style="--skill-color: #8b5cf6; --skill-glow: rgba(139,92,246,0.2);">
+            <div class="skill-icon" style="color: #8b5cf6; border: 1px solid rgba(139,92,246,0.4); box-shadow: 0 0 12px rgba(139,92,246,0.2);">
               <i class="fas fa-server"></i>
             </div>
-            <h3 class="skill-title">Backend</h3>
+            <h3 class="skill-title" style="color: #8b5cf6;">Backend</h3>
             <p class="skill-desc">Node.js, Express, MongoDB</p>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 85%"></div>
+              <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div>
             </div>
+            <span class="skill-pct" style="color: #8b5cf6;">85%</span>
           </div>
 
-          <div class="skill-card">
-            <div class="skill-icon">
+          <div class="skill-card" style="--skill-color: #ff6b6b; --skill-glow: rgba(255,107,107,0.2);">
+            <div class="skill-icon" style="color: #ff6b6b; border: 1px solid rgba(255,107,107,0.4); box-shadow: 0 0 12px rgba(255,107,107,0.2);">
               <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="skill-title">Ciberseguridad</h3>
+            <h3 class="skill-title" style="color: #ff6b6b;">Ciberseguridad</h3>
             <p class="skill-desc">Pentesting, Forense, Hardening</p>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 80%"></div>
+              <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #ff9f9f);"></div>
             </div>
+            <span class="skill-pct" style="color: #ff6b6b;">80%</span>
           </div>
 
-          <div class="skill-card">
-            <div class="skill-icon">
+          <div class="skill-card" style="--skill-color: #00d4ff; --skill-glow: rgba(0,212,255,0.2);">
+            <div class="skill-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 12px rgba(0,212,255,0.2);">
               <i class="fas fa-bolt"></i>
             </div>
-            <h3 class="skill-title">DevOps & Cloud</h3>
+            <h3 class="skill-title" style="color: #00d4ff;">DevOps & Cloud</h3>
             <p class="skill-desc">Docker, AWS, CI/CD</p>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 75%"></div>
+              <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #00d4ff, #67e8ff);"></div>
             </div>
+            <span class="skill-pct" style="color: #00d4ff;">75%</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Experiencia -->
-    <section class="py-20 px-6 bg-gray-900 bg-opacity-70">
-      <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
-          Mi <span class="text-white">Trayectoria</span>
+    <!-- ── TRAYECTORIA ───────────────────────────────── -->
+    <section class="py-20 md:py-28 px-6 relative overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-30"></div>
+      </div>
+      <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(0,212,255,0.4), transparent);"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);"></div>
+
+      <div class="container mx-auto relative">
+        <div class="text-center mb-4">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Experiencia ───</span>
+        </div>
+        <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
+          <span class="text-white">MI </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">TRAYECTORIA</span>
         </h2>
 
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-3xl mx-auto">
+          
           <div class="timeline">
+
+            <!-- 1 · Presente — Gold #FFD700 -->
             <div class="timeline-item">
-              <div class="timeline-date">Presente</div>
-              <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">
-                  Desarrollador Fullstack & Security Researcher
+              <div class="timeline-dot" style="background: #FFD700; box-shadow: 0 0 12px rgba(255,215,0,0.8);"></div>
+              <div class="timeline-date" style="color: #FFD700;">Presente</div>
+              <div class="timeline-content" style="border-left-color: rgba(255,215,0,0.6);">
+                <h3 class="text-lg font-black mb-2" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,215,0,0.6);">
+                  Desarrollador Fullstack, Mobile & Security Researcher
                 </h3>
-                <p class="text-gray-400">
-                  Desarrollo de aplicaciones seguras e investigación de
-                  vulnerabilidades. Especializado en seguridad ofensiva y
-                  defensiva.
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Desarrollador de software full stack especializado en soluciones de seguridad, desarrollo de aplicaciones móviles y web responsive para cualquier dispositivo.
                 </p>
               </div>
             </div>
 
+            <!-- 2 · Ene–May 2026 — Magenta #e100ff -->
             <div class="timeline-item">
-              <div class="timeline-date">2022 - Presente</div>
-              <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">
+              <div class="timeline-dot" style="background: #e100ff; box-shadow: 0 0 12px rgba(225,0,255,0.7);"></div>
+              <div class="timeline-date" style="color: #e100ff;">Enero 2026 — Mayo 2026</div>
+              <div class="timeline-content" style="border-left-color: rgba(225,0,255,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #e100ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(225,0,255,0.5);">
+                  Analista de Datos
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Analista computacional de datos para Ingeniería Aplicada ITD SAS, con modelos predictivos y análisis estadístico avanzado.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3 · 2024–Presente — Cyan #00d4ff -->
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background: #00d4ff; box-shadow: 0 0 12px rgba(0,212,255,0.7);"></div>
+              <div class="timeline-date" style="color: #00d4ff;">2024 — Presente</div>
+              <div class="timeline-content" style="border-left-color: rgba(0,212,255,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(0,212,255,0.5);">
+                  Semillerista de Ciberseguridad — CUAN
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Semillerista de Ciberseguridad en la Corporación Universitaria Autónoma de Nariño, especializado en seguridad de aplicaciones web y sistemas operativos.
+                </p>
+              </div>
+            </div>
+
+            <!-- 4 · 2022–Presente — Purple #8b5cf6 -->
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background: #8b5cf6; box-shadow: 0 0 12px rgba(139,92,246,0.7);"></div>
+              <div class="timeline-date" style="color: #8b5cf6;">2022 — Presente</div>
+              <div class="timeline-content" style="border-left-color: rgba(139,92,246,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(139,92,246,0.5);">
                   Pentester & Security Analyst
                 </h3>
-                <p class="text-gray-400">
-                  Realización de pruebas de penetración seguridas para verificar
-                  integridad y autenticidad de aplicaciones.
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Realización de pruebas de penetración para verificar integridad y autenticidad de aplicaciones web y móviles.
                 </p>
               </div>
             </div>
 
+            <!-- 5 · 2021–2022 — Red #ff6b6b -->
             <div class="timeline-item">
-              <div class="timeline-date">2021 - 2022</div>
-              <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">
+              <div class="timeline-dot" style="background: #ff6b6b; box-shadow: 0 0 12px rgba(255,107,107,0.7);"></div>
+              <div class="timeline-date" style="color: #ff6b6b;">2021 — 2022</div>
+              <div class="timeline-content" style="border-left-color: rgba(255,107,107,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,107,107,0.5);">
                   Desarrollador Frontend
                 </h3>
-                <p class="text-gray-400">
-                  Especializado en interfaces de usuario seguras y aplicaciones
-                  web modernas.
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Especializado en interfaces de usuario seguras y aplicaciones web modernas con foco en accesibilidad y rendimiento.
                 </p>
               </div>
             </div>
 
+            <!-- 6 · 2019–2021 — Orange #ffa502 -->
             <div class="timeline-item">
-              <div class="timeline-date">2019 - 2021</div>
-              <div class="timeline-content">
-                <h3 class="text-xl text-yellow-400 mb-2">
+              <div class="timeline-dot" style="background: #ffa502; box-shadow: 0 0 12px rgba(255,165,2,0.7);"></div>
+              <div class="timeline-date" style="color: #ffa502;">2019 — 2021</div>
+              <div class="timeline-content" style="border-left-color: rgba(255,165,2,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #ffa502; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,165,2,0.5);">
                   Estudiante de Ciberseguridad
                 </h3>
-                <p class="text-gray-400">
-                  Formación en ethical hacking, análisis de malware y técnicas
-                  de seguridad ofensiva.
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Formación en ethical hacking, análisis de malware y técnicas de seguridad ofensiva y defensiva.
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Filosofía de Seguridad -->
-    <section class="py-20 px-6">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-4xl md:text-5xl text-center text-yellow-400 mb-16">
-          <i class="fas fa-user-secret mr-4"></i>
-          Filosofía de <span class="text-white">Seguridad</span>
+    <!-- ── FILOSOFÍA ──────────────────────────────────── -->
+    <section class="py-20 md:py-28 px-6 relative overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-50"></div>
+      </div>
+      <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);"></div>
+
+      <div class="container mx-auto max-w-5xl relative">
+        <div class="text-center mb-4">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Principios ───</span>
+        </div>
+        <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
+          <span class="text-white">FILOSOFÍA DE </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">SEGURIDAD</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div class="philosophy-card security-philosophy">
-            <div class="philosophy-icon red-glow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="philosophy-card" style="border-color: rgba(255,107,107,0.35); --top-color: #ff6b6b;">
+            <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #ff6b6b, transparent);"></div>
+            <div class="philosophy-icon" style="color: #ff6b6b; border: 1px solid rgba(255,107,107,0.4); box-shadow: 0 0 12px rgba(255,107,107,0.2);">
               <i class="fas fa-crosshairs"></i>
             </div>
-            <h3 class="text-2xl text-yellow-400 mb-4">Mentalidad Ofensiva</h3>
-            <p class="text-gray-300">
-              Pienso como un atacante para anticipar vectores de ataque y
-              fortalecer las defensas antes de que sean explotadas.
-            </p>
+            <h3 class="text-xl font-black mb-3" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,107,107,0.5);">Mentalidad Ofensiva</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Pienso como un atacante para anticipar vectores de ataque y fortalecer las defensas antes de que sean explotadas.</p>
           </div>
 
-          <div class="philosophy-card security-philosophy">
-            <div class="philosophy-icon green-glow">
+          <div class="philosophy-card" style="border-color: rgba(255,215,0,0.35); --top-color: #FFD700;">
+            <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #FFD700, transparent);"></div>
+            <div class="philosophy-icon" style="color: #FFD700; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 12px rgba(255,215,0,0.2);">
               <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="text-2xl text-yellow-400 mb-4">
-              Defensa en Profundidad
-            </h3>
-            <p class="text-gray-300">
-              Implemento múltiples capas de seguridad para que la falla de una
-              no comprometa todo el sistema.
-            </p>
+            <h3 class="text-xl font-black mb-3" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Defensa en Profundidad</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Implemento múltiples capas de seguridad para que la falla de una no comprometa todo el sistema.</p>
           </div>
 
-          <div class="philosophy-card security-philosophy">
-            <div class="philosophy-icon blue-glow">
+          <div class="philosophy-card" style="border-color: rgba(0,212,255,0.35); --top-color: #00d4ff;">
+            <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #00d4ff, transparent);"></div>
+            <div class="philosophy-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 12px rgba(0,212,255,0.2);">
               <i class="fas fa-eye"></i>
             </div>
-            <h3 class="text-2xl text-yellow-400 mb-4">Transparencia Ética</h3>
-            <p class="text-gray-300">
-              Creo en la divulgación responsable de vulnerabilidades y en el
-              hacking ético como herramienta de mejora.
-            </p>
+            <h3 class="text-xl font-black mb-3" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Transparencia Ética</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Creo en la divulgación responsable de vulnerabilidades y en el hacking ético como herramienta de mejora.</p>
           </div>
 
-          <div class="philosophy-card security-philosophy">
-            <div class="philosophy-icon purple-glow">
+          <div class="philosophy-card" style="border-color: rgba(139,92,246,0.35); --top-color: #8b5cf6;">
+            <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #8b5cf6, transparent);"></div>
+            <div class="philosophy-icon" style="color: #8b5cf6; border: 1px solid rgba(139,92,246,0.4); box-shadow: 0 0 12px rgba(139,92,246,0.2);">
               <i class="fas fa-sync-alt"></i>
             </div>
-            <h3 class="text-2xl text-yellow-400 mb-4">Mejora Continua</h3>
-            <p class="text-gray-300">
-              La seguridad no es un destino sino un proceso continuo de
-              evaluación, mejora y adaptación.
-            </p>
+            <h3 class="text-xl font-black mb-3" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(139,92,246,0.5);">Mejora Continua</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">La seguridad no es un destino sino un proceso continuo de evaluación, mejora y adaptación.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 px-6 text-center bg-gray-900 bg-opacity-70">
-      <div class="container mx-auto max-w-3xl">
-        <h2 class="text-4xl md:text-5xl text-yellow-400 mb-6">
-          ¿Protección contra amenazas digitales?
+    <!-- ── CTA ───────────────────────────────────────── -->
+    <section class="py-20 md:py-28 px-6 text-center relative overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-40"></div>
+      </div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 65%);"></div>
+      <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent); box-shadow: 0 0 8px rgba(255,215,0,0.3);"></div>
+
+      <div class="container mx-auto max-w-3xl relative">
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3));"></div>
+          <span style="color: #FFD700; text-shadow: 0 0 12px rgba(255,215,0,0.9);">⬡</span>
+          <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.3), transparent);"></div>
+        </div>
+
+        <h2 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.5rem, 4vw, 3rem); letter-spacing: 0.06em; color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">
+          ¿PROTECCIÓN CONTRA AMENAZAS DIGITALES?
         </h2>
-        <p class="text-xl text-gray-300 mb-10">
-          Desarrollo soluciones seguras y realizo auditorías para fortalecer tus
-          defensas digitales.
+        <p class="text-gray-500 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+          Desarrollo soluciones seguras y realizo auditorías para fortalecer tus defensas digitales.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/contact" class="btn-bat-lg">
-            <i class="fas fa-shield-alt mr-2"></i>
-            Auditoría de Seguridad
+          <a href="/contact"
+            class="flex items-center justify-center gap-2 px-8 py-4 font-black text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
+            style="background: linear-gradient(135deg, #FFD700, #d97706); color: #000; border: 2px solid rgba(255,215,0,0.7); box-shadow: 0 0 25px rgba(255,215,0,0.4); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
+            onmouseover="this.style.boxShadow='0 0 45px rgba(255,215,0,0.8)'"
+            onmouseout="this.style.boxShadow='0 0 25px rgba(255,215,0,0.4)'">
+            <i class="fas fa-shield-alt"></i> Auditoría de Seguridad
           </a>
-          <a href="/projects" class="btn-bat-outline">
-            <i class="fas fa-code mr-2"></i>
-            Ver Proyectos Seguros
+          <a href="/projects"
+            class="flex items-center justify-center gap-2 px-8 py-4 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
+            style="border: 2px solid rgba(0,212,255,0.5); color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.12em; box-shadow: 0 0 12px rgba(0,212,255,0.15);"
+            onmouseover="this.style.background='rgba(0,212,255,0.08)'; this.style.boxShadow='0 0 25px rgba(0,212,255,0.4)'; this.style.borderColor='rgba(0,212,255,0.8)'"
+            onmouseout="this.style.background='transparent'; this.style.boxShadow='0 0 12px rgba(0,212,255,0.15)'; this.style.borderColor='rgba(0,212,255,0.5)'">
+            <i class="fas fa-code"></i> Ver Proyectos
           </a>
         </div>
       </div>
@@ -465,327 +503,136 @@ import Smoke from "../components/Smoke.astro";
 </Layout>
 
 <style>
-  /* Asegurar que los controles de lluvia estén por encima del canvas */
-
-  /* Animaciones personalizadas */
   @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0) translateX(-50%);
-    }
-    40% {
-      transform: translateY(-10px) translateX(-50%);
-    }
-    60% {
-      transform: translateY(-5px) translateX(-50%);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-10px) translateX(-50%); }
+    60% { transform: translateY(-5px) translateX(-50%); }
   }
+  .animate-bounce { animation: bounce 2s infinite; }
 
-  .animate-bounce {
-    animation: bounce 2s infinite;
-  }
-
-  /* Estilos para tarjetas de ciberseguridad */
+  /* ── Security cards ──────────── */
   .security-card {
-    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
-    border: 1px solid rgba(241, 196, 15, 0.3);
+    background: #000;
+    border: 1px solid var(--card-color, rgba(255,215,0,0.3));
     padding: 2rem;
-    border-radius: 1rem;
     text-align: center;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.9), inset 0 0 20px var(--card-glow, rgba(255,215,0,0.03));
   }
-
+  .security-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--card-color, rgba(255,215,0,0.2)), 0 8px 40px rgba(0,0,0,1);
+  }
   .security-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      #f1c40f,
-      #ff6b6b,
-      #4ecdc4,
-      #45b7d1,
-      #96ceb4,
-      #f1c40f
-    );
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--card-color, rgba(255,215,0,0.5)), transparent);
     transform: translateX(-100%);
-    transition: transform 0.6s ease;
+    transition: transform 0.55s ease;
   }
-
-  .security-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(241, 196, 15, 0.2);
-  }
-
-  .security-card:hover::before {
-    transform: translateX(100%);
-  }
+  .security-card:hover::before { transform: translateX(100%); }
 
   .security-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: rgba(241, 196, 15, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+    width: 64px; height: 64px;
+    margin: 0 auto 1.25rem;
+    background: rgba(0,0,0,0.8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
     transition: all 0.3s ease;
   }
+  .security-icon:hover { transform: scale(1.1); }
+  .security-title { font-size: 1rem; font-weight: 900; margin-bottom: 0.75rem; font-family: 'Cinzel', serif; letter-spacing: 0.06em; color: #FFD700; }
+  .security-desc { color: #6b7280; margin-bottom: 1.25rem; font-size: 0.85rem; line-height: 1.6; }
+  .security-skills { text-align: left; color: #9ca3af; font-size: 0.8rem; list-style: none; padding: 0; }
+  .security-skills li { margin-bottom: 0.4rem; display: flex; align-items: center; }
 
-  .red-glow {
-    color: #ff6b6b;
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-  }
-  .orange-glow {
-    color: #ffa502;
-    box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
-  }
-  .blue-glow {
-    color: #45b7d1;
-    box-shadow: 0 0 20px rgba(69, 183, 209, 0.3);
-  }
-  .purple-glow {
-    color: #a55eea;
-    box-shadow: 0 0 20px rgba(165, 94, 234, 0.3);
-  }
-  .green-glow {
-    color: #26de81;
-    box-shadow: 0 0 20px rgba(38, 222, 129, 0.3);
-  }
-  .yellow-glow {
-    color: #f1c40f;
-    box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
-  }
-
-  .security-icon:hover {
-    transform: scale(1.1);
-  }
-
-  .security-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #f1c40f;
-    margin-bottom: 1rem;
-  }
-
-  .security-desc {
-    color: #9ca3af;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .security-skills {
-    text-align: left;
-    color: #d1d5db;
-    font-size: 0.85rem;
-  }
-
-  .security-skills li {
-    margin-bottom: 0.5rem;
-  }
-
-  /* Filosofía de seguridad */
-  .security-philosophy {
-    border: 1px solid rgba(255, 107, 107, 0.3);
-  }
-
-  /* Estilos para tarjetas de habilidades */
+  /* ── Skill cards ─────────────── */
   .skill-card {
-    background: linear-gradient(145deg, #1c1c1c, #0f0f0f);
-    border: 1px solid rgba(241, 196, 15, 0.3);
-    padding: 2rem;
-    border-radius: 1rem;
+    background: #000;
+    border: 1px solid var(--skill-color, rgba(255,215,0,0.3));
+    padding: 1.75rem;
     text-align: center;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.9);
   }
-
-  .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(241, 196, 15, 0.2);
+  .skill-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--skill-color, #FFD700), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.55s ease;
   }
+  .skill-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px var(--skill-glow, rgba(255,215,0,0.2)); }
+  .skill-card:hover::before { transform: translateX(100%); }
 
   .skill-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 1.5rem;
-    background: rgba(241, 196, 15, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: #f1c40f;
+    width: 60px; height: 60px;
+    margin: 0 auto 1.25rem;
+    background: rgba(0,0,0,0.8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
   }
+  .skill-title { font-size: 1rem; font-weight: 900; color: #FFD700; margin-bottom: 0.4rem; font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+  .skill-desc { color: #6b7280; margin-bottom: 1rem; font-size: 0.8rem; }
+  .skill-bar { width: 100%; height: 3px; background: rgba(255,255,255,0.06); overflow: hidden; margin-bottom: 0.4rem; }
+  .skill-progress { height: 100%; border-radius: 2px; }
+  .skill-pct { font-size: 0.7rem; font-weight: 900; color: #FFD700; font-family: 'Cinzel', serif; }
 
-  .skill-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #f1c40f;
-    margin-bottom: 0.5rem;
-  }
-
-  .skill-desc {
-    color: #9ca3af;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-  }
-
-  .skill-bar {
-    width: 100%;
-    height: 6px;
-    background: #374151;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #f1c40f, #ffd43b);
-    border-radius: 3px;
-    transition: width 1s ease-in-out;
-  }
-
-  /* Timeline */
-  .timeline {
-    position: relative;
-    padding-left: 3rem;
-  }
-
+  /* ── Timeline ────────────────── */
+  .timeline { position: relative; padding-left: 2.5rem; }
   .timeline::before {
     content: "";
+    position: absolute; left: 12px; top: 0;
+    height: 100%; width: 1px;
+    background: linear-gradient(to bottom, #FFD700, rgba(255,215,0,0.1));
+    box-shadow: 0 0 8px rgba(255,215,0,0.3);
+  }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-dot {
     position: absolute;
-    left: 15px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, #f1c40f, transparent);
+    left: -2.15rem; top: 4px;
+    width: 14px; height: 14px;
+    background: #FFD700;
+    box-shadow: 0 0 10px rgba(255,215,0,0.7);
+    border: 2px solid #000;
   }
-
-  .timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-  }
-
-  .timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -3rem;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #f1c40f;
-    border: 4px solid #1c1c1c;
-  }
-
-  .timeline-date {
-    font-size: 0.9rem;
-    color: #f1c40f;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-
+  .timeline-date { font-size: 0.75rem; font-weight: 900; color: #FFD700; margin-bottom: 0.4rem; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-transform: uppercase; }
   .timeline-content {
-    background: rgba(28, 28, 28, 0.7);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    border-left: 3px solid #f1c40f;
+    background: rgba(0,0,0,0.8);
+    padding: 1.25rem;
+    border-left: 2px solid rgba(255,215,0,0.5);
+    border: 1px solid rgba(255,215,0,0.15);
+    border-left: 3px solid rgba(255,215,0,0.5);
   }
 
-  /* Filosofía */
+  /* ── Philosophy cards ────────── */
   .philosophy-card {
-    text-align: center;
     padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.9);
   }
-
+  .philosophy-card:hover { transform: translateY(-4px); }
   .philosophy-icon {
-    font-size: 2.5rem;
-    color: #f1c40f;
-    margin-bottom: 1rem;
+    width: 60px; height: 60px;
+    margin: 0 auto 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
   }
 
-  /* Botones mejorados */
-  .btn-bat-outline {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    color: #f1c40f;
-    border: 2px solid #f1c40f;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-
-  .btn-bat-outline:hover {
-    background: #f1c40f;
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
-  }
-
-  .btn-bat-lg {
-    display: inline-flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: linear-gradient(90deg, #f1c40f, #ffd43b);
-    color: #000;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 1.1rem;
-  }
-
-  .btn-bat-lg:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(241, 196, 15, 0.5);
-  }
-
-  /* Silueta de murciélago */
-  .bat-silhouette {
-    font-size: 8rem;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-20px) rotate(5deg);
-    }
-  }
-
-  /* Responsividad */
   @media (max-width: 768px) {
-    .timeline {
-      padding-left: 2rem;
-    }
-
-    .timeline-item::before {
-      left: -2.2rem;
-    }
+    .timeline { padding-left: 2rem; }
+    .timeline-dot { left: -1.75rem; }
   }
 </style>

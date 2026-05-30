@@ -6,167 +6,271 @@ import BackgroundAnimation from "../components/BackgroundAnimation.astro";
 import WaterDrops from "../components/WaterDrops.astro";
 import Smoke from "../components/Smoke.astro";
 
-// Datos de proyectos en un array para evitar repetición
 const projects = [
   {
     id: 1,
     title: "Sistema para gimnasios",
     description: "Sistema para gestionar y administrar gimnasios.",
-    category: "full-stack",
+    category: "Full-Stack",
     technologies: ["Astro", "Tailwind", "Java"],
     link: "https://github.com/THEBAT02468/SistemaGym",
     image: "/images/project1.jpg",
+    color: "#FFD700",
+    glow: "rgba(255,215,0,0.3)",
   },
   {
     id: 2,
     title: "Clothes-Bot",
     description: "Bot de clothing para WhatsApp.",
-    category: "full-stack",
+    category: "Full-Stack",
     technologies: ["Python", "Django", "PostgreSQL"],
     link: "https://github.com/THEBAT02468/clothesBot",
     image: "/images/project2.png",
+    color: "#00d4ff",
+    glow: "rgba(0,212,255,0.3)",
   },
   {
     id: 3,
     title: "Bat-Findbug",
-    description: "Herramienta de análisis estático de código para detectar vulnerabilidades de seguridad de algun dominio web",
-    category: "full-stack",
+    description: "Herramienta de análisis estático para detectar vulnerabilidades de seguridad en dominios web.",
+    category: "Cybersecurity",
     technologies: ["Python", "Flask", "SQLite"],
     link: "https://github.com/THEBAT02468/Bat-FindBug",
     image: "/images/project3.png",
+    color: "#ff6b6b",
+    glow: "rgba(255,107,107,0.3)",
   },
-  // Agrega más proyectos según necesites
+  {
+    id: 4,
+    title: "LegacyApp",
+    description: "Aplicación fitness del gimnasio Legacy para organizar rutinas, dietas, instructores y equipos.",
+    category: "Mobile",
+    technologies: ["React-Native", "Expo", "Firebase"],
+    link: "https://expo.dev/accounts/thebat02468/projects/LegacyApp/builds/e93361a2-4e41-4183-84a0-669b7f2240be",
+    image: "/images/legacyGym.jpg",
+    color: "#8b5cf6",
+    glow: "rgba(139,92,246,0.3)",
+  },
+  {
+    id: 5,
+    title: "AnimusHacking",
+    description: "Semillero universitario de Hacking y Pentesting con contenidos de seguridad y vulnerabilidades.",
+    category: "Cybersecurity",
+    technologies: ["Kali", "Metasploit", "Burp Suite"],
+    link: "https://chat.whatsapp.com/Fbd7IPsRXZF6v5fUjgbeHh?mode=gi_t",
+    image: "/images/LogoAnimusHacking.png",
+    color: "#ff6b6b",
+    glow: "rgba(255,107,107,0.3)",
+  },
+  {
+    id: 6,
+    title: "Analista de Datos",
+    description: "Analista computacional de datos para Ingeniería Aplicada ITD SAS, con modelos predictivos.",
+    category: "Data Science",
+    technologies: ["Python", "Scikit-learn", "Pandas", "Numpy"],
+    image: "/images/Ing_Aplicada_ITD_SAS.png",
+    color: "#00d4ff",
+    glow: "rgba(0,212,255,0.3)",
+  },
+  {
+    id: 7,
+    title: "Code-Quest",
+    description: "Plataforma gamificada para aprender a programar con feedback inmediato para estudiantes.",
+    category: "Full-Stack",
+    technologies: ["Python", "Flask", "MySQL", "HTML", "CSS", "JavaScript"],
+    link: "https://code-quest.up.railway.app/",
+    image: "/images/Code-Quest.png",
+    color: "#FFD700",
+    glow: "rgba(255,215,0,0.3)",
+  },
 ];
+
+const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Science"];
 ---
 
-<Layout title="Proyectos - Gotham Style">
+<Layout title="Proyectos - Santiago López | Gotham Developer">
   <Smoke />
   <BackgroundAnimation />
   <div class="relative z-10">
     <WaterDrops />
-
     <Header />
 
-    <!-- Añadido margen superior (mt-20) para que el contenido no se tape con el header fijo -->
-    <main class="min-h-screen p-6 md:p-10 mt-20">
-      <h1
-        class="text-4xl md:text-5xl text-center text-yellow-400 mb-8 font-batman"
-      >
-        Mis Proyectos
-      </h1>
-      <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-        Explora mis creaciones con temática oscura y misteriosa, inspiradas en
-        el mundo de Gotham City.
-      </p>
+    <!-- ── HERO ──────────────────────────────────────── -->
+    <section class="relative pt-32 pb-16 px-6 text-center overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-50"></div>
+      </div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 65%);"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent); box-shadow: 0 0 8px rgba(255,215,0,0.3);"></div>
 
-      <!-- Filtros por categoría -->
-      <div class="flex justify-center mb-10 gap-4 flex-wrap">
-        <button
-          class="px-4 py-2 bg-gray-800 text-yellow-400 rounded-md hover:bg-gray-700 transition-all border border-yellow-400/20"
-          >Todos</button
-        >
-        <button
-          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
-          >Frontend</button
-        >
-        <button
-          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
-          >Backend</button
-        >
-        <button
-          class="px-4 py-2 bg-gray-800 text-gray-400 rounded-md hover:bg-gray-700 transition-all hover:text-yellow-400"
-          >Fullstack</button
-        >
+      <div class="relative z-10">
+        <div class="inline-flex items-center gap-3 px-5 py-2 mb-8" style="background: rgba(0,0,0,0.8); border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 20px rgba(255,215,0,0.1);">
+          <div class="w-2 h-2 rounded-full animate-pulse" style="background: #00d4ff; box-shadow: 0 0 6px #00d4ff;"></div>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);">⬡ Portafolio ⬡</span>
+        </div>
+
+        <h1 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.05em; line-height: 1;">
+          <span class="text-white">MIS</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);">PROYECTOS</span>
+        </h1>
+
+        <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4">
+          Creaciones con temática oscura e inspiradas en Gotham City — donde el código se convierte en arte.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── PROYECTOS GRID ─────────────────────────────── -->
+    <main class="relative px-4 md:px-6 py-16 overflow-hidden">
+      <div class="absolute inset-0" style="background: rgba(0,0,0,0.50);">
+        <div class="absolute inset-0 gotham-grid opacity-30"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          projects.map((project) => (
-            <div class="card-bat group relative overflow-hidden rounded-lg bg-gray-900 border border-yellow-400/20 transition-all duration-300 hover:border-yellow-400 hover:shadow-lg hover:shadow-yellow-400/10">
-              <div class="h-48 overflow-hidden bg-gray-800">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  width="400"
-                  height="240"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div class="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-1 rounded">
-                  {project.category}
-                </div>
+      <!-- Filtros -->
+      <div class="relative z-10 flex justify-center mb-12 gap-3 flex-wrap">
+        {categories.map((cat, i) => (
+          <button
+            class="filter-btn text-xs font-black tracking-widest uppercase px-5 py-2 transition-all duration-300"
+            data-category={cat}
+            style={i === 0
+              ? "background: rgba(255,215,0,0.12); color: #FFD700; border: 1px solid rgba(255,215,0,0.6); box-shadow: 0 0 12px rgba(255,215,0,0.2); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
+              : "color: #6b7280; border: 1px solid rgba(255,255,255,0.08); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Cards grid -->
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto" id="projects-grid">
+        {projects.map((project) => (
+          <div
+            class="project-card group relative overflow-hidden transition-all duration-400"
+            data-category={project.category}
+            style={`background: #000; border: 1px solid ${project.color}30; box-shadow: 0 4px 24px rgba(0,0,0,0.9);`}
+            onmouseover={`this.style.borderColor='${project.color}80'; this.style.boxShadow='0 0 25px ${project.glow}, 0 8px 40px rgba(0,0,0,1)'; this.style.transform='translateY(-6px)';`}
+            onmouseout={`this.style.borderColor='${project.color}30'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)'; this.style.transform='translateY(0)';`}
+          >
+            <!-- Neon top line -->
+            <div class="absolute top-0 left-0 right-0 h-0.5 z-10 transition-opacity duration-300"
+              style={`background: linear-gradient(90deg, transparent, ${project.color}, transparent); opacity: 0.6;`}></div>
+
+            <!-- Category badge -->
+            <div class="absolute top-3 right-3 z-10 px-2 py-0.5 text-xs font-black tracking-wider uppercase"
+              style={`background: rgba(0,0,0,0.9); border: 1px solid ${project.color}60; color: ${project.color}; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.1em;`}>
+              {project.category}
+            </div>
+
+            <!-- Image -->
+            <div class="h-44 overflow-hidden relative" style="background: #080808;">
+              <img
+                src={project.image}
+                alt={project.title}
+                width="400"
+                height="240"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+              />
+              <!-- Overlay gradiente -->
+              <div class="absolute inset-0" style={`background: linear-gradient(to top, #000 0%, transparent 60%);`}></div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5">
+              <h3 class="text-base font-black mb-2 transition-all duration-300"
+                style={`color: ${project.color}; font-family: 'Cinzel', serif; letter-spacing: 0.06em; text-shadow: 0 0 8px ${project.glow};`}>
+                {project.title}
+              </h3>
+              <p class="text-gray-500 text-sm mb-4 leading-relaxed">{project.description}</p>
+
+              <!-- Tech badges -->
+              <div class="flex flex-wrap gap-2 mb-5">
+                {project.technologies.map((tech) => (
+                  <span class="text-xs font-bold px-2 py-0.5 tracking-wide"
+                    style={`border: 1px solid ${project.color}40; color: ${project.color}; background: ${project.color}08; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.08em;`}>
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-              <div class="p-5">
-                <h3 class="text-xl font-semibold text-yellow-400 mb-2">
-                  {project.title}
-                </h3>
-                <p class="text-gray-400 mb-4">{project.description}</p>
-
-                <div class="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span class="text-xs bg-gray-800 text-yellow-400 px-2 py-1 rounded">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
+              <!-- Link -->
+              {project.link ? (
                 <a
                   href={project.link}
-                  class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
+                  style={`color: ${project.color}; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px ${project.glow};`}
                 >
                   Ver proyecto
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
-              </div>
+              ) : (
+                <span class="text-xs font-bold tracking-widest uppercase" style="color: #4b5563; font-family: 'Cinzel', serif; font-size: 0.6rem;">Terminado</span>
+              )}
             </div>
-          ))
-        }
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty state (oculto por defecto) -->
+      <div id="no-results" class="hidden relative z-10 text-center py-20">
+        <p class="font-black text-2xl" style="color: #FFD700; font-family: 'Cinzel Decorative', serif; text-shadow: 0 0 20px rgba(255,215,0,0.5);">Sin proyectos en esta categoría</p>
       </div>
     </main>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .font-batman {
-    font-family: "Arial Black", sans-serif;
-    text-shadow: 0 0 10px rgba(255, 196, 0, 0.5);
+  .project-card { transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+
+  .filter-btn:hover {
+    color: #FFD700 !important;
+    border-color: rgba(255,215,0,0.5) !important;
+    background: rgba(255,215,0,0.06) !important;
   }
 
-  .card-bat {
-    transition: transform 0.3s ease;
+  .filter-btn.active {
+    background: rgba(255,215,0,0.12) !important;
+    color: #FFD700 !important;
+    border-color: rgba(255,215,0,0.6) !important;
+    box-shadow: 0 0 12px rgba(255,215,0,0.2) !important;
   }
 
-  .card-bat:hover {
-    transform: translateY(-5px);
-  }
-
-  /* Estilos para el header fijo */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
-    background: rgba(15, 15, 25, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 204, 0, 0.3);
-    padding: 1rem 0;
-  }
-  main {
-    padding-top: 6rem; /* Espacio para el header fijo */
-  }
+  main { padding-top: 0; }
 </style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".project-card");
+    const noResults = document.getElementById("no-results");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const category = this.dataset.category;
+
+        // Update active button
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+
+        let visible = 0;
+        cards.forEach((card) => {
+          const cardCategory = card.dataset.category;
+          const matches = category === "Todos" || cardCategory === category;
+          card.style.display = matches ? "block" : "none";
+          if (matches) visible++;
+        });
+
+        if (noResults) noResults.style.display = visible === 0 ? "block" : "none";
+      });
+    });
+
+    // Activate first button
+    const firstBtn = document.querySelector(".filter-btn");
+    if (firstBtn) firstBtn.classList.add("active");
+  });
+</script>
