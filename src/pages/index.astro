@@ -556,55 +556,109 @@ import Smoke from "../components/Smoke.astro";
           <div
             class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20"
           >
-            <!-- Proyecto 1: gold border -->
-            <div class="group relative p-6 md:p-8 transition-all duration-500 hover:scale-[1.02] text-left"
+            <!-- Clothes-Bot: gold border -->
+            <div class="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] text-left"
               style="background: #000; border: 1px solid rgba(255,215,0,0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.9);"
-              onmouseover="this.style.borderColor='rgba(255,215,0,0.7)'; this.style.boxShadow='0 0 25px rgba(255,215,0,0.2), 0 8px 40px rgba(0,0,0,1)';"
-              onmouseout="this.style.borderColor='rgba(255,215,0,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)';"
+              onmouseover="this.style.borderColor='rgba(255,215,0,0.7)'; this.style.boxShadow='0 0 25px rgba(255,215,0,0.2), 0 8px 40px rgba(0,0,0,1)'; this.style.transform='translateY(-6px) scale(1.02)';"
+              onmouseout="this.style.borderColor='rgba(255,215,0,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)'; this.style.transform='translateY(0) scale(1)';"
             >
-              <!-- Top gold line -->
-              <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #FFD700, transparent);"></div>
-              <div class="text-3xl mb-4">🛡️</div>
-              <h4 class="text-lg font-black text-white mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.05em;" data-i18n="index.fp.card1.title">Sistema de Auditoría</h4>
-              <p class="text-gray-500 text-sm mb-4" data-i18n="index.fp.card1.desc">Plataforma de seguridad con Python y Bash</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05);">Python</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05);">Bash</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05);">Seguridad</span>
+              <div class="absolute top-0 left-0 right-0 h-0.5 z-10" style="background: linear-gradient(90deg, transparent, #FFD700, transparent);"></div>
+              <div class="absolute top-3 right-3 z-10 px-2 py-0.5 text-xs font-black tracking-wider uppercase" style="background: rgba(0,0,0,0.9); border: 1px solid rgba(255,215,0,0.6); color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.55rem;">Full-Stack</div>
+              <div class="h-36 overflow-hidden relative" style="background: #080808;">
+                <img src="/images/project2.png" alt="Clothes-Bot" width="400" height="216"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                <div class="absolute inset-0" style="background: linear-gradient(to top, #000 0%, transparent 60%);"></div>
+              </div>
+              <div class="p-5">
+                <h4 class="text-base font-black mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.06em; color: #FFD700; text-shadow: 0 0 8px rgba(255,215,0,0.4);" data-i18n="index.fp.card1.title">Clothes-Bot</h4>
+                <p class="text-gray-500 text-sm mb-4 leading-relaxed" data-i18n="index.fp.card1.desc">Bot de clothing para WhatsApp.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Python</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Django</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; background: rgba(255,215,0,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">PostgreSQL</span>
+                </div>
+                <a href="https://github.com/THEBAT02468/clothesBot" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
+                  style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px rgba(255,215,0,0.4);">
+                  <span data-i18n="proj.view">Ver proyecto</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </div>
             </div>
 
-            <!-- Proyecto 2: cyan border -->
-            <div class="group relative p-6 md:p-8 transition-all duration-500 hover:scale-[1.02] text-left"
-              style="background: #000; border: 1px solid rgba(0,212,255,0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.9);"
-              onmouseover="this.style.borderColor='rgba(0,212,255,0.7)'; this.style.boxShadow='0 0 25px rgba(0,212,255,0.2), 0 8px 40px rgba(0,0,0,1)';"
-              onmouseout="this.style.borderColor='rgba(0,212,255,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)';"
-            >
-              <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #00d4ff, transparent);"></div>
-              <div class="text-3xl mb-4">⚛️</div>
-              <h4 class="text-lg font-black text-white mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.05em;" data-i18n="index.fp.card2.title">App Full Stack</h4>
-              <p class="text-gray-500 text-sm mb-4">React + TypeScript + Java + PostgreSQL</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(0,212,255,0.4); color: #00d4ff; background: rgba(0,212,255,0.05);">React</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(0,212,255,0.4); color: #00d4ff; background: rgba(0,212,255,0.05);">TypeScript</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(0,212,255,0.4); color: #00d4ff; background: rgba(0,212,255,0.05);">Java</span>
-              </div>
-            </div>
-
-            <!-- Proyecto 3: purple border -->
-            <div class="group relative p-6 md:p-8 transition-all duration-500 hover:scale-[1.02] text-left"
+            <!-- LegacyApp: purple border -->
+            <div class="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] text-left"
               style="background: #000; border: 1px solid rgba(139,92,246,0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.9);"
-              onmouseover="this.style.borderColor='rgba(139,92,246,0.7)'; this.style.boxShadow='0 0 25px rgba(139,92,246,0.2), 0 8px 40px rgba(0,0,0,1)';"
-              onmouseout="this.style.borderColor='rgba(139,92,246,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)';"
+              onmouseover="this.style.borderColor='rgba(139,92,246,0.7)'; this.style.boxShadow='0 0 25px rgba(139,92,246,0.2), 0 8px 40px rgba(0,0,0,1)'; this.style.transform='translateY(-6px) scale(1.02)';"
+              onmouseout="this.style.borderColor='rgba(139,92,246,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)'; this.style.transform='translateY(0) scale(1)';"
             >
-              <div class="absolute top-0 left-0 right-0 h-0.5" style="background: linear-gradient(90deg, transparent, #8b5cf6, transparent);"></div>
-              <div class="text-3xl mb-4">🤖</div>
-              <h4 class="text-lg font-black text-white mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.05em;" data-i18n="index.fp.card3.title">BOT de Tendencias</h4>
-              <p class="text-gray-500 text-sm mb-4" data-i18n="index.fp.card3.desc">Python + Flask + Twilio para crear un bot de tendencias</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05);">Python</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05);">Flask</span>
-                <span class="px-2 py-1 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05);">Twilio</span>
+              <div class="absolute top-0 left-0 right-0 h-0.5 z-10" style="background: linear-gradient(90deg, transparent, #8b5cf6, transparent);"></div>
+              <div class="absolute top-3 right-3 z-10 px-2 py-0.5 text-xs font-black tracking-wider uppercase" style="background: rgba(0,0,0,0.9); border: 1px solid rgba(139,92,246,0.6); color: #8b5cf6; font-family: 'Cinzel', serif; font-size: 0.55rem;">Mobile</div>
+              <div class="h-36 overflow-hidden relative" style="background: #080808;">
+                <img src="/images/legacyGym.jpg" alt="LegacyApp" width="400" height="216"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                <div class="absolute inset-0" style="background: linear-gradient(to top, #000 0%, transparent 60%);"></div>
+              </div>
+              <div class="p-5">
+                <h4 class="text-base font-black mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.06em; color: #8b5cf6; text-shadow: 0 0 8px rgba(139,92,246,0.4);" data-i18n="index.fp.card2.title">LegacyApp</h4>
+                <p class="text-gray-500 text-sm mb-4 leading-relaxed" data-i18n="index.fp.card2.desc">App fitness del gimnasio Legacy para organizar rutinas, dietas e instructores.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">React Native</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Expo</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(139,92,246,0.4); color: #8b5cf6; background: rgba(139,92,246,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Firebase</span>
+                </div>
+                <a href="https://expo.dev/accounts/thebat02468/projects/LegacyApp/builds/e93361a2-4e41-4183-84a0-669b7f2240be" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
+                  style="color: #8b5cf6; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px rgba(139,92,246,0.4);">
+                  <span data-i18n="proj.view">Ver proyecto</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Máquina Gotham: red border -->
+            <div class="group relative overflow-hidden transition-all duration-500 hover:scale-[1.02] text-left"
+              style="background: #000; border: 1px solid rgba(255,107,107,0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.9);"
+              onmouseover="this.style.borderColor='rgba(255,107,107,0.7)'; this.style.boxShadow='0 0 25px rgba(255,107,107,0.2), 0 8px 40px rgba(0,0,0,1)'; this.style.transform='translateY(-6px) scale(1.02)';"
+              onmouseout="this.style.borderColor='rgba(255,107,107,0.3)'; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.9)'; this.style.transform='translateY(0) scale(1)';"
+            >
+              <div class="absolute top-0 left-0 right-0 h-0.5 z-10" style="background: linear-gradient(90deg, transparent, #ff6b6b, transparent);"></div>
+              <div class="absolute top-3 right-3 z-10 px-2 py-0.5 text-xs font-black tracking-wider uppercase" style="background: rgba(0,0,0,0.9); border: 1px solid rgba(255,107,107,0.6); color: #ff6b6b; font-family: 'Cinzel', serif; font-size: 0.55rem;">Cybersecurity</div>
+              <div class="h-36 overflow-hidden relative" style="background: #080808;">
+                <img src="/images/project4.png" alt="Máquina Gotham" width="400" height="216"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+                <div class="absolute inset-0" style="background: linear-gradient(to top, #000 0%, transparent 60%);"></div>
+              </div>
+              <div class="p-5">
+                <h4 class="text-base font-black mb-2" style="font-family: 'Cinzel', serif; letter-spacing: 0.06em; color: #ff6b6b; text-shadow: 0 0 8px rgba(255,107,107,0.4);" data-i18n="index.fp.card3.title">Máquina Gotham</h4>
+                <p class="text-gray-500 text-sm mb-4 leading-relaxed" data-i18n="index.fp.card3.desc">CTF en Dockerlabs: JWT, command injection, password reuse, sudo misconfig.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,107,107,0.4); color: #ff6b6b; background: rgba(255,107,107,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Docker</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,107,107,0.4); color: #ff6b6b; background: rgba(255,107,107,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Linux</span>
+                  <span class="px-2 py-0.5 text-xs font-bold tracking-wide" style="border: 1px solid rgba(255,107,107,0.4); color: #ff6b6b; background: rgba(255,107,107,0.05); font-family: 'Cinzel', serif; font-size: 0.6rem;">Pentesting</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                  <a href="https://dockerlabs.es/" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
+                    style="color: #ff6b6b; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px rgba(255,107,107,0.4);">
+                    <span data-i18n="proj.view">Ver proyecto</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                  <a href="/MÁQUINA GOTHAM.pdf" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
+                    style="color: #ff6b6b; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px rgba(255,107,107,0.4);">
+                    <span data-i18n="proj.writeup">Ver writeup</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
