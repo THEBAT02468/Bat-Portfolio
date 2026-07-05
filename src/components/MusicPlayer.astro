@@ -209,8 +209,12 @@
   }
 
   @media (max-width: 767px) {
+    /* Stack above the rain FAB on the right side: rain at 20px, music at 20+56+8=84px */
     .music-controls {
       width: 56px;
+      left: auto;
+      right: 20px;
+      bottom: 84px;
       overflow: visible;
       border-radius: 50%;
       border: 2px solid rgba(255, 215, 0, 0.6);
@@ -244,11 +248,12 @@
       font-size: 1.4rem;
     }
 
-    /* Body: floating popup panel above the FAB */
+    /* Body: floating popup panel above the FAB, aligned to right edge */
     .music-body {
       position: absolute;
       bottom: 64px;
-      left: 0;
+      left: auto;
+      right: 0;
       width: 210px;
       background: rgba(0, 0, 0, 0.97);
       border: 1px solid rgba(255, 215, 0, 0.25);
