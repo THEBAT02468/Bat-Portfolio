@@ -1226,19 +1226,7 @@ import Smoke from "../components/Smoke.astro";
       fadeObserver.observe(el);
     });
 
-    // Prevenir zoom en inputs en iOS
-    let lastTouchEnd = 0;
-    document.addEventListener(
-      "touchend",
-      function (event) {
-        const now = new Date().getTime();
-        if (now - lastTouchEnd <= 300) {
-          event.preventDefault();
-        }
-        lastTouchEnd = now;
-      },
-      false,
-    );
+    // iOS zoom prevention is handled by font-size: 16px in global CSS
 
     // Mejorar rendimiento en scroll
     let ticking = false;

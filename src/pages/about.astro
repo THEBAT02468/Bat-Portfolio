@@ -99,8 +99,8 @@ import Smoke from "../components/Smoke.astro";
           </a>
         </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+        <!-- Scroll indicator (hidden on mobile to avoid overlapping CTAs) -->
+        <div class="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
           <div class="flex flex-col items-center gap-1">
             <span class="text-xs font-black tracking-widest" style="color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.25em;" data-i18n="about.scroll">DESCUBRE MÁS</span>
             <div class="w-5 h-9 flex justify-center" style="border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 6px rgba(255,215,0,0.1);">
