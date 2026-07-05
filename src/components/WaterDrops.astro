@@ -313,6 +313,11 @@ document.addEventListener('DOMContentLoaded', function () {
     header.addEventListener('click', function () {
       panel.classList.toggle('collapsed');
     });
+
+    // Start collapsed on mobile so only the FAB circle shows
+    if (window.innerWidth <= 767) {
+      panel.classList.add('collapsed');
+    }
   }
 
 });

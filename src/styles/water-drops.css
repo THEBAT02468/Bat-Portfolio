@@ -235,3 +235,76 @@
   box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
   width: 25%; /* default: 500/2000 = 25% */
 }
+
+/* ── Mobile: FAB circular button ────────────────── */
+@keyframes rain-fab-pulse {
+  0%, 100% { box-shadow: 0 0 18px rgba(255,215,0,0.35), 0 4px 20px rgba(0,0,0,0.85); }
+  50%       { box-shadow: 0 0 28px rgba(255,215,0,0.55), 0 4px 20px rgba(0,0,0,0.85); }
+}
+
+@media (max-width: 767px) {
+  .rain-controls {
+    min-width: 0;
+    width: 56px;
+    height: 56px;
+    overflow: visible;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.7);
+    background: rgba(0, 0, 0, 0.92);
+    box-shadow: 0 0 18px rgba(255,215,0,0.35), 0 4px 20px rgba(0,0,0,0.85);
+    bottom: 20px;
+    right: 20px;
+    animation: rain-fab-pulse 3s ease-in-out infinite;
+  }
+
+  /* No top gold line on the circle */
+  .rain-controls::before {
+    display: none;
+  }
+
+  /* Header becomes the circular face */
+  .rain-controls-header {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;
+    border-bottom: none;
+    justify-content: center;
+  }
+
+  /* Hide text label and chevron — only icon visible */
+  .rain-controls-header > div,
+  .rain-toggle-icon {
+    display: none;
+  }
+
+  .rain-bat-icon {
+    font-size: 1.4rem;
+  }
+
+  /* Body: floating popup panel above the FAB */
+  .rain-body {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.97);
+    border: 1px solid rgba(255, 215, 0, 0.55);
+    border-top: 2px solid rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255,215,0,0.2), 0 8px 30px rgba(0,0,0,0.9);
+    padding: 12px 14px 14px;
+    max-height: 200px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+  }
+
+  .rain-controls.collapsed .rain-body {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
