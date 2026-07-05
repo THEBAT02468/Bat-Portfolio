@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import MusicPlayer from "../components/MusicPlayer.astro";
 const { title } = Astro.props;
 ---
 
@@ -13,9 +14,11 @@ const { title } = Astro.props;
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script src="/rain-fix.js" defer></script>
+    <script is:inline src="/rain-fix.js" defer></script>
+    <script is:inline src="/i18n.js" defer></script>
   </head>
   <body class="bg-gotham-dark text-gotham-light">
+    <MusicPlayer />
     <slot />
   </body>
 </html>

@@ -118,15 +118,15 @@ const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Scie
       <div class="relative z-10">
         <div class="inline-flex items-center gap-3 px-5 py-2 mb-8" style="background: rgba(0,0,0,0.8); border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 20px rgba(255,215,0,0.1);">
           <div class="w-2 h-2 rounded-full animate-pulse" style="background: #00d4ff; box-shadow: 0 0 6px #00d4ff;"></div>
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);">⬡ Portafolio ⬡</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);" data-i18n="proj.badge">⬡ Portafolio ⬡</span>
         </div>
 
         <h1 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.05em; line-height: 1;">
-          <span class="text-white">MIS</span>
-          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);">PROYECTOS</span>
+          <span class="text-white" data-i18n="proj.h1">MIS</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);" data-i18n="proj.h2">PROYECTOS</span>
         </h1>
 
-        <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4">
+        <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-4" data-i18n="proj.hero.desc">
           Creaciones con temática oscura e inspiradas en Gotham City — donde el código se convierte en arte.
         </p>
       </div>
@@ -148,7 +148,7 @@ const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Scie
               ? "background: rgba(255,215,0,0.12); color: #FFD700; border: 1px solid rgba(255,215,0,0.6); box-shadow: 0 0 12px rgba(255,215,0,0.2); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
               : "color: #6b7280; border: 1px solid rgba(255,255,255,0.08); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"}
           >
-            {cat}
+            {cat === 'Todos' ? <span data-i18n="proj.filter.all">Todos</span> : cat}
           </button>
         ))}
       </div>
@@ -214,13 +214,13 @@ const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Scie
                     class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
                     style={`color: ${project.color}; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px ${project.glow};`}
                   >
-                    Ver proyecto
+                    <span data-i18n="proj.view">Ver proyecto</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
                 ) : !project.source ? (
-                  <span class="text-xs font-bold tracking-widest uppercase" style="color: #4b5563; font-family: 'Cinzel', serif; font-size: 0.6rem;">Terminado</span>
+                  <span class="text-xs font-bold tracking-widest uppercase" style="color: #4b5563; font-family: 'Cinzel', serif; font-size: 0.6rem;" data-i18n="proj.done">Terminado</span>
                 ) : null}
                 {project.source && (
                   <a
@@ -230,7 +230,7 @@ const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Scie
                     class="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300 hover:gap-3"
                     style={`color: ${project.color}; font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-shadow: 0 0 6px ${project.glow};`}
                   >
-                    Ver writeup
+                    <span data-i18n="proj.writeup">Ver writeup</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
@@ -244,7 +244,7 @@ const categories = ["Todos", "Full-Stack", "Cybersecurity", "Mobile", "Data Scie
 
       <!-- Empty state (oculto por defecto) -->
       <div id="no-results" class="hidden relative z-10 text-center py-20">
-        <p class="font-black text-2xl" style="color: #FFD700; font-family: 'Cinzel Decorative', serif; text-shadow: 0 0 20px rgba(255,215,0,0.5);">Sin proyectos en esta categoría</p>
+        <p class="font-black text-2xl" style="color: #FFD700; font-family: 'Cinzel Decorative', serif; text-shadow: 0 0 20px rgba(255,215,0,0.5);" data-i18n="proj.empty">Sin proyectos en esta categoría</p>
       </div>
     </main>
 

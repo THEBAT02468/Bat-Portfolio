@@ -36,15 +36,15 @@ import Smoke from "../components/Smoke.astro";
             <div class="w-2 h-2 rounded-full animate-pulse" style="background: #00d4ff; box-shadow: 0 0 6px #00d4ff;"></div>
             <div class="absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-60" style="background: #00d4ff;"></div>
           </div>
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);" data-i18n="about.badge">
             ⬡ Gotham Developer ⬡
           </span>
         </div>
 
         <!-- Título -->
         <h1 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.05em; line-height: 1;">
-          <span class="text-white">ACERCA</span>
-          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);">DE MÍ</span>
+          <span class="text-white" data-i18n="about.h1">ACERCA</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 30px rgba(255,215,0,0.8), 0 0 60px rgba(255,215,0,0.4);" data-i18n="about.h2">DE MÍ</span>
         </h1>
 
         <!-- Foto de perfil -->
@@ -61,21 +61,19 @@ import Smoke from "../components/Smoke.astro";
         </div>
 
         <!-- Bio -->
-        <p class="max-w-2xl text-gray-400 text-base md:text-lg leading-relaxed mb-8 mt-4">
-          Soy <span style="color: #FFD700; font-weight: 700; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Santiago</span>,
-          desarrollador de software enfocado en el diseño y construcción de soluciones web modernas, seguras y escalables.
-          Me especializo en arquitecturas sólidas, atención al detalle y experiencia de usuario de alto nivel.
+        <p class="max-w-2xl text-gray-400 text-base md:text-lg leading-relaxed mb-8 mt-4" data-i18n="about.bio" data-i18n-html="true">
+          Soy <span style="color:#FFD700;font-weight:700;text-shadow:0 0 8px rgba(255,215,0,0.5);">Santiago</span>, desarrollador de software enfocado en el diseño y construcción de soluciones web modernas, seguras y escalables. Me especializo en arquitecturas sólidas, atención al detalle y experiencia de usuario de alto nivel.
         </p>
 
         <!-- Badges de especialización -->
         <div class="flex flex-wrap justify-center gap-3 mb-8">
           <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
             style="border: 1px solid rgba(255,107,107,0.5); color: #ff6b6b; background: rgba(255,107,107,0.05); text-shadow: 0 0 6px rgba(255,107,107,0.5);">
-            <i class="fas fa-shield-alt text-xs"></i>Ciberseguridad
+            <i class="fas fa-shield-alt text-xs"></i><span data-i18n="about.spec.cyber">Ciberseguridad</span>
           </span>
           <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
             style="border: 1px solid rgba(0,212,255,0.5); color: #00d4ff; background: rgba(0,212,255,0.05); text-shadow: 0 0 6px rgba(0,212,255,0.5);">
-            <i class="fas fa-user-secret text-xs"></i>Hacking Ético
+            <i class="fas fa-user-secret text-xs"></i><span data-i18n="about.spec.hacking">Hacking Ético</span>
           </span>
           <span class="flex items-center gap-2 px-4 py-2 text-sm font-bold"
             style="border: 1px solid rgba(255,215,0,0.5); color: #FFD700; background: rgba(255,215,0,0.05); text-shadow: 0 0 6px rgba(255,215,0,0.5);">
@@ -90,21 +88,21 @@ import Smoke from "../components/Smoke.astro";
             style="background: linear-gradient(135deg, #FFD700, #d97706); color: #000; border: 2px solid rgba(255,215,0,0.7); box-shadow: 0 0 20px rgba(255,215,0,0.4); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
             onmouseover="this.style.boxShadow='0 0 40px rgba(255,215,0,0.8)'"
             onmouseout="this.style.boxShadow='0 0 20px rgba(255,215,0,0.4)'">
-            <i class="fas fa-code text-xs"></i> Ver Proyectos
+            <i class="fas fa-code text-xs"></i> <span data-i18n="about.cta.projects">Ver Proyectos</span>
           </a>
           <a href="/contact"
             class="flex items-center justify-center gap-2 px-8 py-3 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
             style="border: 2px solid rgba(0,212,255,0.5); color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.12em; box-shadow: 0 0 12px rgba(0,212,255,0.15);"
             onmouseover="this.style.background='rgba(0,212,255,0.08)'; this.style.boxShadow='0 0 25px rgba(0,212,255,0.4)'; this.style.borderColor='rgba(0,212,255,0.8)'"
             onmouseout="this.style.background='transparent'; this.style.boxShadow='0 0 12px rgba(0,212,255,0.15)'; this.style.borderColor='rgba(0,212,255,0.5)'">
-            <i class="fas fa-envelope text-xs"></i> Contáctame
+            <i class="fas fa-envelope text-xs"></i> <span data-i18n="about.cta.contact">Contáctame</span>
           </a>
         </div>
 
         <!-- Scroll indicator -->
         <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
           <div class="flex flex-col items-center gap-1">
-            <span class="text-xs font-black tracking-widest" style="color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.25em;">DESCUBRE MÁS</span>
+            <span class="text-xs font-black tracking-widest" style="color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.25em;" data-i18n="about.scroll">DESCUBRE MÁS</span>
             <div class="w-5 h-9 flex justify-center" style="border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 6px rgba(255,215,0,0.1);">
               <div class="w-0.5 h-2.5 mt-1.5 animate-pulse" style="background: #FFD700; box-shadow: 0 0 5px rgba(255,215,0,0.8);"></div>
             </div>
@@ -129,11 +127,11 @@ import Smoke from "../components/Smoke.astro";
           <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.3), transparent);"></div>
         </div>
         <div class="text-center mb-4">
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Especialización ───</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);" data-i18n="about.sec.label">─── Especialización ───</span>
         </div>
         <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
-          <span class="text-white">CIBERSEGURIDAD &</span>
-          <span class="block" style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">HACKING ÉTICO</span>
+          <span class="text-white" data-i18n="about.sec.h1">CIBERSEGURIDAD &</span>
+          <span class="block" style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="about.sec.h2">HACKING ÉTICO</span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -142,8 +140,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #ff6b6b; border: 1px solid rgba(255,107,107,0.4); box-shadow: 0 0 15px rgba(255,107,107,0.25);">
               <i class="fas fa-crosshairs"></i>
             </div>
-            <h3 class="security-title" style="color: #ff6b6b; text-shadow: 0 0 8px rgba(255,107,107,0.5);">Pentesting</h3>
-            <p class="security-desc">Pruebas de penetración y auditorías de seguridad en aplicaciones web y redes.</p>
+            <h3 class="security-title" style="color: #ff6b6b; text-shadow: 0 0 8px rgba(255,107,107,0.5);" data-i18n="about.sec.pent.title">Pentesting</h3>
+            <p class="security-desc" data-i18n="about.sec.pent.desc">Pruebas de penetración y auditorías de seguridad en aplicaciones web y redes.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>OWASP Top 10</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Metasploit</li>
@@ -156,8 +154,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #ffa502; border: 1px solid rgba(255,165,2,0.4); box-shadow: 0 0 15px rgba(255,165,2,0.25);">
               <i class="fas fa-bug"></i>
             </div>
-            <h3 class="security-title" style="color: #ffa502; text-shadow: 0 0 8px rgba(255,165,2,0.5);">Análisis de Vulnerabilidades</h3>
-            <p class="security-desc">Identificación y remediación de vulnerabilidades en código e infraestructura.</p>
+            <h3 class="security-title" style="color: #ffa502; text-shadow: 0 0 8px rgba(255,165,2,0.5);" data-i18n="about.sec.vuln.title">Análisis de Vulnerabilidades</h3>
+            <p class="security-desc" data-i18n="about.sec.vuln.desc">Identificación y remediación de vulnerabilidades en código e infraestructura.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>SAST/DAST</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Nessus</li>
@@ -170,8 +168,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 15px rgba(0,212,255,0.25);">
               <i class="fas fa-globe"></i>
             </div>
-            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Seguridad Web</h3>
-            <p class="security-desc">Protección contra ataques comunes como XSS, SQLi, CSRF y más.</p>
+            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);" data-i18n="about.sec.web.title">Seguridad Web</h3>
+            <p class="security-desc" data-i18n="about.sec.web.desc">Protección contra ataques comunes como XSS, SQLi, CSRF y más.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>WAF</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>HTTPS/TLS</li>
@@ -184,8 +182,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #8b5cf6; border: 1px solid rgba(139,92,246,0.4); box-shadow: 0 0 15px rgba(139,92,246,0.25);">
               <i class="fas fa-search"></i>
             </div>
-            <h3 class="security-title" style="color: #8b5cf6; text-shadow: 0 0 8px rgba(139,92,246,0.5);">Forense Digital</h3>
-            <p class="security-desc">Investigación de incidentes de seguridad y análisis de evidencias digitales.</p>
+            <h3 class="security-title" style="color: #8b5cf6; text-shadow: 0 0 8px rgba(139,92,246,0.5);" data-i18n="about.sec.for.title">Forense Digital</h3>
+            <p class="security-desc" data-i18n="about.sec.for.desc">Investigación de incidentes de seguridad y análisis de evidencias digitales.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Análisis de logs</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Memory forensics</li>
@@ -198,8 +196,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #FFD700; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 15px rgba(255,215,0,0.25);">
               <i class="fas fa-lock"></i>
             </div>
-            <h3 class="security-title" style="color: #FFD700; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Hardening</h3>
-            <p class="security-desc">Fortalecimiento de sistemas y aplicaciones contra posibles ataques.</p>
+            <h3 class="security-title" style="color: #FFD700; text-shadow: 0 0 8px rgba(255,215,0,0.5);" data-i18n="about.sec.hard.title">Hardening</h3>
+            <p class="security-desc" data-i18n="about.sec.hard.desc">Fortalecimiento de sistemas y aplicaciones contra posibles ataques.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Configuración segura</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Bastionado</li>
@@ -212,8 +210,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="security-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 15px rgba(0,212,255,0.2);">
               <i class="fas fa-users"></i>
             </div>
-            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Concienciación</h3>
-            <p class="security-desc">Capacitación en seguridad para equipos de desarrollo y usuarios finales.</p>
+            <h3 class="security-title" style="color: #00d4ff; text-shadow: 0 0 8px rgba(0,212,255,0.5);" data-i18n="about.sec.aw.title">Concienciación</h3>
+            <p class="security-desc" data-i18n="about.sec.aw.desc">Capacitación en seguridad para equipos de desarrollo y usuarios finales.</p>
             <ul class="security-skills">
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Phishing awareness</li>
               <li><i class="fas fa-chevron-right mr-2" style="color: #FFD700; font-size: 0.6rem;"></i>Best practices</li>
@@ -233,11 +231,11 @@ import Smoke from "../components/Smoke.astro";
 
       <div class="container mx-auto relative">
         <div class="text-center mb-4">
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Stack & Dominio ───</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);" data-i18n="about.skills.label">─── Stack & Dominio ───</span>
         </div>
         <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
-          <span class="text-white">MIS </span>
-          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">HABILIDADES</span>
+          <span class="text-white" data-i18n="about.skills.h1">MIS </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="about.skills.h2">HABILIDADES</span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -246,7 +244,7 @@ import Smoke from "../components/Smoke.astro";
               <i class="fas fa-paint-brush"></i>
             </div>
             <h3 class="skill-title">Frontend</h3>
-            <p class="skill-desc">React, Vue, Astro, Tailwind</p>
+            <p class="skill-desc" data-i18n="about.skills.fe.desc">React, Vue, Astro, Tailwind</p>
             <div class="skill-bar">
               <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #FFD700, #fff200);"></div>
             </div>
@@ -258,7 +256,7 @@ import Smoke from "../components/Smoke.astro";
               <i class="fas fa-server"></i>
             </div>
             <h3 class="skill-title" style="color: #8b5cf6;">Backend</h3>
-            <p class="skill-desc">Node.js, Express, MongoDB</p>
+            <p class="skill-desc" data-i18n="about.skills.be.desc">Node.js, Express, MongoDB</p>
             <div class="skill-bar">
               <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div>
             </div>
@@ -270,7 +268,7 @@ import Smoke from "../components/Smoke.astro";
               <i class="fas fa-shield-alt"></i>
             </div>
             <h3 class="skill-title" style="color: #ff6b6b;">Ciberseguridad</h3>
-            <p class="skill-desc">Pentesting, Forense, Hardening</p>
+            <p class="skill-desc" data-i18n="about.skills.sec.desc">Pentesting, Forense, Hardening</p>
             <div class="skill-bar">
               <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #ff9f9f);"></div>
             </div>
@@ -281,8 +279,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="skill-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 12px rgba(0,212,255,0.2);">
               <i class="fas fa-bolt"></i>
             </div>
-            <h3 class="skill-title" style="color: #00d4ff;">DevOps & Cloud</h3>
-            <p class="skill-desc">Docker, AWS, CI/CD</p>
+            <h3 class="skill-title" style="color: #00d4ff;" data-i18n="about.skills.do.title">DevOps & Cloud</h3>
+            <p class="skill-desc" data-i18n="about.skills.do.desc">Docker, AWS, CI/CD</p>
             <div class="skill-bar">
               <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #00d4ff, #67e8ff);"></div>
             </div>
@@ -302,11 +300,11 @@ import Smoke from "../components/Smoke.astro";
 
       <div class="container mx-auto relative">
         <div class="text-center mb-4">
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Experiencia ───</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);" data-i18n="about.tl.label">─── Experiencia ───</span>
         </div>
         <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
-          <span class="text-white">MI </span>
-          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">TRAYECTORIA</span>
+          <span class="text-white" data-i18n="about.tl.h1">MI </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="about.tl.h2">TRAYECTORIA</span>
         </h2>
 
         <div class="max-w-3xl mx-auto">
@@ -316,12 +314,12 @@ import Smoke from "../components/Smoke.astro";
             <!-- 1 · Presente — Gold #FFD700 -->
             <div class="timeline-item">
               <div class="timeline-dot" style="background: #FFD700; box-shadow: 0 0 12px rgba(255,215,0,0.8);"></div>
-              <div class="timeline-date" style="color: #FFD700;">Presente</div>
+              <div class="timeline-date" style="color: #FFD700;" data-i18n="about.tl.now">Presente</div>
               <div class="timeline-content" style="border-left-color: rgba(255,215,0,0.6);">
-                <h3 class="text-lg font-black mb-2" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,215,0,0.6);">
+                <h3 class="text-lg font-black mb-2" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,215,0,0.6);" data-i18n="about.tl.i1.title">
                   Desarrollador Fullstack, Mobile & Security Researcher
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i1.desc">
                   Desarrollador de software full stack especializado en soluciones de seguridad, desarrollo de aplicaciones móviles y web responsive para cualquier dispositivo.
                 </p>
               </div>
@@ -332,10 +330,10 @@ import Smoke from "../components/Smoke.astro";
               <div class="timeline-dot" style="background: #e100ff; box-shadow: 0 0 12px rgba(225,0,255,0.7);"></div>
               <div class="timeline-date" style="color: #e100ff;">Enero 2026 — Mayo 2026</div>
               <div class="timeline-content" style="border-left-color: rgba(225,0,255,0.5);">
-                <h3 class="text-lg font-black mb-2" style="color: #e100ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(225,0,255,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #e100ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(225,0,255,0.5);" data-i18n="about.tl.i2.title">
                   Analista de Datos
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i2.desc">
                   Analista computacional de datos para Ingeniería Aplicada ITD SAS, con modelos predictivos y análisis estadístico avanzado.
                 </p>
               </div>
@@ -346,10 +344,10 @@ import Smoke from "../components/Smoke.astro";
               <div class="timeline-dot" style="background: #00d4ff; box-shadow: 0 0 12px rgba(0,212,255,0.7);"></div>
               <div class="timeline-date" style="color: #00d4ff;">2024 — Presente</div>
               <div class="timeline-content" style="border-left-color: rgba(0,212,255,0.5);">
-                <h3 class="text-lg font-black mb-2" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(0,212,255,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(0,212,255,0.5);" data-i18n="about.tl.i3.title">
                   Semillerista de Ciberseguridad — CUAN
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i3.desc">
                   Semillerista de Ciberseguridad en la Corporación Universitaria Autónoma de Nariño, especializado en seguridad de aplicaciones web y sistemas operativos.
                 </p>
               </div>
@@ -360,10 +358,10 @@ import Smoke from "../components/Smoke.astro";
               <div class="timeline-dot" style="background: #8b5cf6; box-shadow: 0 0 12px rgba(139,92,246,0.7);"></div>
               <div class="timeline-date" style="color: #8b5cf6;">2022 — Presente</div>
               <div class="timeline-content" style="border-left-color: rgba(139,92,246,0.5);">
-                <h3 class="text-lg font-black mb-2" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(139,92,246,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(139,92,246,0.5);" data-i18n="about.tl.i4.title">
                   Pentester & Security Analyst
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i4.desc">
                   Realización de pruebas de penetración para verificar integridad y autenticidad de aplicaciones web y móviles.
                 </p>
               </div>
@@ -374,10 +372,10 @@ import Smoke from "../components/Smoke.astro";
               <div class="timeline-dot" style="background: #ff6b6b; box-shadow: 0 0 12px rgba(255,107,107,0.7);"></div>
               <div class="timeline-date" style="color: #ff6b6b;">2021 — 2022</div>
               <div class="timeline-content" style="border-left-color: rgba(255,107,107,0.5);">
-                <h3 class="text-lg font-black mb-2" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,107,107,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,107,107,0.5);" data-i18n="about.tl.i5.title">
                   Desarrollador Frontend
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i5.desc">
                   Especializado en interfaces de usuario seguras y aplicaciones web modernas con foco en accesibilidad y rendimiento.
                 </p>
               </div>
@@ -388,10 +386,10 @@ import Smoke from "../components/Smoke.astro";
               <div class="timeline-dot" style="background: #ffa502; box-shadow: 0 0 12px rgba(255,165,2,0.7);"></div>
               <div class="timeline-date" style="color: #ffa502;">2019 — 2021</div>
               <div class="timeline-content" style="border-left-color: rgba(255,165,2,0.5);">
-                <h3 class="text-lg font-black mb-2" style="color: #ffa502; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,165,2,0.5);">
+                <h3 class="text-lg font-black mb-2" style="color: #ffa502; font-family: 'Cinzel', serif; text-shadow: 0 0 10px rgba(255,165,2,0.5);" data-i18n="about.tl.i6.title">
                   Estudiante de Ciberseguridad
                 </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.tl.i6.desc">
                   Formación en ethical hacking, análisis de malware y técnicas de seguridad ofensiva y defensiva.
                 </p>
               </div>
@@ -411,11 +409,11 @@ import Smoke from "../components/Smoke.astro";
 
       <div class="container mx-auto max-w-5xl relative">
         <div class="text-center mb-4">
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Principios ───</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);" data-i18n="about.phi.label">─── Principios ───</span>
         </div>
         <h2 class="text-center font-black mb-12 md:mb-16" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); letter-spacing: 0.06em; line-height: 1.1;">
-          <span class="text-white">FILOSOFÍA DE </span>
-          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">SEGURIDAD</span>
+          <span class="text-white" data-i18n="about.phi.h1">FILOSOFÍA DE </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="about.phi.h2">SEGURIDAD</span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -424,8 +422,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="philosophy-icon" style="color: #ff6b6b; border: 1px solid rgba(255,107,107,0.4); box-shadow: 0 0 12px rgba(255,107,107,0.2);">
               <i class="fas fa-crosshairs"></i>
             </div>
-            <h3 class="text-xl font-black mb-3" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,107,107,0.5);">Mentalidad Ofensiva</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Pienso como un atacante para anticipar vectores de ataque y fortalecer las defensas antes de que sean explotadas.</p>
+            <h3 class="text-xl font-black mb-3" style="color: #ff6b6b; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,107,107,0.5);" data-i18n="about.phi.p1.title">Mentalidad Ofensiva</h3>
+            <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.phi.p1.desc">Pienso como un atacante para anticipar vectores de ataque y fortalecer las defensas antes de que sean explotadas.</p>
           </div>
 
           <div class="philosophy-card" style="border-color: rgba(255,215,0,0.35); --top-color: #FFD700;">
@@ -433,8 +431,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="philosophy-icon" style="color: #FFD700; border: 1px solid rgba(255,215,0,0.4); box-shadow: 0 0 12px rgba(255,215,0,0.2);">
               <i class="fas fa-shield-alt"></i>
             </div>
-            <h3 class="text-xl font-black mb-3" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,215,0,0.5);">Defensa en Profundidad</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Implemento múltiples capas de seguridad para que la falla de una no comprometa todo el sistema.</p>
+            <h3 class="text-xl font-black mb-3" style="color: #FFD700; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(255,215,0,0.5);" data-i18n="about.phi.p2.title">Defensa en Profundidad</h3>
+            <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.phi.p2.desc">Implemento múltiples capas de seguridad para que la falla de una no comprometa todo el sistema.</p>
           </div>
 
           <div class="philosophy-card" style="border-color: rgba(0,212,255,0.35); --top-color: #00d4ff;">
@@ -442,8 +440,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="philosophy-icon" style="color: #00d4ff; border: 1px solid rgba(0,212,255,0.4); box-shadow: 0 0 12px rgba(0,212,255,0.2);">
               <i class="fas fa-eye"></i>
             </div>
-            <h3 class="text-xl font-black mb-3" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(0,212,255,0.5);">Transparencia Ética</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Creo en la divulgación responsable de vulnerabilidades y en el hacking ético como herramienta de mejora.</p>
+            <h3 class="text-xl font-black mb-3" style="color: #00d4ff; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(0,212,255,0.5);" data-i18n="about.phi.p3.title">Transparencia Ética</h3>
+            <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.phi.p3.desc">Creo en la divulgación responsable de vulnerabilidades y en el hacking ético como herramienta de mejora.</p>
           </div>
 
           <div class="philosophy-card" style="border-color: rgba(139,92,246,0.35); --top-color: #8b5cf6;">
@@ -451,8 +449,8 @@ import Smoke from "../components/Smoke.astro";
             <div class="philosophy-icon" style="color: #8b5cf6; border: 1px solid rgba(139,92,246,0.4); box-shadow: 0 0 12px rgba(139,92,246,0.2);">
               <i class="fas fa-sync-alt"></i>
             </div>
-            <h3 class="text-xl font-black mb-3" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(139,92,246,0.5);">Mejora Continua</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">La seguridad no es un destino sino un proceso continuo de evaluación, mejora y adaptación.</p>
+            <h3 class="text-xl font-black mb-3" style="color: #8b5cf6; font-family: 'Cinzel', serif; text-shadow: 0 0 8px rgba(139,92,246,0.5);" data-i18n="about.phi.p4.title">Mejora Continua</h3>
+            <p class="text-gray-500 text-sm leading-relaxed" data-i18n="about.phi.p4.desc">La seguridad no es un destino sino un proceso continuo de evaluación, mejora y adaptación.</p>
           </div>
         </div>
       </div>
@@ -473,10 +471,10 @@ import Smoke from "../components/Smoke.astro";
           <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.3), transparent);"></div>
         </div>
 
-        <h2 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.5rem, 4vw, 3rem); letter-spacing: 0.06em; color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">
+        <h2 class="font-black mb-4" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.5rem, 4vw, 3rem); letter-spacing: 0.06em; color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="about.cta.title">
           ¿PROTECCIÓN CONTRA AMENAZAS DIGITALES?
         </h2>
-        <p class="text-gray-500 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+        <p class="text-gray-500 text-base md:text-lg mb-10 max-w-xl mx-auto leading-relaxed" data-i18n="about.cta.desc">
           Desarrollo soluciones seguras y realizo auditorías para fortalecer tus defensas digitales.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -485,14 +483,14 @@ import Smoke from "../components/Smoke.astro";
             style="background: linear-gradient(135deg, #FFD700, #d97706); color: #000; border: 2px solid rgba(255,215,0,0.7); box-shadow: 0 0 25px rgba(255,215,0,0.4); font-family: 'Cinzel', serif; letter-spacing: 0.12em;"
             onmouseover="this.style.boxShadow='0 0 45px rgba(255,215,0,0.8)'"
             onmouseout="this.style.boxShadow='0 0 25px rgba(255,215,0,0.4)'">
-            <i class="fas fa-shield-alt"></i> Auditoría de Seguridad
+            <i class="fas fa-shield-alt"></i> <span data-i18n="about.cta.btn1">Auditoría de Seguridad</span>
           </a>
           <a href="/projects"
             class="flex items-center justify-center gap-2 px-8 py-4 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:scale-105"
             style="border: 2px solid rgba(0,212,255,0.5); color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.12em; box-shadow: 0 0 12px rgba(0,212,255,0.15);"
             onmouseover="this.style.background='rgba(0,212,255,0.08)'; this.style.boxShadow='0 0 25px rgba(0,212,255,0.4)'; this.style.borderColor='rgba(0,212,255,0.8)'"
             onmouseout="this.style.background='transparent'; this.style.boxShadow='0 0 12px rgba(0,212,255,0.15)'; this.style.borderColor='rgba(0,212,255,0.5)'">
-            <i class="fas fa-code"></i> Ver Proyectos
+            <i class="fas fa-code"></i> <span data-i18n="about.cta.btn2">Ver Proyectos</span>
           </a>
         </div>
       </div>

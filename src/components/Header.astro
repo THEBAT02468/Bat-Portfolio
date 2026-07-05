@@ -35,7 +35,7 @@
         <a href="/" class="nav-link relative group">
           <span class="flex items-center gap-2 text-sm tracking-widest uppercase font-semibold">
             <i class="fas fa-home text-yellow-400 text-xs"></i>
-            Inicio
+            <span data-i18n="nav.home">Inicio</span>
           </span>
           <span class="nav-underline"></span>
         </a>
@@ -44,7 +44,7 @@
         <a href="/about" class="nav-link relative group">
           <span class="flex items-center gap-2 text-sm tracking-widest uppercase font-semibold">
             <i class="fas fa-user text-yellow-400 text-xs"></i>
-            Acerca de mí
+            <span data-i18n="nav.about">Acerca de mí</span>
           </span>
           <span class="nav-underline"></span>
         </a>
@@ -53,7 +53,7 @@
         <a href="/projects" class="nav-link relative group">
           <span class="flex items-center gap-2 text-sm tracking-widest uppercase font-semibold">
             <i class="fas fa-code text-yellow-400 text-xs"></i>
-            Proyectos
+            <span data-i18n="nav.projects">Proyectos</span>
           </span>
           <span class="nav-underline"></span>
         </a>
@@ -62,15 +62,25 @@
         <a href="/contact" class="nav-link relative group">
           <span class="flex items-center gap-2 text-sm tracking-widest uppercase font-semibold">
             <i class="fas fa-envelope text-yellow-400 text-xs"></i>
-            Contacto
+            <span data-i18n="nav.contact">Contacto</span>
           </span>
           <span class="nav-underline"></span>
         </a>
       </li>
     </ul>
 
-    <!-- CV Button -->
-    <div class="hidden md:flex items-center space-x-4">
+    <!-- CV Button + Lang Toggle -->
+    <div class="hidden md:flex items-center space-x-3">
+      <!-- Language toggle -->
+      <button
+        id="lang-toggle"
+        onclick="window.toggleLang()"
+        title="Switch to English"
+        class="flex items-center justify-center px-3 py-2 text-xs font-black tracking-widest uppercase transition-all duration-300"
+        style="border: 1px solid rgba(255,215,0,0.4); color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.14em; min-width: 44px; background: rgba(255,215,0,0.04);"
+        onmouseover="this.style.background='rgba(255,215,0,0.12)'; this.style.borderColor='rgba(255,215,0,0.8)'; this.style.boxShadow='0 0 14px rgba(255,215,0,0.3)'"
+        onmouseout="this.style.background='rgba(255,215,0,0.04)'; this.style.borderColor='rgba(255,215,0,0.4)'; this.style.boxShadow='none'"
+      >EN</button>
       <a
         href="/CV.pdf"
         download
@@ -106,20 +116,31 @@
     <div class="container mx-auto px-4 space-y-1 py-2">
       <a href="/" class="flex items-center py-3 px-4 mobile-nav-link" style="border-left: 2px solid rgba(255,215,0,0.3); transition: all 0.3s ease;">
         <i class="fas fa-home mr-3 text-yellow-400 w-5 text-sm"></i>
-        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300">Inicio</span>
+        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300" data-i18n="nav.home">Inicio</span>
       </a>
       <a href="/about" class="flex items-center py-3 px-4 mobile-nav-link" style="border-left: 2px solid rgba(255,215,0,0.3); transition: all 0.3s ease;">
         <i class="fas fa-user mr-3 text-yellow-400 w-5 text-sm"></i>
-        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300">Acerca de mí</span>
+        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300" data-i18n="nav.about">Acerca de mí</span>
       </a>
       <a href="/projects" class="flex items-center py-3 px-4 mobile-nav-link" style="border-left: 2px solid rgba(255,215,0,0.3); transition: all 0.3s ease;">
         <i class="fas fa-code mr-3 text-yellow-400 w-5 text-sm"></i>
-        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300">Proyectos</span>
+        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300" data-i18n="nav.projects">Proyectos</span>
       </a>
       <a href="/contact" class="flex items-center py-3 px-4 mobile-nav-link" style="border-left: 2px solid rgba(255,215,0,0.3); transition: all 0.3s ease;">
         <i class="fas fa-envelope mr-3 text-yellow-400 w-5 text-sm"></i>
-        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300">Contacto</span>
+        <span class="text-sm tracking-widest uppercase font-semibold text-gray-300" data-i18n="nav.contact">Contacto</span>
       </a>
+      <!-- Lang toggle mobile -->
+      <div class="pt-2 pb-1 px-4">
+        <button
+          onclick="window.toggleLang()"
+          class="flex items-center gap-2 text-xs font-black tracking-widest uppercase transition-all duration-300"
+          style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.14em; background: none; border: none; cursor: pointer;"
+        >
+          <i class="fas fa-globe text-yellow-400 w-5 text-sm"></i>
+          <span id="lang-toggle-mobile">EN</span>
+        </button>
+      </div>
       <div class="pt-3 pb-2 mt-2" style="border-top: 1px solid rgba(255,215,0,0.1);">
         <a
           href="/CV.pdf"

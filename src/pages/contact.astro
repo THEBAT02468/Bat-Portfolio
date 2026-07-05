@@ -35,21 +35,19 @@ import Smoke from "../components/Smoke.astro";
             <div class="w-2 h-2 rounded-full animate-pulse" style="background: #00d4ff; box-shadow: 0 0 6px #00d4ff;"></div>
             <div class="absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-60" style="background: #00d4ff;"></div>
           </div>
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);">
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.15em; text-shadow: 0 0 8px rgba(255,215,0,0.6);" data-i18n="contact.badge">
             ⬡ Respuesta en menos de 24h ⬡
           </span>
         </div>
 
         <!-- Título -->
         <h1 class="font-black mb-6" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: 0.05em; line-height: 1;">
-          <span class="text-white">CONTÁCTAME</span>
+          <span class="text-white" data-i18n="contact.h1">CONTÁCTAME</span>
           <div class="w-full h-px mt-3" style="background: linear-gradient(90deg, transparent, #FFD700, transparent); box-shadow: 0 0 8px rgba(255,215,0,0.5);"></div>
         </h1>
 
-        <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          Si buscas <span style="color: #FFD700; font-weight: 700; text-shadow: 0 0 6px rgba(255,215,0,0.5);">colaborar en proyectos</span> o
-          <span style="color: #00d4ff; font-weight: 700; text-shadow: 0 0 6px rgba(0,212,255,0.5);">trabajar juntos</span>,
-          envíame un mensaje.
+        <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="contact.hero.desc" data-i18n-html="true">
+          Si buscas <span style="color:#FFD700;font-weight:700;text-shadow:0 0 6px rgba(255,215,0,0.5);">colaborar en proyectos</span> o <span style="color:#00d4ff;font-weight:700;text-shadow:0 0 6px rgba(0,212,255,0.5);">trabajar juntos</span>, envíame un mensaje.
         </p>
       </div>
     </section>
@@ -80,7 +78,7 @@ import Smoke from "../components/Smoke.astro";
                     <i class="fas fa-envelope text-sm" style="color: #FFD700; text-shadow: 0 0 6px rgba(255,215,0,0.7);"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;">Correo Electrónico</p>
+                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;" data-i18n="contact.email.lbl">Correo Electrónico</p>
                     <p class="text-gray-200 font-medium text-sm">sdlv2882@gmail.com</p>
                   </div>
                 </div>
@@ -91,7 +89,7 @@ import Smoke from "../components/Smoke.astro";
                     <i class="fas fa-phone-alt text-sm" style="color: #00d4ff; text-shadow: 0 0 6px rgba(0,212,255,0.7);"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;">Teléfono</p>
+                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;" data-i18n="contact.phone.lbl">Teléfono</p>
                     <p class="text-gray-200 font-medium text-sm">+57 312 280 9604</p>
                   </div>
                 </div>
@@ -102,8 +100,8 @@ import Smoke from "../components/Smoke.astro";
                     <i class="fas fa-map-marker-alt text-sm" style="color: #8b5cf6; text-shadow: 0 0 6px rgba(139,92,246,0.7);"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;">Ubicación</p>
-                    <p class="text-gray-200 font-medium text-sm">Disponible para trabajo remoto</p>
+                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;" data-i18n="contact.loc.lbl">Ubicación</p>
+                    <p class="text-gray-200 font-medium text-sm" data-i18n="contact.loc.val">Disponible para trabajo remoto</p>
                   </div>
                 </div>
 
@@ -113,17 +111,17 @@ import Smoke from "../components/Smoke.astro";
                     <i class="fas fa-clock text-sm" style="color: #FFD700; text-shadow: 0 0 6px rgba(255,215,0,0.7);"></i>
                   </div>
                   <div>
-                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;">Tiempo de Respuesta</p>
-                    <p class="text-gray-200 font-medium text-sm">Menos de 24 horas</p>
+                    <p class="text-xs font-black tracking-widest uppercase mb-0.5" style="color: #6b7280; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.15em;" data-i18n="contact.resp.lbl">Tiempo de Respuesta</p>
+                    <p class="text-gray-200 font-medium text-sm" data-i18n="contact.resp.val">Menos de 24 horas</p>
                   </div>
                 </div>
               </div>
 
               <!-- Horario -->
               <div class="mt-8 pt-6" style="border-top: 1px solid rgba(255,215,0,0.1);">
-                <h3 class="font-black mb-3 text-sm tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.12em; text-shadow: 0 0 6px rgba(255,215,0,0.5);">Horario de Contacto</h3>
-                <p class="text-gray-600 text-xs">Lun - Vie: 9:00 - 18:00 (GMT-5)</p>
-                <p class="text-gray-600 text-xs mt-1" style="color: #00d4ff; opacity: 0.7;">Emergencias tecnológicas: Siempre disponible</p>
+                <h3 class="font-black mb-3 text-sm tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.12em; text-shadow: 0 0 6px rgba(255,215,0,0.5);" data-i18n="contact.hours.title">Horario de Contacto</h3>
+                <p class="text-gray-600 text-xs" data-i18n="contact.hours.wk">Lun - Vie: 9:00 - 18:00 (GMT-5)</p>
+                <p class="text-gray-600 text-xs mt-1" style="color: #00d4ff; opacity: 0.7;" data-i18n="contact.hours.em">Emergencias tecnológicas: Siempre disponible</p>
               </div>
             </div>
           </div>
@@ -138,19 +136,20 @@ import Smoke from "../components/Smoke.astro";
                 <div class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: #ff5f57;"></div>
                 <div class="w-2.5 h-2.5 rounded-full" style="background: #FFD700;"></div>
                 <div class="w-2.5 h-2.5 rounded-full" style="background: #00d4ff;"></div>
-                <h3 class="font-black ml-3 text-sm tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.12em;">ENVÍO DE MENSAJE</h3>
+                <h3 class="font-black ml-3 text-sm tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.12em;" data-i18n="contact.form.title">ENVÍO DE MENSAJE</h3>
               </div>
 
               <form class="space-y-5" id="contactForm">
                 <!-- Nombre -->
                 <div>
                   <label for="name" class="block mb-2 text-xs font-black tracking-widest uppercase" style="color: #FFD700; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em;">
-                    <i class="fas fa-user mr-2" style="color: #FFD700;"></i>NOMBRE
+                    <i class="fas fa-user mr-2" style="color: #FFD700;"></i><span data-i18n="contact.name.lbl">NOMBRE</span>
                   </label>
                   <input
                     id="name"
                     type="text"
                     placeholder="Ingresa tu nombre"
+                    data-i18n-placeholder="contact.name.ph"
                     required
                     class="w-full p-3.5 text-sm text-white outline-none transition-all duration-300 contact-input"
                     style="background: rgba(0,0,0,0.8); border: 1px solid rgba(255,215,0,0.2); color: #e5e7eb;"
@@ -160,7 +159,7 @@ import Smoke from "../components/Smoke.astro";
                 <!-- Email -->
                 <div>
                   <label for="email" class="block mb-2 text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em;">
-                    <i class="fas fa-envelope mr-2" style="color: #00d4ff;"></i>CORREO ELECTRÓNICO
+                    <i class="fas fa-envelope mr-2" style="color: #00d4ff;"></i><span data-i18n="contact.email2.lbl">CORREO ELECTRÓNICO</span>
                   </label>
                   <input
                     id="email"
@@ -175,12 +174,13 @@ import Smoke from "../components/Smoke.astro";
                 <!-- Mensaje -->
                 <div>
                   <label for="message" class="block mb-2 text-xs font-black tracking-widest uppercase" style="color: #8b5cf6; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em;">
-                    <i class="fas fa-comment-alt mr-2" style="color: #8b5cf6;"></i>MENSAJE
+                    <i class="fas fa-comment-alt mr-2" style="color: #8b5cf6;"></i><span data-i18n="contact.msg.lbl">MENSAJE</span>
                   </label>
                   <textarea
                     id="message"
                     rows="5"
                     placeholder="Describe tu proyecto o consulta..."
+                    data-i18n-placeholder="contact.msg.ph"
                     required
                     class="w-full p-3.5 text-sm text-white outline-none transition-all duration-300 resize-none contact-input-purple"
                     style="background: rgba(0,0,0,0.8); border: 1px solid rgba(139,92,246,0.2); color: #e5e7eb;"
@@ -195,7 +195,7 @@ import Smoke from "../components/Smoke.astro";
                   id="submitBtn"
                 >
                   <span class="relative z-10 flex items-center justify-center gap-2" id="btnText">
-                    <i class="fas fa-paper-plane text-xs"></i>ENVIAR MENSAJE
+                    <i class="fas fa-paper-plane text-xs"></i><span data-i18n="contact.submit">ENVIAR MENSAJE</span>
                   </span>
                   <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);"></div>
                 </button>
@@ -221,11 +221,11 @@ import Smoke from "../components/Smoke.astro";
           <div class="flex-1 h-px" style="background: linear-gradient(90deg, rgba(255,215,0,0.3), transparent);"></div>
         </div>
         <div class="text-center mb-4">
-          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);">─── Dudas Frecuentes ───</span>
+          <span class="text-xs font-black tracking-widest uppercase" style="color: #00d4ff; font-family: 'Cinzel', serif; letter-spacing: 0.2em; text-shadow: 0 0 8px rgba(0,212,255,0.7);" data-i18n="contact.faq.label">─── Dudas Frecuentes ───</span>
         </div>
         <h2 class="text-center font-black mb-12" style="font-family: 'Cinzel Decorative', serif; font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: 0.06em; line-height: 1.1;">
-          <span class="text-white">PREGUNTAS </span>
-          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);">FRECUENTES</span>
+          <span class="text-white" data-i18n="contact.faq.h1">PREGUNTAS </span>
+          <span style="color: #FFD700; text-shadow: 0 0 25px rgba(255,215,0,0.7);" data-i18n="contact.faq.h2">FRECUENTES</span>
         </h2>
 
         <div class="space-y-3">
@@ -237,14 +237,14 @@ import Smoke from "../components/Smoke.astro";
                   <i class="fas fa-clock text-xs" style="color: #FFD700;"></i>
                 </div>
                 <div>
-                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;">¿Cuánto tardas en responder?</span>
-                  <span class="text-gray-600 text-xs block mt-0.5">Tiempo estimado de respuesta</span>
+                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;" data-i18n="contact.faq.q1.t">¿Cuánto tardas en responder?</span>
+                  <span class="text-gray-600 text-xs block mt-0.5" data-i18n="contact.faq.q1.s">Tiempo estimado de respuesta</span>
                 </div>
               </div>
               <i class="fas fa-chevron-down text-xs mt-1 flex-shrink-0 transition-transform duration-300" style="color: #6b7280;"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed">
+              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed" data-i18n="contact.faq.q1.a" data-i18n-html="true">
                 Normalmente respondo en menos de <span style="color: #FFD700; font-weight: 700;">24 horas hábiles</span>. Para consultas urgentes, respondo en menos de 6 horas.
               </p>
             </div>
@@ -258,14 +258,14 @@ import Smoke from "../components/Smoke.astro";
                   <i class="fas fa-globe-americas text-xs" style="color: #00d4ff;"></i>
                 </div>
                 <div>
-                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;">¿Trabajas con empresas internacionales?</span>
-                  <span class="text-gray-600 text-xs block mt-0.5">Alcance global</span>
+                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;" data-i18n="contact.faq.q2.t">¿Trabajas con empresas internacionales?</span>
+                  <span class="text-gray-600 text-xs block mt-0.5" data-i18n="contact.faq.q2.s">Alcance global</span>
                 </div>
               </div>
               <i class="fas fa-chevron-down text-xs mt-1 flex-shrink-0 transition-transform duration-300" style="color: #6b7280;"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed">
+              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed" data-i18n="contact.faq.q2.a" data-i18n-html="true">
                 Sí, trabajo con clientes de distintos países. Manejo <span style="color: #00d4ff; font-weight: 700;">múltiples husos horarios</span> y hablo español e inglés fluidamente.
               </p>
             </div>
@@ -279,14 +279,14 @@ import Smoke from "../components/Smoke.astro";
                   <i class="fas fa-tools text-xs" style="color: #8b5cf6;"></i>
                 </div>
                 <div>
-                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;">¿Ofreces mantenimiento post-desarrollo?</span>
-                  <span class="text-gray-600 text-xs block mt-0.5">Soporte continuo</span>
+                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;" data-i18n="contact.faq.q3.t">¿Ofreces mantenimiento post-desarrollo?</span>
+                  <span class="text-gray-600 text-xs block mt-0.5" data-i18n="contact.faq.q3.s">Soporte continuo</span>
                 </div>
               </div>
               <i class="fas fa-chevron-down text-xs mt-1 flex-shrink-0 transition-transform duration-300" style="color: #6b7280;"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed">
+              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed" data-i18n="contact.faq.q3.a" data-i18n-html="true">
                 Sí, ofrezco <span style="color: #8b5cf6; font-weight: 700;">soporte post-desarrollo</span> con planes de mantenimiento que incluyen actualizaciones, corrección de bugs y optimizaciones.
               </p>
             </div>
@@ -300,14 +300,14 @@ import Smoke from "../components/Smoke.astro";
                   <i class="fas fa-shield-alt text-xs" style="color: #FFD700;"></i>
                 </div>
                 <div>
-                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;">¿Cómo manejas la confidencialidad?</span>
-                  <span class="text-gray-600 text-xs block mt-0.5">Seguridad y privacidad</span>
+                  <span class="font-black text-sm block" style="color: #FFD700; font-family: 'Cinzel', serif; letter-spacing: 0.04em;" data-i18n="contact.faq.q4.t">¿Cómo manejas la confidencialidad?</span>
+                  <span class="text-gray-600 text-xs block mt-0.5" data-i18n="contact.faq.q4.s">Seguridad y privacidad</span>
                 </div>
               </div>
               <i class="fas fa-chevron-down text-xs mt-1 flex-shrink-0 transition-transform duration-300" style="color: #6b7280;"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed">
+              <p class="text-gray-500 text-sm p-4 pt-0 leading-relaxed" data-i18n="contact.faq.q4.a" data-i18n-html="true">
                 Trabajo con <span style="color: #FFD700; font-weight: 700;">estrictos protocolos de confidencialidad</span>. Ofrezco firmar NDAs y utilizo encriptación para todas las comunicaciones y datos sensibles.
               </p>
             </div>

@@ -1,0 +1,407 @@
+---
+---
+
+<!-- YouTube player oculto (fuera de pantalla) -->
+<div style="position:fixed; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden; pointer-events:none;">
+  <div id="yt-player"></div>
+</div>
+
+<!-- Panel del reproductor -->
+<div class="music-controls" id="music-controls-panel">
+  <!-- Header / toggle -->
+  <div class="music-header" id="music-header">
+    <span class="music-note-icon">🎵</span>
+    <div class="music-header-text">
+      <h3>Kiss From a Rose by Seal</h3>
+      <p id="music-status">Iniciando…</p>
+    </div>
+    <i class="fas fa-chevron-down music-chevron-icon" id="music-chevron"></i>
+  </div>
+
+  <!-- Body -->
+  <div class="music-body" id="music-body">
+    <!-- Barra de progreso -->
+    <div class="music-progress-track" id="progress-track">
+      <div class="music-progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="music-time-row">
+      <span id="time-current">0:00</span>
+      <span id="time-total">--:--</span>
+    </div>
+
+    <!-- Botones -->
+    <div class="music-buttons">
+      <button class="music-btn" id="btn-play-pause" title="Pausar / Reanudar">
+        <i class="fas fa-play" id="play-icon"></i>
+      </button>
+      <button class="music-btn music-btn-secondary" id="btn-forward" title="Adelantar 15 s">
+        <i class="fas fa-forward" style="font-size:0.55rem;"></i>
+        <span>15s</span>
+      </button>
+      <button class="music-btn music-btn-mute" id="btn-mute" title="Silenciar / Activar">
+        <i class="fas fa-volume-mute" id="mute-icon"></i>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  /* ── Panel base ── */
+  .music-controls {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    width: 210px;
+    background: rgba(0, 0, 0, 0.92);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 215, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+  .music-controls:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9), 0 0 24px rgba(255, 215, 0, 0.14);
+  }
+  .music-controls::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.7), transparent);
+  }
+
+  /* ── Header ── */
+  .music-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+    transition: background 0.2s ease;
+  }
+  .music-header:hover { background: rgba(255, 215, 0, 0.03); }
+
+  .music-note-icon { font-size: 0.9rem; }
+
+  .music-header-text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FFD700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    margin: 0;
+  }
+  .music-header-text p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.5rem;
+    color: rgba(255, 215, 0, 0.45);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 2px 0 0;
+  }
+
+  .music-chevron-icon {
+    margin-left: auto;
+    color: rgba(255, 215, 0, 0.5);
+    font-size: 0.6rem;
+    transition: transform 0.3s ease;
+  }
+
+  /* ── Collapsed state ── */
+  .music-controls.collapsed .music-chevron-icon { transform: rotate(-90deg); }
+  .music-controls.collapsed .music-body {
+    max-height: 0 !important;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* ── Body ── */
+  .music-body {
+    padding: 10px 12px 12px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  /* ── Progress ── */
+  .music-progress-track {
+    position: relative;
+    height: 3px;
+    background: rgba(255, 215, 0, 0.12);
+    border-radius: 2px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .music-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #FFD700, #d97706);
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    transition: width 0.8s linear;
+  }
+
+  /* ── Time row ── */
+  .music-time-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cinzel', serif;
+    font-size: 0.48rem;
+    color: rgba(255, 215, 0, 0.4);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  /* ── Buttons ── */
+  .music-buttons {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .music-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 4px;
+    background: rgba(255, 215, 0, 0.06);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    color: #FFD700;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .music-btn:hover {
+    background: rgba(255, 215, 0, 0.14);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+  .music-btn-secondary { color: rgba(255, 215, 0, 0.7); }
+  .music-btn-mute { color: rgba(255, 107, 107, 0.8); border-color: rgba(255, 107, 107, 0.25); }
+  .music-btn-mute:hover {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.6);
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+  }
+  .music-btn-mute.active {
+    color: rgba(100, 200, 100, 0.8);
+    border-color: rgba(100, 200, 100, 0.3);
+    background: rgba(100, 200, 100, 0.06);
+  }
+
+</style>
+
+<script is:inline>
+(function () {
+  var YT_VIDEO_ID = '3-Yh6rnOchs';
+  var LS_KEY      = 'gp_music_pos';
+  var player      = null;
+  var isMuted     = false;
+  var progressInterval = null;
+
+  /* ── Guardar posición antes de salir de la página ── */
+  window.addEventListener('pagehide', function () {
+    if (player && typeof player.getCurrentTime === 'function') {
+      try {
+        localStorage.setItem(LS_KEY, JSON.stringify({
+          t:      player.getCurrentTime(),
+          ts:     Date.now(),
+          playing: player.getPlayerState() === YT.PlayerState.PLAYING,
+        }));
+      } catch (e) {}
+    }
+  });
+
+  /* ── Cargar YouTube IFrame API ── */
+  if (!window.YT) {
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+  }
+
+  window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player('yt-player', {
+      height: '1',
+      width: '1',
+      videoId: YT_VIDEO_ID,
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        mute: 0,
+        loop: 1,
+        playlist: YT_VIDEO_ID,
+        rel: 0,
+        fs: 0,
+        modestbranding: 1,
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange,
+      },
+    });
+  };
+
+  function onPlayerReady(event) {
+    event.target.setVolume(80);
+
+    /* Restaurar posición guardada (navegación entre páginas) */
+    try {
+      var saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+      if (saved && saved.t > 0) {
+        var elapsed = (Date.now() - saved.ts) / 1000;
+        var seekTo  = saved.t + elapsed;
+        localStorage.removeItem(LS_KEY);
+        setTimeout(function () {
+          if (!player) return;
+          var dur = player.getDuration();
+          if (dur > 0 && seekTo < dur) player.seekTo(seekTo, true);
+          if (saved.playing) {
+            player.playVideo();
+          }
+        }, 600);
+        return;
+      }
+    } catch (e) {}
+
+    setStatus('En espera');
+    updateMuteBtn();
+  }
+
+  function onPlayerStateChange(event) {
+    var icon = document.getElementById('play-icon');
+    if (event.data === YT.PlayerState.PLAYING) {
+      if (icon) icon.className = 'fas fa-pause';
+      setStatus('Reproduciendo');
+      startProgressLoop();
+    } else if (event.data === YT.PlayerState.PAUSED) {
+      if (icon) icon.className = 'fas fa-play';
+      setStatus('Pausado');
+      stopProgressLoop();
+    } else if (event.data === YT.PlayerState.BUFFERING) {
+      setStatus('Cargando…');
+    }
+  }
+
+  function setStatus(txt) {
+    var el = document.getElementById('music-status');
+    if (el) el.textContent = txt;
+  }
+
+  /* ── Progress loop ── */
+  function startProgressLoop() {
+    stopProgressLoop();
+    progressInterval = setInterval(updateProgress, 1000);
+  }
+  function stopProgressLoop() {
+    if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
+  }
+
+  function updateProgress() {
+    if (!player || typeof player.getCurrentTime !== 'function') return;
+    var current  = player.getCurrentTime() || 0;
+    var duration = player.getDuration()    || 0;
+    var fill = document.getElementById('progress-fill');
+    var tc   = document.getElementById('time-current');
+    var tt   = document.getElementById('time-total');
+    if (fill && duration > 0) fill.style.width = ((current / duration) * 100) + '%';
+    if (tc) tc.textContent = formatTime(current);
+    if (tt) tt.textContent = formatTime(duration);
+  }
+
+  function formatTime(sec) {
+    sec = Math.floor(sec);
+    return Math.floor(sec / 60) + ':' + (sec % 60 < 10 ? '0' : '') + (sec % 60);
+  }
+
+  /* ── Mute button UI ── */
+  function updateMuteBtn() {
+    var btn  = document.getElementById('btn-mute');
+    var icon = document.getElementById('mute-icon');
+    if (isMuted) {
+      if (icon) icon.className = 'fas fa-volume-mute';
+      if (btn)  btn.classList.remove('active');
+    } else {
+      if (icon) icon.className = 'fas fa-volume-up';
+      if (btn)  btn.classList.add('active');
+    }
+  }
+
+  /* ── DOM ready ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Mostrar botón como activo desde el inicio */
+    updateMuteBtn();
+
+    /* Play / Pause */
+    var btnPlay = document.getElementById('btn-play-pause');
+    if (btnPlay) {
+      btnPlay.addEventListener('click', function () {
+        if (!player) return;
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+          player.pauseVideo();
+        } else {
+          player.playVideo();
+        }
+      });
+    }
+
+    /* Forward +15s */
+    var btnFwd = document.getElementById('btn-forward');
+    if (btnFwd) {
+      btnFwd.addEventListener('click', function () {
+        if (!player || typeof player.seekTo !== 'function') return;
+        player.seekTo((player.getCurrentTime() || 0) + 15, true);
+      });
+    }
+
+    /* Mute / Unmute — usa el estado real del player para evitar desincronías */
+    var btnMute = document.getElementById('btn-mute');
+    if (btnMute) {
+      btnMute.addEventListener('click', function () {
+        if (!player) return;
+        pendingUnmute = false;
+        if (typeof player.isMuted === 'function' && player.isMuted()) {
+          player.unMute();
+          player.setVolume(80);
+          isMuted = false;
+        } else {
+          player.mute();
+          isMuted = true;
+        }
+        updateMuteBtn();
+      });
+    }
+
+    /* Progress bar click para seek */
+    var progressTrack = document.getElementById('progress-track');
+    if (progressTrack) {
+      progressTrack.addEventListener('click', function (e) {
+        if (!player || typeof player.getDuration !== 'function') return;
+        var rect = progressTrack.getBoundingClientRect();
+        player.seekTo(player.getDuration() * ((e.clientX - rect.left) / rect.width), true);
+      });
+    }
+
+    /* Toggle panel */
+    var header = document.getElementById('music-header');
+    var panel  = document.getElementById('music-controls-panel');
+    if (header && panel) {
+      header.addEventListener('click', function () {
+        panel.classList.toggle('collapsed');
+      });
+    }
+  });
+})();
+</script>
