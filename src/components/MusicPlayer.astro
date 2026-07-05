@@ -351,8 +351,29 @@
       }
     } catch (e) {}
 
-    setStatus('En espera');
     updateMuteBtn();
+
+    /* Autoplay: intenta reproducir al cargar la página.
+       Si el browser lo bloquea (estado -1 tras 1.5s),
+       espera el primer gesto del usuario para dispararlo. */
+    player.playVideo();
+    setStatus('Iniciando…');
+
+    setTimeout(function () {
+      if (!player) return;
+      var state = player.getPlayerState();
+      if (state === -1 || state === 5) {
+        setStatus('Toca para iniciar');
+        var evts = ['click', 'touchstart', 'scroll', 'keydown'];
+        function onGesture() {
+          evts.forEach(function (ev) { document.removeEventListener(ev, onGesture); });
+          if (player) player.playVideo();
+        }
+        evts.forEach(function (ev) {
+          document.addEventListener(ev, onGesture, { once: true, passive: true });
+        });
+      }
+    }, 1500);
   }
 
   function onPlayerStateChange(event) {
